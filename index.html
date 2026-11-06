@@ -23,7 +23,7 @@
                 <a href="#contact" class="hover:text-cyan-400 transition">Contacto</a>
             </nav>
             <a href="https://github.com/aetheris-labs" target="_blank" class="bg-cyan-500 hover:bg-cyan-400 text-gray-950 font-semibold px-4 py-2 rounded-lg text-xs transition">
-                GitHub Repository
+                GitHub Organization
             </a>
         </div>
     </header>
@@ -164,12 +164,40 @@
             Cada aporte directo a través de nuestra red oficial se destina íntegramente a la adquisición de componentes de hardware, celdas de respaldo y mejora de los bancos de prueba.
         </p>
 
-        <!-- CAJA DE WALLET OFICIAL TRC20 (TRUST WALLET) -->
-        <div class="bg-gray-900 p-6 rounded-xl border border-cyan-500/30 max-w-xl mx-auto mb-8 text-left shadow-lg shadow-cyan-950/20">
-            <span class="text-xs text-cyan-400 font-mono block mb-2 font-semibold">DIRECCIÓN OFICIAL DE LA WALLET (USDT - TRC20)</span>
-            <code class="text-xs text-white bg-gray-950 p-3 rounded block break-all border border-gray-800 select-all font-mono">TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3</code>
+        <!-- CAJA DE WALLET OFICIAL TRC20 (CON CÓDIGO QR Y BOTÓN DE COPIADO) -->
+        <div class="bg-gray-900 p-6 rounded-xl border border-cyan-500/30 max-w-xl mx-auto mb-8 text-center shadow-lg shadow-cyan-950/20">
+            <span class="text-xs text-cyan-400 font-mono block mb-3 font-semibold">DIRECCIÓN OFICIAL DE LA WALLET (USDT - TRC20)</span>
+            
+            <!-- Código QR generado automáticamente -->
+            <div class="bg-white p-3 rounded-lg inline-block mb-4 border border-gray-700">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3" alt="QR Wallet TRC20" class="w-36 h-36 mx-auto">
+            </div>
+
+            <div class="bg-gray-950 p-3 rounded border border-gray-800 flex items-center justify-between gap-2 mb-2">
+                <code id="wallet-address" class="text-xs text-white font-mono break-all text-left">TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3</code>
+                <button onclick="copyWallet()" class="bg-cyan-500 hover:bg-cyan-400 text-gray-950 font-semibold px-3 py-1.5 rounded text-xs transition flex-shrink-0">
+                    Copiar
+                </button>
+            </div>
+            <span id="copy-feedback" class="text-[11px] text-cyan-400 block h-4"></span>
             <p class="text-gray-500 text-xs mt-2">Compatible con Trust Wallet. Asegúrate de enviar USDT seleccionando la red Tron (TRC20).</p>
         </div>
+
+        <!-- SCRIPT PARA COPIAR CON UN CLIC -->
+        <script>
+            function copyWallet() {
+                const walletText = "TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3";
+                navigator.clipboard.writeText(walletText).then(() => {
+                    const feedback = document.getElementById("copy-feedback");
+                    feedback.textContent = "¡Dirección copiada al portapapeles!";
+                    setTimeout(() => {
+                        feedback.textContent = "";
+                    }, 3000);
+                }).catch(err => {
+                    console.error('Error al copiar: ', err);
+                });
+            }
+        </script>
 
         <!-- METAS DE FINANCIAMIENTO -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto mb-8">
