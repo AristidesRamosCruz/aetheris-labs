@@ -3,348 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetheris Labs - Campaña de Recaudación USDT</title>
+    <title>Aetheris Labs | Infraestructura Energética Descentralizada</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+<body class="bg-gray-950 text-gray-100 font-sans antialiased">
 
-    <!-- Header / Selector de Idioma -->
-    <header class="w-full border-b border-slate-800/80 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-                    <i class="fa-solid fa-cube text-slate-950 text-lg"></i>
-                </div>
-                <span class="font-bold tracking-tight text-lg bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent" data-i18n="navTitle">Aetheris Labs</span>
-            </div>
+    <!-- HEADER / HERO INSTITUCIONAL -->
+    <header class="border-b border-gray-800 bg-gray-900/40 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <button onclick="setLanguage('es')" id="btnEs" class="px-3 py-1 text-xs font-semibold rounded-lg bg-emerald-500 text-slate-950 transition">ES</button>
-                <button onclick="setLanguage('en')" id="btnEn" class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-400 hover:text-white transition">EN</button>
+                <span class="text-xl font-bold text-white tracking-wider">AETHERIS <span class="text-cyan-400">LABS</span></span>
             </div>
+            <nav class="hidden md:flex gap-6 text-sm text-gray-300">
+                <a href="#architect" class="hover:text-cyan-400 transition">Arquitectura</a>
+                <a href="#lab-evidence" class="hover:text-cyan-400 transition">Laboratorio</a>
+                <a href="#roadmap" class="hover:text-cyan-400 transition">Roadmap</a>
+                <a href="#transparency" class="hover:text-cyan-400 transition">Transparencia</a>
+                <a href="#contact" class="hover:text-cyan-400 transition">Contacto</a>
+            </nav>
+            <a href="https://github.com/aetheris-labs" target="_blank" class="bg-cyan-500 hover:bg-cyan-400 text-gray-950 font-semibold px-4 py-2 rounded-lg text-xs transition">
+                GitHub Repository
+            </a>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow max-w-4xl mx-auto px-4 py-8 space-y-8 w-full">
+    <!-- HERO PRINCIPAL -->
+    <section class="py-16 px-6 max-w-4xl mx-auto text-center">
+        <div class="inline-block bg-cyan-950/80 border border-cyan-800 text-cyan-300 text-xs px-3 py-1 rounded-full mb-4">
+            Infraestructura Abierta e Independiente
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+            Resolviendo la resiliencia energética mediante ingeniería descentralizada.
+        </h1>
+        <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto mb-8">
+            Diseñamos, probamos y documentamos sistemas de respaldo energético autónomo y hardware de código abierto para mitigar la inestabilidad de la red eléctrica.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#donations" class="bg-cyan-500 hover:bg-cyan-400 text-gray-950 font-bold px-6 py-3 rounded-lg text-sm transition">
+                Apoyar Proyecto (TRC20)
+            </a>
+            <a href="#lab-evidence" class="border border-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg text-sm transition">
+                Ver Evidencia del Lab
+            </a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 1: QUIÉN ESTÁ DETRÁS / LEAD SYSTEMS ARCHITECT -->
+    <section id="architect" class="py-12 px-6 max-w-4xl mx-auto border-t border-gray-800">
+        <div class="flex flex-col md:flex-row items-center gap-8 bg-gray-900/50 p-8 rounded-xl border border-gray-800">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-500/50 flex-shrink-0 bg-gray-800">
+                <img src="taller.jpg" alt="Lead Systems Architect workspace" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <h2 class="text-2xl font-bold text-white mb-2">Lead Systems Architect</h2>
+                <p class="text-cyan-400 font-mono text-sm mb-4">Aetheris Labs Core Engineering</p>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Desarrollador principal e investigador de sistemas independientes. Especializado en integración de energía solar, gestión de bancos de baterías y electrónica aplicada a la resiliencia comunitaria. Apostando por la transparencia radical y el código abierto.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: EVIDENCIA REAL DEL LABORATORIO -->
+    <section id="lab-evidence" class="py-12 px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold text-white mb-2">Evidencia Operativa del Laboratorio</h2>
+            <p class="text-gray-400 text-sm">Bancos de prueba reales, hardware y despliegue físico de la infraestructura.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800">
+                <img src="taller.jpg" alt="Banco de pruebas y taller principal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-white font-semibold text-sm mb-1">Banco de Pruebas Principal</h3>
+                    <p class="text-gray-400 text-xs">Área de ensamblaje, diagnóstico de circuitería y sistemas de respaldo energético.</p>
+                </div>
+            </div>
+            <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800">
+                <img src="arquitectura.jpg" alt="Despliegue de hardware y componentes" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-white font-semibold text-sm mb-1">Integración de Hardware</h3>
+                    <p class="text-gray-400 text-xs">Pruebas de eficiencia, inversores y gestión de bancos de baterías.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: ROADMAP -->
+    <section id="roadmap" class="py-12 px-6 max-w-4xl mx-auto border-t border-gray-800">
+        <h2 class="text-2xl font-bold text-white mb-6 text-center">Roadmap del Proyecto</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="bg-cyan-950/40 border border-cyan-800 p-4 rounded-lg">
+                <span class="text-xs text-cyan-400 font-mono">FASE 1 (Completada)</span>
+                <h3 class="font-bold text-white text-sm mt-1">Infraestructura Base</h3>
+                <p class="text-gray-400 text-xs mt-2">Estabilización de micro-red solar y banco de baterías secundarias.</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 p-4 rounded-lg">
+                <span class="text-xs text-cyan-400 font-mono">FASE 2 (En Curso)</span>
+                <h3 class="font-bold text-white text-sm mt-1">Optimización BMS</h3>
+                <p class="text-gray-400 text-xs mt-2">Monitoreo avanzado de celdas y telemetría de eficiencia.</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 p-4 rounded-lg">
+                <span class="text-xs text-gray-500 font-mono">FASE 3 (Próxima)</span>
+                <h3 class="font-bold text-white text-sm mt-1">Escalado Inversor</h3>
+                <p class="text-gray-400 text-xs mt-2">Migración a arquitectura híbrida de mayor potencia.</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 p-4 rounded-lg">
+                <span class="text-xs text-gray-500 font-mono">FASE 4 (Futura)</span>
+                <h3 class="font-bold text-white text-sm mt-1">Documentación Abierta</h3>
+                <p class="text-gray-400 text-xs mt-2">Publicación completa de guías de ensamblaje y esquemas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: TRANSPARENCIA Y GASTOS -->
+    <section id="transparency" class="py-12 px-6 max-w-4xl mx-auto border-t border-gray-800">
+        <h2 class="text-2xl font-bold text-white mb-6 text-center">Transparencia Financiera y Gastos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <h3 class="text-sm font-semibold text-gray-300 mb-2">Fondos Recaudados</h3>
+                <p class="text-3xl font-bold text-cyan-400 mb-1">$0.00 USDT</p>
+                <p class="text-xs text-gray-500">Actualizado en tiempo real vía Tronscan.</p>
+            </div>
+            <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <h3 class="text-sm font-semibold text-gray-300 mb-2">Desglose de Gastos Realizados</h3>
+                <ul class="text-xs text-gray-400 space-y-2">
+                    <li class="flex justify-between border-b border-gray-800 pb-1">
+                        <span>Adquisición de conectores y cableado</span>
+                        <span class="text-white font-mono">Autofinanciado</span>
+                    </li>
+                    <li class="flex justify-between border-b border-gray-800 pb-1">
+                        <span>Mantenimiento de inversores</span>
+                        <span class="text-white font-mono">Autofinanciado</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: DONACIONES Y CONTACTO -->
+    <section id="donations" class="py-12 px-6 max-w-4xl mx-auto border-t border-gray-800 text-center">
+        <h2 class="text-2xl font-bold text-white mb-4">Soporte y Canal Oficial</h2>
+        <p class="text-gray-400 text-sm mb-6">Colabora con el desarrollo de código abierto o ponte en contacto directo.</p>
         
-        <!-- Hero Section -->
-        <section class="text-center space-y-4 py-4">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span data-i18n="badgeActive">Iniciativa Activa en USDT</span>
-            </span>
-            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white" data-i18n="mainTitle">
-                Infraestructura Digital Independiente y Autónoma
-            </h1>
-            <p class="text-slate-400 max-w-2xl mx-auto text-base sm:text-lg" data-i18n="mainSubtitle">
-                Desarrollo de hardware de alta resiliencia, servidores locales y código abierto enfocado en la soberanía tecnológica.
-            </p>
-        </section>
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 max-w-lg mx-auto mb-6 text-left">
+            <span class="text-xs text-cyan-400 font-mono block mb-1">WALLET OFICIAL (TRC20 - USDT)</span>
+            <code class="text-xs text-white bg-gray-950 p-3 rounded block break-all border border-gray-800 select-all">TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3</code>
+        </div>
 
-        <!-- 1. Identidad y Credibilidad (Seudónimo y Presentación) -->
-        <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col sm:flex-row items-center gap-6">
-            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 flex items-center justify-center shrink-0 border-2 border-emerald-400/30 shadow-lg">
-                <i class="fa-solid fa-terminal text-slate-950 text-4xl"></i>
-            </div>
-            <div class="space-y-3 text-center sm:text-left">
-                <h2 class="text-xl font-bold text-white" data-i18n="aboutTitle">Aetheris Labs / Lead Systems Architect</h2>
-                <p class="text-slate-300 text-sm leading-relaxed" data-i18n="aboutText">
-                    Laboratorio independiente enfocado en ingeniería eléctrica aplicada, ensamblaje de hardware robusto y arquitecturas de red descentralizadas. Creemos en la construcción de sistemas transparentes, auditables y libres de dependencia corporativa.
-                </p>
-                <div class="flex flex-wrap gap-3 justify-center sm:justify-start pt-1">
-                    <a href="https://github.com/AristidesRam" target="_blank" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium transition flex items-center gap-1.5">
-                        <i class="fa-brands fa-github text-emerald-400"></i> <span data-i18n="repoBtn">Repositorio de Código</span>
-                    </a>
-                    <a href="mailto:contact@aetherislabs.io" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium transition flex items-center gap-1.5">
-                        <i class="fa-solid fa-envelope text-emerald-400"></i> <span data-i18n="contactBtn">Contacto Directo</span>
-                    </a>
-                </div>
-            </div>
-        </section>
+        <div id="contact" class="flex justify-center gap-6 text-sm">
+            <a href="https://github.com/aetheris-labs" target="_blank" class="text-gray-300 hover:text-cyan-400 transition">GitHub</a>
+            <a href="mailto:contacto@aetherislabs.local" class="text-gray-300 hover:text-cyan-400 transition">Correo Directo</a>
+        </div>
+    </section>
 
-        <!-- 2. Fotos Reales del Espacio de Trabajo -->
-        <section class="rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900">
-            <div class="h-56 sm:h-80 w-full relative">
-                <img src="taller.jpg" alt="Banco de trabajo y hardware" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
-                    <span class="text-xs uppercase tracking-wider text-emerald-400 font-bold bg-slate-900/80 px-3 py-1 rounded-md border border-slate-700/50 backdrop-blur" data-i18n="img1Caption">Banco de Pruebas y Laboratorio Físico Real</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Propósito y Destino de los Fondos -->
-        <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl relative overflow-hidden">
-            <div class="absolute -right-10 -top-10 w-40 h-40 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
-            
-            <div class="space-y-3">
-                <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-                    <i class="fa-solid fa-bullseye text-emerald-400"></i>
-                    <span data-i18n="purposeTitle">¿A dónde van exactamente los fondos?</span>
-                </h2>
-                <p class="text-slate-300 leading-relaxed text-sm sm:text-base" data-i18n="purposeSubtitle">
-                    Cada USDT recaudado se destina de forma directa a hitos técnicos específicos:
-                </p>
-            </div>
-
-            <ul class="grid gap-3 sm:grid-cols-3 text-sm text-slate-300">
-                <li class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 flex flex-col gap-2">
-                    <i class="fa-solid fa-microchip text-emerald-400 text-lg"></i>
-                    <strong class="text-white" data-i18n="dest1Title">Hardware y Componentes</strong>
-                    <span class="text-xs text-slate-400" data-i18n="dest1Desc">Adquisición de placas, fuentes de poder y herramientas de diagnóstico ($2,000).</span>
-                </li>
-                <li class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 flex flex-col gap-2">
-                    <i class="fa-solid fa-server text-emerald-400 text-lg"></i>
-                    <strong class="text-white" data-i18n="dest2Title">Servidores y Red</strong>
-                    <span class="text-xs text-slate-400" data-i18n="dest2Desc">Mantenimiento de conectividad estable y nodos de prueba dedicados ($1,500).</span>
-                </li>
-                <li class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 flex flex-col gap-2">
-                    <i class="fa-solid fa-clock text-emerald-400 text-lg"></i>
-                    <strong class="text-white" data-i18n="dest3Title">Desarrollo Continuo</strong>
-                    <span class="text-xs text-slate-400" data-i18n="dest3Desc">Garantizar horas de ingeniería orientadas a código abierto y optimización ($1,500).</span>
-                </li>
-            </ul>
-
-            <!-- Imagen Secundaria: Arquitectura -->
-            <div class="rounded-xl overflow-hidden border border-slate-700/60 shadow-lg bg-slate-950/50 my-4">
-                <div class="h-48 sm:h-64 w-full">
-                    <img src="arquitectura.jpg" alt="Diagrama de Arquitectura de Red" class="w-full h-full object-cover">
-                </div>
-                <div class="p-3 text-center text-xs text-slate-400 border-t border-slate-800" data-i18n="archCaption">
-                    Esquema técnico de diseño y escalabilidad de servidores y red.
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. Sección de Actualizaciones (Bitácora de Avances) -->
-        <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-            <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-                <i class="fa-solid fa-timeline text-emerald-400"></i>
-                <span data-i18n="updatesTitle">Bitácora de Actualizaciones</span>
-            </h2>
-            <div class="space-y-4 text-sm">
-                <div class="border-l-2 border-emerald-500 pl-4 space-y-1">
-                    <span class="text-xs text-emerald-400 font-semibold">Octubre 2026</span>
-                    <h3 class="font-bold text-white text-base" data-i18n="update1Title">Estabilización del Banco de Pruebas Físico</h3>
-                    <p class="text-slate-300 text-xs" data-i18n="update1Desc">Calibración de fuentes de alimentación de respaldo y pruebas preliminares de conectividad de red local.</p>
-                </div>
-                <div class="border-l-2 border-slate-700 pl-4 space-y-1">
-                    <span class="text-xs text-slate-400 font-semibold">Septiembre 2026</span>
-                    <h3 class="font-bold text-white text-base" data-i18n="update2Title">Lanzamiento del Repositorio Base</h3>
-                    <p class="text-slate-300 text-xs" data-i18n="update2Desc">Publicación de la estructura lógica inicial y despliegue del portal web de la campaña con auditoría en blockchain.</p>
-                </div>
-            </div>
-
-            <!-- Imagen Tercera: Código -->
-            <div class="rounded-xl overflow-hidden border border-slate-700/60 shadow-lg bg-slate-950/50 mt-4">
-                <div class="h-44 sm:h-56 w-full">
-                    <img src="codigo.jpg" alt="Desarrollo de Software" class="w-full h-full object-cover">
-                </div>
-                <div class="p-3 text-center text-xs text-slate-400 border-t border-slate-800" data-i18n="codeCaption">
-                    Escritura de código y optimización de herramientas lógicas independientes.
-                </div>
-            </div>
-        </section>
-
-        <!-- Progress Card con Tronscan -->
-        <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
-            <div class="flex justify-between items-end">
-                <div>
-                    <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold" data-i18n="raisedLabel">Total Recaudado</span>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-white mt-1">$<span id="raisedAmount">350</span> <span class="text-emerald-400 text-xl">USDT</span></div>
-                </div>
-                <div class="text-right">
-                    <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold" data-i18n="goalLabel">Meta del Proyecto</span>
-                    <div class="text-lg sm:text-xl font-bold text-slate-300 mt-1">$5,000 USDT</div>
-                </div>
-            </div>
-
-            <!-- Bar -->
-            <div class="w-full bg-slate-800 h-4 rounded-full overflow-hidden p-0.5 border border-slate-700">
-                <div id="progressBar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-500" style="width: 7%;"></div>
-            </div>
-            
-            <div class="flex justify-between items-center text-xs text-slate-400">
-                <span id="progressPercent">7% Completado (12 <span data-i18n="donorsCount">donantes</span>)</span>
-                <!-- Enlace verificable a Tronscan -->
-                <a href="https://tronscan.org/#/address/TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3" target="_blank" class="text-emerald-400 hover:underline flex items-center gap-1 font-medium">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="verifyLink">Verificar en Blockchain (Tronscan)</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- Donation Widget Section -->
-        <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
-            <div class="text-center space-y-2">
-                <h2 class="text-xl sm:text-2xl font-bold text-white" data-i18n="widgetTitle">Realiza tu Donación en USDT</h2>
-                <p class="text-slate-400 text-sm" data-i18n="widgetSubtitle">Escanea el código QR o copia la dirección de la red compatible (TRC20 / BEP20) para aportar al desarrollo:</p>
-            </div>
-
-            <!-- Tarjeta de Donación Estilizada -->
-            <div class="usdt-donation-card bg-[#0f1623] p-6 rounded-2xl border border-[#1e293b] text-white max-w-lg mx-auto text-center shadow-2xl">
-              
-              <!-- Contenedor del Código QR -->
-              <div class="bg-white p-3 inline-block rounded-xl mb-5 shadow-md">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3" alt="QR USDT" class="w-[140px] h-[140px] block mx-auto" />
-              </div>
-
-              <!-- Campo de texto y botón de copiar estilizados -->
-              <div class="flex gap-2 items-center bg-[#0b0f17] p-2 rounded-xl border border-[#273548] text-left">
-                <input type="text" id="usdtAddress" value="TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3" readonly class="bg-transparent border-none text-[#e2e8f0] w-full text-xs outline-none font-mono px-2" />
-                <button onclick="copyUSDTAddress()" id="copyBtn" class="bg-[#10b981] text-[#0b0f17] border-none px-4 py-2 rounded-lg font-bold text-xs cursor-pointer whitespace-nowrap transition hover:bg-emerald-400" data-i18n="copyBtnText">Copiar</button>
-              </div>
-              
-              <span id="copyFeedback" class="text-xs text-[#10b981] hidden mt-2 font-medium block" data-i18n="copyFeedback">¡Dirección copiada al portapapeles!</span>
-            </div>
-        </section>
-
-        <!-- 4. FAQ (Preguntas Frecuentes Simple) -->
-        <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-            <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-                <i class="fa-solid fa-circle-question text-emerald-400"></i>
-                <span data-i18n="faqTitle">Preguntas Frecuentes (FAQ)</span>
-            </h2>
-            <div class="space-y-4 text-sm text-slate-300">
-                <div class="bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 space-y-1">
-                    <strong class="text-white block" data-i18n="faq1Q">¿Cómo se comprueba el uso de los fondos?</strong>
-                    <p class="text-xs text-slate-400" data-i18n="faq1A">Todas las transacciones de entrada son públicas y verificables en tiempo real mediante el enlace directo a Tronscan incluido en esta página.</p>
-                </div>
-                <div class="bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 space-y-1">
-                    <strong class="text-white block" data-i18n="faq2Q">¿Qué redes son compatibles para donar?</strong>
-                    <p class="text-xs text-slate-400" data-i18n="faq2A">Puedes enviar USDT principalmente a través de la red TRC-20 (Tron) utilizando la dirección oficial provista en el widget superior.</p>
-                </div>
-                <div class="bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 space-y-1">
-                    <strong class="text-white block" data-i18n="faq3Q">¿Habrá recompensas para los primeros colaboradores?</strong>
-                    <p class="text-xs text-slate-400" data-i18n="faq3A">Sí. Los primeros patrocinadores tendrán acceso prioritario a las herramientas de software liberadas y participación futura en la consolidación formal del ecosistema.</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-800/80 bg-slate-900/30 py-6 text-center text-xs text-slate-500 mt-auto">
-        <p>© 2026 Aetheris Labs. <span data-i18n="footerText">Todos los derechos reservados.</span></p>
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-800 py-6 text-center text-xs text-gray-500">
+        <p>&copy; 2026 Aetheris Labs. Todos los derechos reservados. Arquitectura descentralizada y abierta.</p>
     </footer>
 
-    <!-- Script de funcionalidad e internacionalización -->
-    <script>
-        const translations = {
-            es: {
-                navTitle: "Aetheris Labs",
-                badgeActive: "Iniciativa Activa en USDT",
-                mainTitle: "Infraestructura Digital Independiente y Autónoma",
-                mainSubtitle: "Desarrollo de hardware de alta resiliencia, servidores locales y código abierto enfocado en la soberanía tecnológica.",
-                aboutTitle: "Aetheris Labs / Lead Systems Architect",
-                aboutText: "Laboratorio independiente enfocado en ingeniería eléctrica aplicada, ensamblaje de hardware robusto y arquitecturas de red descentralizadas. Creemos en la construcción de sistemas transparentes, auditables y libres de dependencia corporativa.",
-                repoBtn: "Repositorio de Código",
-                contactBtn: "Contacto Directo",
-                img1Caption: "Banco de Pruebas y Laboratorio Físico Real",
-                purposeTitle: "¿A dónde van exactamente los fondos?",
-                purposeSubtitle: "Cada USDT recaudado se destina de forma directa a hitos técnicos específicos:",
-                dest1Title: "Hardware y Componentes",
-                dest1Desc: "Adquisición de placas, fuentes de poder y herramientas de diagnóstico ($2,000).",
-                dest2Title: "Servidores y Red",
-                dest2Desc: "Mantenimiento de conectividad estable y nodos de prueba dedicados ($1,500).",
-                dest3Title: "Desarrollo Continuo",
-                dest3Desc: "Garantizar horas de ingeniería orientadas a código abierto y optimización ($1,500).",
-                updatesTitle: "Bitácora de Actualizaciones",
-                update1Title: "Estabilización del Banco de Pruebas Físico",
-                update1Desc: "Calibración de fuentes de alimentación de respaldo y pruebas preliminares de conectividad de red local.",
-                update2Title: "Lanzamiento del Repositorio Base",
-                update2Desc: "Publicación de la estructura lógica inicial y despliegue del portal web de la campaña con auditoría en blockchain.",
-                raisedLabel: "Total Recaudado",
-                goalLabel: "Meta del Proyecto",
-                donorsCount: "donantes",
-                verifyLink: "Verificar en Blockchain (Tronscan)",
-                widgetTitle: "Realiza tu Donación en USDT",
-                widgetSubtitle: "Escanea el código QR o copia la dirección de la red compatible (TRC20 / BEP20) para aportar al desarrollo:",
-                copyBtnText: "Copiar",
-                copyFeedback: "¡Dirección copiada al portapapeles!",
-                faqTitle: "Preguntas Frecuentes (FAQ)",
-                faq1Q: "¿Cómo se comprueba el uso de los fondos?",
-                faq1A: "Todas las transacciones de entrada son públicas y verificables en tiempo real mediante el enlace directo a Tronscan incluido en esta página.",
-                faq2Q: "¿Qué redes son compatibles para donar?",
-                faq2A: "Puedes enviar USDT principalmente a través de la red TRC-20 (Tron) utilizando la dirección oficial provista en el widget superior.",
-                faq3Q: "¿Habrá recompensas para los primeros colaboradores?",
-                faq3A: "Sí. Los primeros patrocinadores tendrán acceso prioritario a las herramientas de software liberadas y participación futura en la consolidación formal del ecosistema.",
-                footerText: "Todos los derechos reservados.",
-                archCaption: "Esquema técnico de diseño y escalabilidad de servidores y red.",
-                codeCaption: "Escritura de código y optimización de herramientas lógicas independientes."
-            },
-            en: {
-                navTitle: "Aetheris Labs",
-                badgeActive: "Active USDT Initiative",
-                mainTitle: "Independent and Autonomous Digital Infrastructure",
-                mainSubtitle: "Development of high-resilience hardware, local servers, and open source focused on technological sovereignty.",
-                aboutTitle: "Aetheris Labs / Lead Systems Architect",
-                aboutText: "Independent laboratory focused on applied electrical engineering, robust hardware assembly, and decentralized network architectures. We believe in building transparent, auditable systems free from corporate dependence.",
-                repoBtn: "Code Repository",
-                contactBtn: "Direct Contact",
-                img1Caption: "Real Laboratory & Test Bench",
-                purposeTitle: "Where do funds actually go?",
-                purposeSubtitle: "Every raised USDT goes directly toward specific technical milestones:",
-                dest1Title: "Hardware & Components",
-                dest1Desc: "Acquiring motherboards, power supplies, and diagnostic tools ($2,000).",
-                dest2Title: "Servers & Network",
-                dest2Desc: "Maintaining stable connectivity and dedicated test nodes ($1,500).",
-                dest3Title: "Continuous Development",
-                dest3Desc: "Securing engineering hours focused on open source and optimization ($1,500).",
-                updatesTitle: "Updates Log",
-                update1Title: "Physical Test Bench Stabilization",
-                update1Desc: "Calibration of backup power supplies and preliminary local network connectivity tests.",
-                update2Title: "Base Repository Launch",
-                update2Desc: "Publication of initial logic structure and deployment of the campaign web portal with blockchain auditing.",
-                raisedLabel: "Total Raised",
-                goalLabel: "Project Goal",
-                donorsCount: "donors",
-                verifyLink: "Verify on Blockchain (Tronscan)",
-                widgetTitle: "Make Your USDT Donation",
-                widgetSubtitle: "Scan the QR code or copy the compatible network address (TRC20 / BEP20) to contribute to development:",
-                copyBtnText: "Copy",
-                copyFeedback: "Address copied to clipboard!",
-                faqTitle: "Frequently Asked Questions (FAQ)",
-                faq1Q: "How is the use of funds verified?",
-                faq1A: "All incoming transactions are public and verifiable in real time via the direct Tronscan link included on this page.",
-                faq2Q: "Which networks are compatible for donating?",
-                faq2A: "You can send USDT primarily via the TRC-20 (Tron) network using the official address provided in the widget above.",
-                faq3Q: "Will there be rewards for early contributors?",
-                faq3A: "Yes. Early backers will get priority access to released software tools and future participation in the formal consolidation of the ecosystem.",
-                footerText: "All rights reserved.",
-                archCaption: "Technical schematic of server design and network scalability.",
-                codeCaption: "Code writing and optimization of independent logical tools."
-            }
-        };
-
-        function setLanguage(lang) {
-            document.getElementById('btnEs').className = lang === 'es' ? 'px-3 py-1 text-xs font-semibold rounded-lg bg-emerald-500 text-slate-950 transition' : 'px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-400 hover:text-white transition';
-            document.getElementById('btnEn').className = lang === 'en' ? 'px-3 py-1 text-xs font-semibold rounded-lg bg-emerald-500 text-slate-950 transition' : 'px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-400 hover:text-white transition';
-            
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerText = translations[lang][key];
-                }
-            });
-        }
-
-        function copyUSDTAddress() {
-            var copyText = document.getElementById("usdtAddress");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(copyText.value);
-            
-            var feedback = document.getElementById("copyFeedback");
-            feedback.style.display = "block";
-            setTimeout(function() {
-                feedback.style.display = "none";
-            }, 2500);
-        }
-    </script>
 </body>
 </html>
