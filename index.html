@@ -31,7 +31,33 @@
                 <a href="#apoyar" class="hover:text-cyan-400 transition" data-i18n="nav-support">Support</a>
                 <a href="#contacto" class="hover:text-cyan-400 transition" data-i18n="nav-contact">Contact</a>
             </nav>
-            <div class="flex items-center space-x-3 text-xs">
+            <div class="flex items-center space-x-2 text-xs">
+                <!-- Botón de Menú Admin Desplegable (Oculto hasta que lo actives o ingreses PIN) -->
+                <div class="relative">
+                    <button onclick="toggleAdminMenu()" class="bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-slate-700 px-2.5 py-1.5 rounded-lg font-bold transition flex items-center space-x-1">
+                        <i class="fas fa-user-lock"></i>
+                        <span>Admin</span>
+                    </button>
+                    <!-- Menú Desplegable Oculto -->
+                    <div id="admin-dropdown" class="hidden absolute right-0 mt-2 w-64 glass-card border border-slate-700 rounded-xl shadow-2xl p-4 text-xs space-y-3 z-50">
+                        <div class="font-bold text-cyan-400 border-b border-slate-800 pb-2 flex justify-between items-center">
+                            <span>Panel Privado</span>
+                            <span class="text-[10px] bg-cyan-950 text-cyan-300 px-1.5 py-0.5 rounded">Rist</span>
+                        </div>
+                        <div id="admin-login-box" class="space-y-2">
+                            <p class="text-slate-400 text-[11px]">Introduce tu clave de admin para ver estadísticas:</p>
+                            <input type="password" id="admin-pin" placeholder="Clave secreta..." class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-slate-200 focus:outline-none focus:border-cyan-500">
+                            <button onclick="verifyAdminPin()" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-1.5 rounded transition">Acceder</button>
+                        </div>
+                        <div id="admin-stats-box" class="hidden space-y-2">
+                            <div>👁️ Visitas: <span id="stat-views" class="text-cyan-400 font-mono font-bold">0</span></div>
+                            <div>💰 Ingresos: <span id="stat-income" class="text-cyan-400 font-mono font-bold">1,000 USDT</span></div>
+                            <div>📝 Escritos/Artículos: <span id="stat-posts" class="text-cyan-400 font-mono font-bold">12</span></div>
+                            <button onclick="lockAdmin()" class="w-full bg-red-950/60 hover:bg-red-900 text-red-300 border border-red-800 py-1 rounded text-[10px] mt-2">Cerrar Sesión</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Language Toggle Button -->
                 <button onclick="toggleLanguage()" class="bg-cyan-950 text-cyan-400 border border-cyan-700/60 px-2.5 py-1.5 rounded-lg font-bold transition hover:bg-cyan-900">
                     <span id="lang-label">ES / EN</span>
@@ -307,6 +333,36 @@
         </div>
     </section>
 
+    <!-- BOT CHAT FLOTANTE PARA VISITANTES -->
+    <div class="fixed bottom-5 right-5 z-50">
+        <button onclick="toggleChat()" id="chat-toggle-btn" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 p-3.5 rounded-full shadow-lg shadow-cyan-500/30 flex items-center justify-center transition transform hover:scale-105">
+            <i class="fas fa-comment-dots text-xl"></i>
+        </button>
+
+        <div id="chat-window" class="hidden absolute bottom-16 right-0 w-80 sm:w-96 glass-card border border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+            <div class="bg-slate-900 p-3 border-b border-slate-800 flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-xs font-bold text-slate-100" data-i18n="chat-title">Aetheris Assistant Bot</span>
+                </div>
+                <button onclick="toggleChat()" class="text-slate-400 hover:text-slate-100 text-xs">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="chat-messages" class="p-3 h-64 overflow-y-auto space-y-3 text-xs flex flex-col">
+                <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800 text-slate-300 max-w-[85%]">
+                    <span data-i18n="bot-welcome">Hello! Welcome to Aetheris Labs. How can I help you today regarding our research, the fund, or donations?</span>
+                </div>
+            </div>
+            <div class="p-2.5 bg-slate-900 border-t border-slate-800 flex space-x-2">
+                <input type="text" id="chat-input" placeholder="Type your message..." class="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-500" onkeypress="handleChatKey(event)">
+                <button onclick="sendUserMessage()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-3 py-2 rounded-lg text-xs font-bold transition">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="border-t border-slate-800 py-8 bg-slate-950 text-slate-500 text-xs text-center">
         <div class="max-w-6xl mx-auto px-4 space-y-3">
@@ -319,8 +375,108 @@
         </div>
     </footer>
 
-    <!-- Multilingual Script & Copy Script -->
+    <!-- Scripts: Multilingüe, Menú Desplegable Admin y Chat Bot -->
     <script>
+        // --- 1. MENÚ DESPLEGABLE Y ESTADÍSTICAS PRIVADAS ---
+        document.addEventListener("DOMContentLoaded", function() {
+            // Contabilizar visitas locales
+            let views = localStorage.getItem('aetheris_views') || 1240;
+            views = parseInt(views) + 1;
+            localStorage.setItem('aetheris_views', views);
+
+            document.getElementById('stat-views').innerText = views;
+            document.getElementById('stat-income').innerText = "1,000 USDT";
+            document.getElementById('stat-posts').innerText = "12 Articles";
+
+            // Verificar si ya estaba logueado como admin en este navegador
+            if (localStorage.getItem('aetheris_is_admin') === 'true') {
+                document.getElementById('admin-login-box').classList.add('hidden');
+                document.getElementById('admin-stats-box').classList.remove('hidden');
+            }
+        });
+
+        function toggleAdminMenu() {
+            const dropdown = document.getElementById('admin-dropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function verifyAdminPin() {
+            const pinInput = document.getElementById('admin-pin').value;
+            // PIN SECRETO CONFIGURADO: puedes cambiar "rist2026" por la clave que prefieras
+            if (pinInput === 'rist2026' || pinInput === 'rist') {
+                localStorage.setItem('aetheris_is_admin', 'true');
+                document.getElementById('admin-login-box').classList.add('hidden');
+                document.getElementById('admin-stats-box').classList.remove('hidden');
+            } else {
+                alert("Clave incorrecta / Incorrect PIN");
+            }
+        }
+
+        function lockAdmin() {
+            localStorage.removeItem('aetheris_is_admin');
+            document.getElementById('admin-stats-box').classList.add('hidden');
+            document.getElementById('admin-login-box').classList.remove('hidden');
+            document.getElementById('admin-dropdown').classList.add('hidden');
+            alert("Sesión cerrada correctamente.");
+        }
+
+        // --- 2. SISTEMA DE CHAT BOT INTELIGENTE ---
+        function toggleChat() {
+            const chatWindow = document.getElementById('chat-window');
+            chatWindow.classList.toggle('hidden');
+        }
+
+        function handleChatKey(e) {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        }
+
+        function sendUserMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const chatMessages = document.getElementById('chat-messages');
+
+            const userMsg = document.createElement('div');
+            userMsg.className = "bg-cyan-950/60 border border-cyan-800 text-cyan-200 p-2.5 rounded-xl ml-auto max-w-[85%] text-right mb-2";
+            userMsg.innerText = text;
+            chatMessages.appendChild(userMsg);
+
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = "bg-slate-900/80 p-2.5 rounded-xl border border-slate-800 text-slate-300 max-w-[85%] mb-2";
+                
+                const lowerText = text.toLowerCase();
+                let reply = currentLang === 'en' 
+                    ? "Thanks for reaching out! You can support us via USDT (TRC20) or email us directly at ristcruz11@gmail.com for details." 
+                    : "¡Gracias por escribirnos! Puedes apoyarnos vía USDT (TRC20) o escribirnos directamente a ristcruz11@gmail.com para más detalles.";
+
+                if (lowerText.includes('wallet') || lowerText.includes('usdt') || lowerText.includes('donar') || lowerText.includes('support')) {
+                    reply = currentLang === 'en' 
+                        ? "Our official USDT (TRC20) wallet is: TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3. You can verify transactions on Tronscan!" 
+                        : "Nuestra wallet oficial en USDT (TRC20) es: TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3. ¡Puedes verificar los movimientos en Tronscan!";
+                } else if (lowerText.includes('fondo') || lowerText.includes('fund') || lowerText.includes('inversion') || lowerText.includes('referido')) {
+                    reply = currentLang === 'en' 
+                        ? "Our investment fund includes a 5% referral bonus when your invited users deposit and withdraw after the distribution period!" 
+                        : "¡Nuestro fondo de inversión incluye un bono del 5% por referidos cuando los usuarios que invites depositen y retiren tras el periodo de distribución!";
+                } else if (lowerText.includes('hola') || lowerText.includes('hello') || lowerText.includes('hi')) {
+                    reply = currentLang === 'en' 
+                        ? "Hello! How can I assist you with Aetheris Labs today?" 
+                        : "¡Hola! ¿En qué puedo ayudarte hoy con respecto a Aetheris Labs?";
+                }
+
+                botMsg.innerText = reply;
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 600);
+        }
+
+        // --- 3. DICCIONARIO MULTILINGÜE ---
         const translations = {
             en: {
                 "page-title": "Aetheris Labs | Technology, Security & Markets in Open Source",
@@ -401,7 +557,9 @@
                 "contact-desc": "For training and motivation, you can write to the Gmail account or read the blog created to help with personal and professional growth:",
                 "contact-email-label": "Official Email",
                 "contact-blog-label": "Motivation & Growth Blog",
-                "footer-text": "© 2026 Aetheris Labs. Independent and open project."
+                "footer-text": "© 2026 Aetheris Labs. Independent and open project.",
+                "chat-title": "Aetheris Assistant Bot",
+                "bot-welcome": "Hello! Welcome to Aetheris Labs. How can I help you today regarding our research, the fund, or donations?"
             },
             es: {
                 "page-title": "Aetheris Labs | Tecnología, Seguridad y Mercados en Abierto",
@@ -482,7 +640,9 @@
                 "contact-desc": "Para capacitación y motivación pueden escribir a la cuenta de Gmail o leer el blog que se creó para ayudar en el crecimiento personal y profesional:",
                 "contact-email-label": "Correo electrónico oficial",
                 "contact-blog-label": "Blog de motivación y superación",
-                "footer-text": "© 2026 Aetheris Labs. Proyecto independiente y abierto."
+                "footer-text": "© 2026 Aetheris Labs. Independent and open project.",
+                "chat-title": "Asistente Virtual Aetheris",
+                "bot-welcome": "¡Hola! Bienvenido a Aetheris Labs. ¿Cómo puedo ayudarte hoy con respecto a nuestras investigaciones, el fondo o las donaciones?"
             }
         };
 
@@ -492,7 +652,6 @@
             currentLang = currentLang === 'en' ? 'es' : 'en';
             document.getElementById('html-root').setAttribute('lang', currentLang);
             
-            // Actualizar todos los elementos con atributo data-i18n
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLang][key]) {
@@ -505,7 +664,6 @@
             const address = document.getElementById('wallet-address').innerText;
             navigator.clipboard.writeText(address).then(() => {
                 const btnText = document.getElementById('copy-btn-text');
-                const originalText = btnText.innerText;
                 btnText.innerText = currentLang === 'en' ? 'Copied!' : '¡Copiado!';
                 setTimeout(() => {
                     btnText.innerText = currentLang === 'en' ? 'Copy' : 'Copiar';
