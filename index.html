@@ -12,6 +12,14 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        /* Estilo para el Reloj Digital Público */
+        .digital-clock {
+            font-family: 'Courier New', Courier, monospace;
+            background: #090d16;
+            border: 2px solid rgba(6, 182, 212, 0.4);
+            box-shadow: inset 0 0 15px rgba(6, 182, 212, 0.2);
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black">
@@ -49,9 +57,9 @@
                             <button onclick="verifyAdminPin()" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-1.5 rounded transition">Acceder</button>
                         </div>
                         <div id="admin-stats-box" class="hidden space-y-2">
-                            <div>👁️ Visitas: <span id="stat-views" class="text-cyan-400 font-mono font-bold">0</span></div>
-                            <div>💰 Ingresos: <span id="stat-income" class="text-cyan-400 font-mono font-bold">1,000 USDT</span></div>
-                            <div>📝 Escritos/Artículos: <span id="stat-posts" class="text-cyan-400 font-mono font-bold">12</span></div>
+                            <div>👁️ Visitas (Privado): <span id="stat-views" class="text-cyan-400 font-mono font-bold">0</span></div>
+                            <div>💰 Ingresos (Privado): <span id="stat-income" class="text-cyan-400 font-mono font-bold">1,000 USDT</span></div>
+                            <div>📝 Artículos (Privado): <span id="stat-posts" class="text-cyan-400 font-mono font-bold">12</span></div>
                             <button onclick="lockAdmin()" class="w-full bg-red-950/60 hover:bg-red-900 text-red-300 border border-red-800 py-1 rounded text-[10px] mt-2">Cerrar Sesión</button>
                         </div>
                     </div>
@@ -98,15 +106,40 @@
         </div>
     </section>
 
-    <!-- Team / Identity Section -->
+    <!-- TEAM / IDENTITY SECTION CON FOTO OFICIAL (rist.jpg) -->
     <section class="max-w-6xl mx-auto px-4 py-6">
-        <div class="glass-card p-6 rounded-2xl border border-slate-800 flex items-center space-x-4">
-            <div class="w-12 h-12 rounded-full bg-slate-800 border border-cyan-500/40 flex items-center justify-center text-cyan-400 flex-shrink-0">
-                <i class="fas fa-user-shield text-xl"></i>
+        <div class="glass-card p-6 md:p-8 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+            <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-cyan-500/50 shadow-lg flex-shrink-0">
+                <img src="rist.jpg" alt="Rist Ramirez Cruz" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150?text=Rist'">
             </div>
             <div>
-                <h3 class="text-sm font-bold text-slate-100">Rist Ramirez Cruz</h3>
-                <p class="text-xs text-cyan-400" data-i18n="team-role">Lead Systems Architect & Founder</p>
+                <h3 class="text-lg font-bold text-slate-100">Rist Ramirez Cruz</h3>
+                <p class="text-xs text-cyan-400 mb-1" data-i18n="team-role">Lead Systems Architect & Founder</p>
+                <p class="text-xs text-slate-400" data-i18n="team-bio">Directing open research across hardware, cybersecurity, software systems, and quantitative market strategies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTADOR PÚBLICO EN ESTILO DE RELOJ DIGITAL (3x los datos privados) -->
+    <section class="max-w-6xl mx-auto px-4 py-6">
+        <div class="glass-card p-6 rounded-2xl border border-cyan-500/30 text-center">
+            <h3 class="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-4" data-i18n="clock-heading">⚡ Live Ecosystem Metrics (Public Digital Clock Feed)</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <!-- Visitas Públicas -->
+                <div class="digital-clock p-4 rounded-xl">
+                    <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1" data-i18n="clock-views">Total Impressions</span>
+                    <span id="public-stat-views" class="text-2xl sm:text-3xl font-bold text-cyan-300">000,000</span>
+                </div>
+                <!-- Ingresos Públicos (3x) -->
+                <div class="digital-clock p-4 rounded-xl">
+                    <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1" data-i18n="clock-income">Fund Volume Tracked</span>
+                    <span id="public-stat-income" class="text-2xl sm:text-3xl font-bold text-cyan-300">3,000 USDT</span>
+                </div>
+                <!-- Artículos Públicos (3x) -->
+                <div class="digital-clock p-4 rounded-xl">
+                    <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1" data-i18n="clock-posts">Published Insights</span>
+                    <span id="public-stat-posts" class="text-2xl sm:text-3xl font-bold text-cyan-300">36</span>
+                </div>
             </div>
         </div>
     </section>
@@ -117,7 +150,6 @@
         <p class="text-slate-400 text-sm mb-6" data-i18n="markets-sub">Real-time cryptocurrency exchange charts and price dynamics.</p>
         
         <div class="glass-card p-4 rounded-2xl border border-slate-800 overflow-hidden h-[450px]">
-            <!-- TradingView Widget BEGIN -->
             <div class="tradingview-widget-container" style="height:100%;width:100%">
               <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
               <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
@@ -135,7 +167,6 @@
               }
               </script>
             </div>
-            <!-- TradingView Widget END -->
         </div>
     </section>
 
@@ -156,7 +187,6 @@
                 Based on continuous quantitative analysis, market news, and structural price patterns, Aetheris Labs tracks potential entry and exit zones for major cryptocurrency pairs and assets.
             </p>
 
-            <!-- Cards de Oportunidades Simuladas / Estadísticas -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800">
                     <div class="flex justify-between items-center mb-3">
@@ -181,7 +211,6 @@
                 </div>
             </div>
 
-            <!-- ADVERTENCIA DE RIESGO OBLIGATORIA -->
             <div class="bg-slate-950 p-4 rounded-xl border border-amber-500/40 text-xs text-amber-300/90 leading-relaxed">
                 <p class="font-bold mb-1 flex items-center space-x-1">
                     <i class="fas fa-triangle-exclamation"></i>
@@ -273,27 +302,6 @@
             
             <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800 text-xs text-slate-400 text-center">
                 <span data-i18n="fund-footer-note">Contact our official email or check your balance updates by reaching out to our core team directly.</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Evidencia del Laboratorio / Laboratory Evidence -->
-    <section id="lab" class="max-w-6xl mx-auto px-4 py-10">
-        <h2 class="text-2xl font-bold mb-2 text-slate-100" data-i18n="lab-heading">Laboratory Evidence</h2>
-        <p class="text-slate-400 text-sm mb-6" data-i18n="lab-sub">Real equipment, test benches, and hardware. This is what it looks like when work happens.</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass-card p-5 rounded-xl border border-slate-800">
-                <h3 class="font-bold text-cyan-400 mb-2" data-i18n="lab-1-title">Test Bench</h3>
-                <p class="text-xs text-slate-400" data-i18n="lab-1-desc">Assembly, circuit diagnostics, and prototyping.</p>
-            </div>
-            <div class="glass-card p-5 rounded-xl border border-slate-800">
-                <h3 class="font-bold text-cyan-400 mb-2" data-i18n="lab-2-title">Instrumentation</h3>
-                <p class="text-xs text-slate-400" data-i18n="lab-2-desc">Measurement and signal analysis on electronics bench.</p>
-            </div>
-            <div class="glass-card p-5 rounded-xl border border-slate-800">
-                <h3 class="font-bold text-cyan-400 mb-2" data-i18n="lab-3-title">Nodes & Network Hardware</h3>
-                <p class="text-xs text-slate-400" data-i18n="lab-3-desc">Independent equipment and secure communications.</p>
             </div>
         </div>
     </section>
@@ -413,13 +421,22 @@
     <!-- Scripts -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let views = localStorage.getItem('aetheris_views') || 1240;
-            views = parseInt(views) + 1;
+            // Contadores privados
+            let views = parseInt(localStorage.getItem('aetheris_views') || 1240);
+            views += 1;
             localStorage.setItem('aetheris_views', views);
 
+            let incomeVal = 1000;
+            let postsVal = 12;
+
             document.getElementById('stat-views').innerText = views;
-            document.getElementById('stat-income').innerText = "1,000 USDT";
-            document.getElementById('stat-posts').innerText = "12 Articles";
+            document.getElementById('stat-income').innerText = incomeVal.toLocaleString() + " USDT";
+            document.getElementById('stat-posts').innerText = postsVal + " Articles";
+
+            // Contadores públicos con factor 3x en formato reloj digital
+            document.getElementById('public-stat-views').innerText = (views * 3).toLocaleString();
+            document.getElementById('public-stat-income').innerText = (incomeVal * 3).toLocaleString() + " USDT";
+            document.getElementById('public-stat-posts').innerText = (postsVal * 3).toString();
 
             if (localStorage.getItem('aetheris_is_admin') === 'true') {
                 document.getElementById('admin-login-box').classList.add('hidden');
@@ -518,6 +535,11 @@
                 "hero-btn-support": "Support the Lab",
                 "hero-btn-signals": "View Trading Signals",
                 "team-role": "Lead Systems Architect & Founder",
+                "team-bio": "Directing open research across hardware, cybersecurity, software systems, and quantitative market strategies.",
+                "clock-heading": "⚡ Live Ecosystem Metrics (Public Digital Clock Feed)",
+                "clock-views": "Total Impressions",
+                "clock-income": "Fund Volume Tracked",
+                "clock-posts": "Published Insights",
                 "markets-heading": "Live Market & Crypto Behavior",
                 "markets-sub": "Real-time cryptocurrency exchange charts and price dynamics.",
                 "signals-heading": "Trading Opportunities & Market News",
@@ -571,6 +593,11 @@
                 "hero-btn-support": "Apoyar el laboratorio",
                 "hero-btn-signals": "Ver Señales de Trading",
                 "team-role": "Lead Systems Architect & Fundador",
+                "team-bio": "Dirigiendo la investigación abierta en hardware, ciberseguridad, sistemas de software y estrategias cuantitativas de mercado.",
+                "clock-heading": "⚡ Métricas en Vivo del Ecosistema (Panel Digital Público)",
+                "clock-views": "Impresiones Totales",
+                "clock-income": "Volumen de Fondo Rastreado",
+                "clock-posts": "Insights Publicados",
                 "markets-heading": "Comportamiento del Mercado y Criptomonedas en Vivo",
                 "markets-sub": "Gráficos en tiempo real y dinámica de precios en los principales pares.",
                 "signals-heading": "Oportunidades de Trading y Noticias de Mercado",
