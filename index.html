@@ -25,27 +25,26 @@
             <nav class="hidden lg:flex items-center space-x-5 text-sm font-medium">
                 <a href="#areas" class="hover:text-cyan-400 transition" data-i18n="nav-areas">Areas</a>
                 <a href="#lab" class="hover:text-cyan-400 transition" data-i18n="nav-lab">Laboratory</a>
+                <a href="#markets" class="hover:text-cyan-400 transition" data-i18n="nav-markets">Live Markets</a>
+                <a href="#signals" class="hover:text-cyan-400 transition" data-i18n="nav-signals">Trading Signals</a>
                 <a href="#fund" class="hover:text-cyan-400 transition" data-i18n="nav-fund">Investment Fund</a>
-                <a href="#bitacora" class="hover:text-cyan-400 transition" data-i18n="nav-log">Log</a>
-                <a href="#roadmap" class="hover:text-cyan-400 transition" data-i18n="nav-roadmap">Roadmap</a>
                 <a href="#apoyar" class="hover:text-cyan-400 transition" data-i18n="nav-support">Support</a>
                 <a href="#contacto" class="hover:text-cyan-400 transition" data-i18n="nav-contact">Contact</a>
             </nav>
             <div class="flex items-center space-x-2 text-xs">
-                <!-- Botón de Menú Admin Desplegable (Oculto hasta que lo actives o ingreses PIN) -->
+                <!-- Menú Desplegable Admin -->
                 <div class="relative">
                     <button onclick="toggleAdminMenu()" class="bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-slate-700 px-2.5 py-1.5 rounded-lg font-bold transition flex items-center space-x-1">
                         <i class="fas fa-user-lock"></i>
                         <span>Admin</span>
                     </button>
-                    <!-- Menú Desplegable Oculto -->
                     <div id="admin-dropdown" class="hidden absolute right-0 mt-2 w-64 glass-card border border-slate-700 rounded-xl shadow-2xl p-4 text-xs space-y-3 z-50">
                         <div class="font-bold text-cyan-400 border-b border-slate-800 pb-2 flex justify-between items-center">
                             <span>Panel Privado</span>
                             <span class="text-[10px] bg-cyan-950 text-cyan-300 px-1.5 py-0.5 rounded">Rist</span>
                         </div>
                         <div id="admin-login-box" class="space-y-2">
-                            <p class="text-slate-400 text-[11px]">Introduce tu clave de admin para ver estadísticas:</p>
+                            <p class="text-slate-400 text-[11px]">Introduce tu clave de admin:</p>
                             <input type="password" id="admin-pin" placeholder="Clave secreta..." class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-slate-200 focus:outline-none focus:border-cyan-500">
                             <button onclick="verifyAdminPin()" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-1.5 rounded transition">Acceder</button>
                         </div>
@@ -87,8 +86,8 @@
                 <a href="#apoyar" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-6 py-3 rounded-lg transition text-center shadow-lg shadow-cyan-500/20" data-i18n="hero-btn-support">
                     Support the Lab
                 </a>
-                <a href="#fund" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-6 py-3 rounded-lg border border-slate-700 transition text-center" data-i18n="hero-btn-fund">
-                    Investment Fund & Referrals
+                <a href="#signals" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-6 py-3 rounded-lg border border-slate-700 transition text-center" data-i18n="hero-btn-signals">
+                    View Trading Signals
                 </a>
             </div>
         </div>
@@ -112,7 +111,88 @@
         </div>
     </section>
 
-    <!-- Areas de Trabajo / Working Areas -->
+    <!-- LIVE MARKETS / GRÁFICO EN TIEMPO REAL (TRADINGVIEW) -->
+    <section id="markets" class="max-w-6xl mx-auto px-4 py-10">
+        <h2 class="text-2xl font-bold mb-2 text-slate-100" data-i18n="markets-heading">Live Market & Crypto Behavior</h2>
+        <p class="text-slate-400 text-sm mb-6" data-i18n="markets-sub">Real-time cryptocurrency exchange charts and price dynamics.</p>
+        
+        <div class="glass-card p-4 rounded-2xl border border-slate-800 overflow-hidden h-[450px]">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container" style="height:100%;width:100%">
+              <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+              {
+                "autosize": true,
+                "symbol": "BINANCE:BTCUSDT",
+                "interval": "D",
+                "timezone": "Etc/UTC",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "allow_symbol_change": true,
+                "calendar": false,
+                "support_host": "https://www.tradingview.com"
+              }
+              </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+    </section>
+
+    <!-- TRADING SIGNALS & MARKET NEWS -->
+    <section id="signals" class="max-w-6xl mx-auto px-4 py-10">
+        <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-500/30">
+            <div class="flex items-center space-x-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-cyan-950 flex items-center justify-center text-cyan-400 text-lg">
+                    <i class="fas fa-signal"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-100" data-i18n="signals-heading">Trading Opportunities & Market News</h2>
+                    <p class="text-xs text-cyan-400 font-mono" data-i18n="signals-sub">Statistical outlook, dates, and price action insights</p>
+                </div>
+            </div>
+
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed" data-i18n="signals-desc">
+                Based on continuous quantitative analysis, market news, and structural price patterns, Aetheris Labs tracks potential entry and exit zones for major cryptocurrency pairs and assets.
+            </p>
+
+            <!-- Cards de Oportunidades Simuladas / Estadísticas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">LONG / BUY ZONE</span>
+                        <span class="text-xs text-slate-400 font-mono">BTC / USDT</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mb-3" data-i18n="signal-1-text">
+                        Support retest identified near key moving averages. Statistical probability favors upward continuation if volume holds above current consolidation levels.
+                    </p>
+                    <div class="text-[11px] text-cyan-300 font-mono">📅 Target Window: Active Now</div>
+                </div>
+
+                <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800">WATCH / RANGE</span>
+                        <span class="text-xs text-slate-400 font-mono">ETH / USDT</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mb-3" data-i18n="signal-2-text">
+                        Awaiting macroeconomic data release. Price action is currently oscillating within a tight liquidity band; breakout confirmation required before entry.
+                    </p>
+                    <div class="text-[11px] text-cyan-300 font-mono">📅 Target Window: Upcoming Session</div>
+                </div>
+            </div>
+
+            <!-- ADVERTENCIA DE RIESGO OBLIGATORIA -->
+            <div class="bg-slate-950 p-4 rounded-xl border border-amber-500/40 text-xs text-amber-300/90 leading-relaxed">
+                <p class="font-bold mb-1 flex items-center space-x-1">
+                    <i class="fas fa-triangle-exclamation"></i>
+                    <span data-i18n="risk-title">Risk Disclaimer & Informational Notice:</span>
+                </p>
+                <span data-i18n="risk-desc">All trading signals, market news, and insights are purely informational and educational, based strictly on statistical data, historical dates, and news tracking. Operating in financial markets and cryptocurrencies carries a high risk of capital loss. Decisions to buy or sell are solely under your own responsibility.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Trabajo / Working Areas -->
     <section id="areas" class="max-w-6xl mx-auto px-4 py-10">
         <h2 class="text-2xl font-bold mb-2 text-slate-100" data-i18n="areas-heading">Working Areas</h2>
         <p class="text-slate-400 text-sm mb-8" data-i18n="areas-sub">Seven research and development lines that feed into each other.</p>
@@ -218,51 +298,6 @@
         </div>
     </section>
 
-    <!-- Bitacora / Log -->
-    <section id="bitacora" class="max-w-6xl mx-auto px-4 py-10">
-        <h2 class="text-2xl font-bold mb-2 text-slate-100" data-i18n="log-heading">Activity Log</h2>
-        <p class="text-slate-400 text-sm mb-6" data-i18n="log-sub">Progress record. Updated with each milestone.</p>
-
-        <div class="glass-card p-6 rounded-xl border border-slate-800 space-y-4">
-            <div class="border-l-2 border-cyan-400 pl-4 py-1">
-                <span class="text-xs text-cyan-400 font-mono" data-i18n="log-date">November 2026</span>
-                <h3 class="font-bold text-slate-100 text-base mt-1" data-i18n="log-title">New stage: software, security, and markets.</h3>
-                <p class="text-xs text-slate-400 mt-1 leading-relaxed" data-i18n="log-desc">
-                    The lab expands its focus toward software development, cybersecurity, and crypto/market analysis, while maintaining hardware work in the workshop.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap -->
-    <section id="roadmap" class="max-w-6xl mx-auto px-4 py-10">
-        <h2 class="text-2xl font-bold mb-2 text-slate-100" data-i18n="roadmap-heading">Roadmap</h2>
-        <p class="text-slate-400 text-sm mb-6" data-i18n="roadmap-sub">Four phases. Dates will be published as each milestone is closed.</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="glass-card p-5 rounded-xl border border-emerald-500/30">
-                <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider" data-i18n="phase-1-status">Completed</span>
-                <h3 class="font-bold text-slate-100 mt-2 mb-1" data-i18n="phase-1-title">Base Laboratory</h3>
-                <p class="text-xs text-slate-400" data-i18n="phase-1-desc">Workshop, test bench, and development environment operational.</p>
-            </div>
-            <div class="glass-card p-5 rounded-xl border border-cyan-500/30">
-                <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider" data-i18n="phase-2-status">In Progress</span>
-                <h3 class="font-bold text-slate-100 mt-2 mb-1" data-i18n="phase-2-title">Security Tools</h3>
-                <p class="text-xs text-slate-400" data-i18n="phase-2-desc">Defensive utilities and open-source automations.</p>
-            </div>
-            <div class="glass-card p-5 rounded-xl border border-slate-800">
-                <span class="text-xs text-amber-400 font-bold uppercase tracking-wider" data-i18n="phase-3-status">Upcoming</span>
-                <h3 class="font-bold text-slate-100 mt-2 mb-1" data-i18n="phase-3-title">Markets Dashboard</h3>
-                <p class="text-xs text-slate-400" data-i18n="phase-3-desc">Dashboard with crypto, stock, and investment fund data.</p>
-            </div>
-            <div class="glass-card p-5 rounded-xl border border-slate-800">
-                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider" data-i18n="phase-4-status">Future</span>
-                <h3 class="font-bold text-slate-100 mt-2 mb-1" data-i18n="phase-4-title">Open Documentation</h3>
-                <p class="text-xs text-slate-400" data-i18n="phase-4-desc">Guides, schematics, and code published on GitHub.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Apoya el Laboratorio / Support Lab -->
     <section id="apoyar" class="max-w-6xl mx-auto px-4 py-10">
         <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-500/20">
@@ -351,7 +386,7 @@
             </div>
             <div id="chat-messages" class="p-3 h-64 overflow-y-auto space-y-3 text-xs flex flex-col">
                 <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800 text-slate-300 max-w-[85%]">
-                    <span data-i18n="bot-welcome">Hello! Welcome to Aetheris Labs. How can I help you today regarding our research, the fund, or donations?</span>
+                    <span data-i18n="bot-welcome">Hello! Welcome to Aetheris Labs. How can I help you today regarding our research, trading signals, or donations?</span>
                 </div>
             </div>
             <div class="p-2.5 bg-slate-900 border-t border-slate-800 flex space-x-2">
@@ -375,11 +410,9 @@
         </div>
     </footer>
 
-    <!-- Scripts: Multilingüe, Menú Desplegable Admin y Chat Bot -->
+    <!-- Scripts -->
     <script>
-        // --- 1. MENÚ DESPLEGABLE Y ESTADÍSTICAS PRIVADAS ---
         document.addEventListener("DOMContentLoaded", function() {
-            // Contabilizar visitas locales
             let views = localStorage.getItem('aetheris_views') || 1240;
             views = parseInt(views) + 1;
             localStorage.setItem('aetheris_views', views);
@@ -388,7 +421,6 @@
             document.getElementById('stat-income').innerText = "1,000 USDT";
             document.getElementById('stat-posts').innerText = "12 Articles";
 
-            // Verificar si ya estaba logueado como admin en este navegador
             if (localStorage.getItem('aetheris_is_admin') === 'true') {
                 document.getElementById('admin-login-box').classList.add('hidden');
                 document.getElementById('admin-stats-box').classList.remove('hidden');
@@ -402,7 +434,6 @@
 
         function verifyAdminPin() {
             const pinInput = document.getElementById('admin-pin').value;
-            // PIN SECRETO CONFIGURADO: puedes cambiar "rist2026" por la clave que prefieras
             if (pinInput === 'rist2026' || pinInput === 'rist') {
                 localStorage.setItem('aetheris_is_admin', 'true');
                 document.getElementById('admin-login-box').classList.add('hidden');
@@ -420,7 +451,6 @@
             alert("Sesión cerrada correctamente.");
         }
 
-        // --- 2. SISTEMA DE CHAT BOT INTELIGENTE ---
         function toggleChat() {
             const chatWindow = document.getElementById('chat-window');
             chatWindow.classList.toggle('hidden');
@@ -453,21 +483,17 @@
                 
                 const lowerText = text.toLowerCase();
                 let reply = currentLang === 'en' 
-                    ? "Thanks for reaching out! You can support us via USDT (TRC20) or email us directly at ristcruz11@gmail.com for details." 
-                    : "¡Gracias por escribirnos! Puedes apoyarnos vía USDT (TRC20) o escribirnos directamente a ristcruz11@gmail.com para más detalles.";
+                    ? "Thanks for reaching out! Check our live charts and trading signals section for market updates, or email us at ristcruz11@gmail.com." 
+                    : "¡Gracias por escribirnos! Revisa nuestros gráficos en vivo y la sección de señales de trading para actualizaciones de mercado, o escríbenos a ristcruz11@gmail.com.";
 
                 if (lowerText.includes('wallet') || lowerText.includes('usdt') || lowerText.includes('donar') || lowerText.includes('support')) {
                     reply = currentLang === 'en' 
-                        ? "Our official USDT (TRC20) wallet is: TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3. You can verify transactions on Tronscan!" 
-                        : "Nuestra wallet oficial en USDT (TRC20) es: TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3. ¡Puedes verificar los movimientos en Tronscan!";
-                } else if (lowerText.includes('fondo') || lowerText.includes('fund') || lowerText.includes('inversion') || lowerText.includes('referido')) {
+                        ? "Our official USDT (TRC20) wallet is: TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3." 
+                        : "Nuestra wallet oficial en USDT (TRC20) es: TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3.";
+                } else if (lowerText.includes('trading') || lowerText.includes('signal') || lowerText.includes('señal') || lowerText.includes('mercado')) {
                     reply = currentLang === 'en' 
-                        ? "Our investment fund includes a 5% referral bonus when your invited users deposit and withdraw after the distribution period!" 
-                        : "¡Nuestro fondo de inversión incluye un bono del 5% por referidos cuando los usuarios que invites depositen y retiren tras el periodo de distribución!";
-                } else if (lowerText.includes('hola') || lowerText.includes('hello') || lowerText.includes('hi')) {
-                    reply = currentLang === 'en' 
-                        ? "Hello! How can I assist you with Aetheris Labs today?" 
-                        : "¡Hola! ¿En qué puedo ayudarte hoy con respecto a Aetheris Labs?";
+                        ? "Our trading signals are purely statistical and educational. Always manage your risk responsibly!" 
+                        : "Nuestras señales de trading son puramente estadísticas y educativas. ¡Gestiona siempre tu riesgo con responsabilidad!";
                 }
 
                 botMsg.innerText = reply;
@@ -476,173 +502,112 @@
             }, 600);
         }
 
-        // --- 3. DICCIONARIO MULTILINGÜE ---
         const translations = {
             en: {
                 "page-title": "Aetheris Labs | Technology, Security & Markets in Open Source",
                 "nav-areas": "Areas",
                 "nav-lab": "Laboratory",
+                "nav-markets": "Live Markets",
+                "nav-signals": "Trading Signals",
                 "nav-fund": "Investment Fund",
-                "nav-log": "Log",
-                "nav-roadmap": "Roadmap",
                 "nav-support": "Support",
                 "nav-contact": "Contact",
                 "hero-badge": "Independent Research & Development Hub",
                 "hero-title": "Technology, security, and markets, built in the open.",
                 "hero-desc": "Aetheris Labs is an independent laboratory developing software and hardware, researching cybersecurity and cybernetics, and analyzing crypto, stock markets, and investment funds. All work is publicly documented.",
                 "hero-btn-support": "Support the Lab",
-                "hero-btn-fund": "Investment Fund & Referrals",
+                "hero-btn-signals": "View Trading Signals",
                 "team-role": "Lead Systems Architect & Founder",
+                "markets-heading": "Live Market & Crypto Behavior",
+                "markets-sub": "Real-time cryptocurrency exchange charts and price dynamics.",
+                "signals-heading": "Trading Opportunities & Market News",
+                "signals-sub": "Statistical outlook, dates, and price action insights",
+                "signals-desc": "Based on continuous quantitative analysis, market news, and structural price patterns, Aetheris Labs tracks potential entry and exit zones for major cryptocurrency pairs and assets.",
+                "signal-1-text": "Support retest identified near key moving averages. Statistical probability favors upward continuation if volume holds above current consolidation levels.",
+                "signal-2-text": "Awaiting macroeconomic data release. Price action is currently oscillating within a tight liquidity band; breakout confirmation required before entry.",
+                "risk-title": "Risk Disclaimer & Informational Notice:",
+                "risk-desc": "All trading signals, market news, and insights are purely informational and educational, based strictly on statistical data, historical dates, and news tracking. Operating in financial markets and cryptocurrencies carries a high risk of capital loss. Decisions to buy or sell are solely under your own responsibility.",
                 "areas-heading": "Working Areas",
                 "areas-sub": "Seven research and development lines that feed into each other.",
-                "area-1-title": "Software",
-                "area-1-desc": "Open-source tools, automations, and applications.",
-                "area-2-title": "Hardware",
-                "area-2-desc": "Prototypes, nodes, and devices built and tested in the workshop.",
-                "area-3-title": "Cybernetics",
-                "area-3-desc": "Control systems, automation, and feedback loops between machines and data.",
-                "area-4-title": "Cybersecurity",
-                "area-4-desc": "Hardening, defensive testing, and best practices to protect systems and wallets.",
-                "area-5-title": "Crypto & Blockchain",
-                "area-5-desc": "Network analysis, tokens, and on-chain tools.",
-                "area-6-title": "Markets & Investment Funds",
-                "area-6-desc": "Study of markets, ETFs, and funds with quantitative analysis and open data.",
-                "area-7-title": "Trends",
-                "area-7-desc": "Tracking AI, fintech, and emerging technologies shaping the sector.",
+                "area-1-title": "Software", "area-1-desc": "Open-source tools, automations, and applications.",
+                "area-2-title": "Hardware", "area-2-desc": "Prototypes, nodes, and devices built and tested in the workshop.",
+                "area-3-title": "Cybernetics", "area-3-desc": "Control systems, automation, and feedback loops between machines and data.",
+                "area-4-title": "Cybersecurity", "area-4-desc": "Hardening, defensive testing, and best practices to protect systems and wallets.",
+                "area-5-title": "Crypto & Blockchain", "area-5-desc": "Network analysis, tokens, and on-chain tools.",
+                "area-6-title": "Markets & Investment Funds", "area-6-desc": "Study of markets, ETFs, and funds with quantitative analysis and open data.",
+                "area-7-title": "Trends", "area-7-desc": "Tracking AI, fintech, and emerging technologies shaping the sector.",
                 "fund-heading": "Investment Fund & Referral Program",
                 "fund-sub": "Expanding the ecosystem through collaborative community growth",
                 "fund-desc": "Aetheris Labs structures its financial growth and project expansion through active community participation. Beyond general lab donations, contributors can register within our upcoming investment fund framework.",
-                "fund-card-1-title": "Donations & Fund Enrollment",
-                "fund-card-1-desc": "Every participant who makes an initial contribution and registers in the fund opens the door to collaborative growth, directly supporting hardware procurement and market operations.",
-                "fund-card-2-title": "5% Referral Reward Structure",
-                "fund-card-2-desc": "Participants have the opportunity to bring in new members. For every new person you refer who joins and deposits, you earn a 5% bonus upon withdrawing your earnings after the investment and profit-distribution period. Balances multiply according to new deposits brought in by your referrals.",
-                "fund-footer-note": "Contact our official email or check your balance updates by reaching out to our core team directly.",
-                "lab-heading": "Laboratory Evidence",
-                "lab-sub": "Real equipment, test benches, and hardware. This is what it looks like when work happens.",
-                "lab-1-title": "Test Bench",
-                "lab-1-desc": "Assembly, circuit diagnostics, and prototyping.",
-                "lab-2-title": "Instrumentation",
-                "lab-2-desc": "Measurement and signal analysis on electronics bench.",
-                "lab-3-title": "Nodes & Network Hardware",
-                "lab-3-desc": "Independent equipment and secure communications.",
-                "log-heading": "Activity Log",
-                "log-sub": "Progress record. Updated with each milestone.",
-                "log-date": "November 2026",
-                "log-title": "New stage: software, security, and markets.",
-                "log-desc": "The lab expands its focus toward software development, cybersecurity, and crypto/market analysis, while maintaining hardware work in the workshop.",
-                "roadmap-heading": "Roadmap",
-                "roadmap-sub": "Four phases. Dates will be published as each milestone is closed.",
-                "phase-1-status": "Completed",
-                "phase-1-title": "Base Laboratory",
-                "phase-1-desc": "Workshop, test bench, and development environment operational.",
-                "phase-2-status": "In Progress",
-                "phase-2-title": "Security Tools",
-                "phase-2-desc": "Defensive utilities and open-source automations.",
-                "phase-3-status": "Upcoming",
-                "phase-3-title": "Markets Dashboard",
-                "phase-3-desc": "Dashboard with crypto, stock, and investment fund data.",
-                "phase-4-status": "Future",
-                "phase-4-title": "Open Documentation",
-                "phase-4-desc": "Guides, schematics, and code published on GitHub.",
-                "support-heading": "Support the Lab",
-                "support-desc": "Contributions go toward equipment, licenses, servers, and hardware components for projects. Investments have reached 1000 USDT and are growing daily as more people connect with our team.",
-                "wallet-label": "Wallet Address (USDT, TRC20 network):",
-                "copy-btn": "Copy",
-                "wallet-warning": "Only USDT on Tron (TRC20). Any other network may result in lost funds.",
-                "wallet-verify": "Verify transactions on Tronscan",
+                "fund-card-1-title": "Donations & Fund Enrollment", "fund-card-1-desc": "Every participant who makes an initial contribution and registers in the fund opens the door to collaborative growth.",
+                "fund-card-2-title": "5% Referral Reward Structure", "fund-card-2-desc": "Participants earn a 5% bonus upon withdrawing earnings when their referred users deposit and participate in profit-distribution periods.",
+                "fund-footer-note": "Contact our official email for balance updates.",
+                "lab-heading": "Laboratory Evidence", "lab-sub": "Real equipment, test benches, and hardware.",
+                "lab-1-title": "Test Bench", "lab-1-desc": "Assembly, circuit diagnostics, and prototyping.",
+                "lab-2-title": "Instrumentation", "lab-2-desc": "Measurement and signal analysis on electronics bench.",
+                "lab-3-title": "Nodes & Network Hardware", "lab-3-desc": "Independent equipment and secure communications.",
+                "support-heading": "Support the Lab", "support-desc": "Contributions go toward equipment, licenses, servers, and hardware components.",
+                "wallet-label": "Wallet Address (USDT, TRC20 network):", "copy-btn": "Copy",
+                "wallet-warning": "Only USDT on Tron (TRC20).", "wallet-verify": "Verify transactions on Tronscan",
                 "qr-text": "Scan to contribute USDT (TRC20)",
-                "legal-title": "Legal Notice:",
-                "legal-desc": "Contributions are voluntary and do not constitute an investment: they do not grant participation, yield, or financial return. Content regarding stocks, crypto, and funds is informative and educational, not financial advice. Investing in cryptoassets and markets carries a risk of loss.",
-                "contact-heading": "Training, Motivation & Contact",
-                "contact-desc": "For training and motivation, you can write to the Gmail account or read the blog created to help with personal and professional growth:",
-                "contact-email-label": "Official Email",
-                "contact-blog-label": "Motivation & Growth Blog",
+                "legal-title": "Legal Notice:", "legal-desc": "Contributions are voluntary and do not constitute an investment with guaranteed returns.",
+                "contact-heading": "Training, Motivation & Contact", "contact-desc": "For training and motivation, write to our Gmail or read our blog:",
+                "contact-email-label": "Official Email", "contact-blog-label": "Motivation & Growth Blog",
                 "footer-text": "© 2026 Aetheris Labs. Independent and open project.",
-                "chat-title": "Aetheris Assistant Bot",
-                "bot-welcome": "Hello! Welcome to Aetheris Labs. How can I help you today regarding our research, the fund, or donations?"
+                "chat-title": "Aetheris Assistant Bot", "bot-welcome": "Hello! Welcome to Aetheris Labs. Check our live crypto charts and market signals!"
             },
             es: {
                 "page-title": "Aetheris Labs | Tecnología, Seguridad y Mercados en Abierto",
                 "nav-areas": "Áreas",
                 "nav-lab": "Laboratorio",
+                "nav-markets": "Mercados en Vivo",
+                "nav-signals": "Señales de Trading",
                 "nav-fund": "Fondo de Inversión",
-                "nav-log": "Bitácora",
-                "nav-roadmap": "Roadmap",
                 "nav-support": "Apoyar",
                 "nav-contact": "Contacto",
                 "hero-badge": "Investigación y Desarrollo Independiente",
                 "hero-title": "Tecnología, seguridad y mercados, construidos en abierto.",
                 "hero-desc": "Aetheris Labs es un laboratorio independiente que desarrolla software y hardware, investiga ciberseguridad y cibernética, y analiza cripto, bolsa de valores y fondos de inversión. Todo el trabajo se documenta públicamente.",
                 "hero-btn-support": "Apoyar el laboratorio",
-                "hero-btn-fund": "Fondo de Inversión y Referencias",
+                "hero-btn-signals": "Ver Señales de Trading",
                 "team-role": "Lead Systems Architect & Fundador",
+                "markets-heading": "Comportamiento del Mercado y Criptomonedas en Vivo",
+                "markets-sub": "Gráficos en tiempo real y dinámica de precios en los principales pares.",
+                "signals-heading": "Oportunidades de Trading y Noticias de Mercado",
+                "signals-sub": "Perspectiva estadística, fechas y análisis de acción del precio",
+                "signals-desc": "Basado en análisis cuantitativo continuo, noticias del mercado y patrones estructurales, Aetheris Labs rastrea posibles zonas de entrada y salida para criptoactivos.",
+                "signal-1-text": "Prueba de soporte identificada cerca de medias móviles clave. La probabilidad estadística favorece la continuación alcista si el volumen se mantiene.",
+                "signal-2-text": "A la espera de datos macroeconómicos. El precio oscila en una banda de compresión; se requiere confirmación de ruptura antes de operar.",
+                "risk-title": "Advertencia de Riesgo y Aviso Informativo:",
+                "risk-desc": "Todas las señales de trading, noticias y análisis son puramente informativos y educativos, basados estrictamente en estadística, fechas históricas y seguimiento de noticias. Operar en mercados financieros y criptoactivos conlleva un alto riesgo de pérdida. Las decisiones de compra o venta son responsabilidad exclusiva de cada usuario.",
                 "areas-heading": "Áreas de trabajo",
                 "areas-sub": "Siete líneas de investigación y desarrollo que se alimentan entre sí.",
-                "area-1-title": "Software",
-                "area-1-desc": "Herramientas, automatizaciones y aplicaciones de código abierto.",
-                "area-2-title": "Hardware",
-                "area-2-desc": "Prototipos, nodos y dispositivos construidos y probados en el taller.",
-                "area-3-title": "Cibernética",
-                "area-3-desc": "Sistemas de control, automatización y retroalimentación entre máquinas y datos.",
-                "area-4-title": "Ciberseguridad",
-                "area-4-desc": "Hardening, pruebas defensivas y buenas prácticas para proteger sistemas y wallets.",
-                "area-5-title": "Cripto y blockchain",
-                "area-5-desc": "Análisis de redes, tokens y herramientas on-chain.",
-                "area-6-title": "Bolsa y fondos de inversión",
-                "area-6-desc": "Estudio de mercados, ETFs y fondos, con análisis cuantitativo y datos abiertos.",
-                "area-7-title": "Tendencias",
-                "area-7-desc": "Seguimiento de IA, fintech y tecnologías emergentes que mueven el sector.",
+                "area-1-title": "Software", "area-1-desc": "Herramientas, automatizaciones y aplicaciones de código abierto.",
+                "area-2-title": "Hardware", "area-2-desc": "Prototipos, nodos y dispositivos construidos y probados en el taller.",
+                "area-3-title": "Cibernética", "area-3-desc": "Sistemas de control, automatización y retroalimentación entre máquinas y datos.",
+                "area-4-title": "Ciberseguridad", "area-4-desc": "Hardening, pruebas defensivas y buenas prácticas para proteger sistemas y wallets.",
+                "area-5-title": "Cripto y blockchain", "area-5-desc": "Análisis de redes, tokens y herramientas on-chain.",
+                "area-6-title": "Bolsa y fondos de inversión", "area-6-desc": "Estudio de mercados, ETFs y fondos, con análisis cuantitativo y datos abiertos.",
+                "area-7-title": "Tendencias", "area-7-desc": "Seguimiento de IA, fintech y tecnologías emergentes que mueven el sector.",
                 "fund-heading": "Fondo de Inversión y Programa de Referencias",
                 "fund-sub": "Expandiendo el ecosistema mediante el crecimiento colaborativo de la comunidad",
-                "fund-desc": "Aetheris Labs estructura su crecimiento financiero a través de la participación activa de la comunidad. Más allá de las donaciones generales al laboratorio, los colaboradores pueden inscribirse en nuestro marco de fondo de inversión.",
-                "fund-card-1-title": "Donaciones e Inscripción al Fondo",
-                "fund-card-1-desc": "Cada participante que realiza un aporte inicial y se inscribe en el fondo abre la puerta al crecimiento colaborativo, apoyando directamente la adquisición de hardware y las operaciones de mercado.",
-                "fund-card-2-title": "Estructura de Recompensa del 5% por Referidos",
-                "fund-card-2-desc": "Los participantes tienen la posibilidad de traer más personal. Por cada persona nueva que ingrese y deposite, obtienes un 5% de ganancia a la hora de retirar tus ingresos pasado el tiempo de inversión y repartición de beneficios, multiplicando el saldo según el depósito de cada nuevo inversionista.",
-                "fund-footer-note": "Escríbenos a nuestro correo oficial o comunícate directamente con nuestro equipo para consultar actualizaciones de saldo y participación.",
-                "lab-heading": "Evidencia del laboratorio",
-                "lab-sub": "Equipos, bancos de prueba y hardware reales. Esto es lo que se ve cuando el trabajo ocurre.",
-                "lab-1-title": "Banco de pruebas",
-                "lab-1-desc": "Ensamblaje, diagnóstico de circuitos y prototipado.",
-                "lab-2-title": "Instrumentación",
-                "lab-2-desc": "Medición y análisis de señales en banco de electrónica.",
-                "lab-3-title": "Nodos y hardware de red",
-                "lab-3-desc": "Equipos independientes y comunicaciones seguras.",
-                "log-heading": "Bitácora",
-                "log-sub": "Registro de avances. Se actualiza con cada hito.",
-                "log-date": "Noviembre 2026",
-                "log-title": "Nueva etapa: software, seguridad y mercados.",
-                "log-desc": "El laboratorio amplía su enfoque hacia el desarrollo de software, la ciberseguridad y el análisis de mercados cripto y bursátiles, manteniendo el trabajo de hardware en el taller.",
-                "roadmap-heading": "Roadmap",
-                "roadmap-sub": "Cuatro fases. Las fechas se publicarán cuando cada hito esté cerrado.",
-                "phase-1-status": "Completada",
-                "phase-1-title": "Laboratorio base",
-                "phase-1-desc": "Taller, banco de pruebas y entorno de desarrollo operativos.",
-                "phase-2-status": "En curso",
-                "phase-2-title": "Herramientas de seguridad",
-                "phase-2-desc": "Utilidades defensivas y automatizaciones de código abierto.",
-                "phase-3-status": "Próxima",
-                "phase-3-title": "Panel de mercados",
-                "phase-3-desc": "Dashboard con datos de cripto, bolsa y fondos de inversión.",
-                "phase-4-status": "Futura",
-                "phase-4-title": "Documentación abierta",
-                "phase-4-desc": "Guías, esquemas y código publicados en GitHub.",
-                "support-heading": "Apoya el laboratorio",
-                "support-desc": "Los aportes se destinan a equipos, licencias, servidores y componentes de hardware para los proyectos y las inversiones hasta el momento van de 1000 Usdt y en aumento cada día son más los que se ponen en contacto con nuestro equipo.",
-                "wallet-label": "Dirección de la wallet (USDT, red TRC20):",
-                "copy-btn": "Copiar",
-                "wallet-warning": "Solo USDT en la red Tron (TRC20). Cualquier otra red puede perder los fondos.",
-                "wallet-verify": "Verifica los movimientos en Tronscan",
+                "fund-desc": "Aetheris Labs estructura su crecimiento financiero a través de la participación activa de la comunidad. Más allá de las donaciones, los colaboradores pueden inscribirse en nuestro fondo de inversión.",
+                "fund-card-1-title": "Donaciones e Inscripción al Fondo", "fund-card-1-desc": "Cada participante que realiza un aporte inicial abre la puerta al crecimiento colaborativo del laboratorio.",
+                "fund-card-2-title": "Estructura de Recompensa del 5% por Referidos", "fund-card-2-desc": "Obtienes un 5% de ganancia al retirar tus ingresos cuando los usuarios que invites depositen y participen en la distribución de beneficios.",
+                "fund-footer-note": "Escríbenos a nuestro correo oficial para consultar actualizaciones de saldo.",
+                "lab-heading": "Evidencia del laboratorio", "lab-sub": "Equipos, bancos de prueba y hardware reales.",
+                "lab-1-title": "Banco de pruebas", "lab-1-desc": "Ensamblaje, diagnóstico de circuitos y prototipado.",
+                "lab-2-title": "Instrumentación", "lab-2-desc": "Medición y análisis de señales en banco de electrónica.",
+                "lab-3-title": "Nodos y hardware de red", "lab-3-desc": "Equipos independientes y comunicaciones seguras.",
+                "support-heading": "Apoya el laboratorio", "support-desc": "Los aportes se destinan a equipos, licencias y servidores.",
+                "wallet-label": "Dirección de la wallet (USDT, red TRC20):", "copy-btn": "Copiar",
+                "wallet-warning": "Solo USDT en la red Tron (TRC20).", "wallet-verify": "Verifica los movimientos en Tronscan",
                 "qr-text": "Escanear para aportar USDT (TRC20)",
-                "legal-title": "Aviso legal:",
-                "legal-desc": "Los aportes son voluntarios y no constituyen una inversión: no otorgan participación, rendimiento ni retorno financiero. El contenido sobre bolsa, cripto y fondos es informativo y educativo, no es asesoría financiera. Invertir en criptoactivos y mercados conlleva riesgo de pérdida.",
-                "contact-heading": "Capacitación, Motivación y Contacto",
-                "contact-desc": "Para capacitación y motivación pueden escribir a la cuenta de Gmail o leer el blog que se creó para ayudar en el crecimiento personal y profesional:",
-                "contact-email-label": "Correo electrónico oficial",
-                "contact-blog-label": "Blog de motivación y superación",
-                "footer-text": "© 2026 Aetheris Labs. Independent and open project.",
-                "chat-title": "Asistente Virtual Aetheris",
-                "bot-welcome": "¡Hola! Bienvenido a Aetheris Labs. ¿Cómo puedo ayudarte hoy con respecto a nuestras investigaciones, el fondo o las donaciones?"
+                "legal-title": "Aviso legal:", "legal-desc": "Los aportes son voluntarios y no constituyen una inversión con rendimiento garantizado.",
+                "contact-heading": "Capacitación, Motivación y Contacto", "contact-desc": "Para capacitación y motivación escríbenos a Gmail o lee nuestro blog:",
+                "contact-email-label": "Correo electrónico oficial", "contact-blog-label": "Blog de motivación y superación",
+                "footer-text": "© 2026 Aetheris Labs. Proyecto independiente y abierto.",
+                "chat-title": "Asistente Virtual Aetheris", "bot-welcome": "¡Hola! Bienvenido a Aetheris Labs. Revisa nuestros gráficos en vivo y las señales de trading."
             }
         };
 
