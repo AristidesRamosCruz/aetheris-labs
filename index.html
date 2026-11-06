@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" id="html-root">
+<html lang="es" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="page-title">Aetheris Labs | Technology, Security & Markets in Open Source</title>
+    <title data-i18n="page-title">Aetheris Labs | Tecnología, Seguridad y Mercados en Abierto</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,7 +12,6 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        /* Estilo para el Reloj Digital Público */
         .digital-clock {
             font-family: 'Courier New', Courier, monospace;
             background: #090d16;
@@ -31,13 +30,13 @@
                 <span class="text-cyan-400 text-2xl font-black tracking-wider">AETHERIS <span class="text-slate-100">LABS</span></span>
             </div>
             <nav class="hidden lg:flex items-center space-x-5 text-sm font-medium">
-                <a href="#areas" class="hover:text-cyan-400 transition" data-i18n="nav-areas">Areas</a>
-                <a href="#lab" class="hover:text-cyan-400 transition" data-i18n="nav-lab">Laboratory</a>
-                <a href="#markets" class="hover:text-cyan-400 transition" data-i18n="nav-markets">Live Markets</a>
-                <a href="#signals" class="hover:text-cyan-400 transition" data-i18n="nav-signals">Trading Signals</a>
-                <a href="#fund" class="hover:text-cyan-400 transition" data-i18n="nav-fund">Investment Fund</a>
-                <a href="#apoyar" class="hover:text-cyan-400 transition" data-i18n="nav-support">Support</a>
-                <a href="#contacto" class="hover:text-cyan-400 transition" data-i18n="nav-contact">Contact</a>
+                <a href="#areas" class="hover:text-cyan-400 transition" data-i18n="nav-areas">Áreas</a>
+                <a href="#lab" class="hover:text-cyan-400 transition" data-i18n="nav-lab">Laboratorio</a>
+                <a href="#fundbox" class="hover:text-cyan-400 transition" data-i18n="nav-fundbox">Fondo de Inversión</a>
+                <a href="#markets" class="hover:text-cyan-400 transition" data-i18n="nav-markets">Mercados</a>
+                <a href="#signals" class="hover:text-cyan-400 transition" data-i18n="nav-signals">Señales</a>
+                <a href="#apoyar" class="hover:text-cyan-400 transition" data-i18n="nav-support">Apoyar</a>
+                <a href="#transparency" class="hover:text-cyan-400 transition" data-i18n="nav-transparency">Transparencia</a>
             </nav>
             <div class="flex items-center space-x-2 text-xs">
                 <!-- Menú Desplegable Admin -->
@@ -88,14 +87,14 @@
                 Technology, security, and markets, built in the open.
             </h1>
             <p class="text-slate-400 text-base md:text-lg mb-6 leading-relaxed" data-i18n="hero-desc">
-                Aetheris Labs is an independent laboratory developing software and hardware, researching cybersecurity and cybernetics, and analyzing crypto, stock markets, and investment funds. All work is publicly documented.
+                Aetheris Labs es un laboratorio independiente que desarrolla software y hardware, investiga ciberseguridad y cibernética, y analiza cripto, bolsa de valores y fondos de inversión. Todo el trabajo se documenta públicamente.
             </p>
             <div class="flex flex-wrap gap-4">
-                <a href="#apoyar" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-6 py-3 rounded-lg transition text-center shadow-lg shadow-cyan-500/20" data-i18n="hero-btn-support">
-                    Support the Lab
+                <a href="#fundbox" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-6 py-3 rounded-lg transition text-center shadow-lg shadow-cyan-500/20" data-i18n="hero-btn-fundbox">
+                    Explorar Fondo de Inversión
                 </a>
                 <a href="#signals" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-6 py-3 rounded-lg border border-slate-700 transition text-center" data-i18n="hero-btn-signals">
-                    View Trading Signals
+                    Ver Señales de Trading
                 </a>
             </div>
         </div>
@@ -125,20 +124,130 @@
         <div class="glass-card p-6 rounded-2xl border border-cyan-500/30 text-center">
             <h3 class="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-4" data-i18n="clock-heading">⚡ Live Ecosystem Metrics (Public Digital Clock Feed)</h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <!-- Visitas Públicas -->
                 <div class="digital-clock p-4 rounded-xl">
                     <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1" data-i18n="clock-views">Total Impressions</span>
                     <span id="public-stat-views" class="text-2xl sm:text-3xl font-bold text-cyan-300">000,000</span>
                 </div>
-                <!-- Ingresos Públicos (3x) -->
                 <div class="digital-clock p-4 rounded-xl">
                     <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1" data-i18n="clock-income">Fund Volume Tracked</span>
                     <span id="public-stat-income" class="text-2xl sm:text-3xl font-bold text-cyan-300">3,000 USDT</span>
                 </div>
-                <!-- Artículos Públicos (3x) -->
                 <div class="digital-clock p-4 rounded-xl">
                     <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1" data-i18n="clock-posts">Published Insights</span>
                     <span id="public-stat-posts" class="text-2xl sm:text-3xl font-bold text-cyan-300">36</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FONDO DE INVERSIÓN, BUZÓN Y ACUERDO LEGAL DE EXENCIÓN DE RESPONSABILIDAD -->
+    <section id="fundbox" class="max-w-6xl mx-auto px-4 py-10">
+        <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-500/40 relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-cyan-500/10 text-cyan-400 text-[10px] font-mono px-3 py-1 rounded-bl-xl border-l border-b border-cyan-500/30">
+                COMMUNITY POOL & LEGAL TERMS
+            </div>
+            
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-12 h-12 rounded-xl bg-cyan-950 flex items-center justify-center text-cyan-400 text-xl border border-cyan-800">
+                    <i class="fas fa-vault"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-100" data-i18n="fundbox-heading">Fondo de Inversión y Buzón Comunitario</h2>
+                    <p class="text-xs text-cyan-400 font-mono" data-i18n="fundbox-sub">Participación estratégica, referidos multinivel y acuerdo de exención de responsabilidad</p>
+                </div>
+            </div>
+
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed" data-i18n="fundbox-desc">
+                Nuestro fondo comunitario permite escalar las operaciones de trading y desarrollo del laboratorio. Al participar, puedes estructurar tu capital mediante un modelo de aportes flexibles y recompensas por expansión de red.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Dinámica de Inversión y Plazo Fijo -->
+                <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800">
+                    <div class="text-cyan-400 text-lg mb-2"><i class="fas fa-piggy-bank"></i></div>
+                    <h3 class="font-bold text-slate-100 text-sm mb-2" data-i18n="fundbox-card-1-title">Modelo a Plazo Fijo y Beneficios Mensuales</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed mb-3" data-i18n="fundbox-card-1-desc">
+                        El capital principal ingresado se mantiene bajo un compromiso a plazo fijo de <strong>3 meses</strong> para asegurar la solidez de las operaciones del fondo. Sin embargo, <strong>todos los meses obtienes beneficios líquidos</strong> basados en los porcentajes ganados, los cuales puedes reclamar y retirar mes a mes.
+                    </p>
+                    <div class="text-[11px] text-cyan-300 font-mono">🔒 Capital asegurado por 90 días | 💸 Retiro de ganancias mensual</div>
+                </div>
+
+                <!-- Sistema de Referidos Multinivel -->
+                <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800">
+                    <div class="text-cyan-400 text-lg mb-2"><i class="fas fa-network-wired"></i></div>
+                    <h3 class="font-bold text-slate-100 text-sm mb-2" data-i18n="fundbox-card-2-title">Estructura de Recompensas por Referidos</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed mb-3" data-i18n="fundbox-card-2-desc">
+                        Incentivamos la expansión colaborativa del fondo:
+                    </p>
+                    <ul class="space-y-1.5 text-xs text-slate-300">
+                        <li><i class="fas fa-check text-cyan-400 mr-1.5"></i> <strong data-i18n="ref-level-1">Nivel Directo (Invitados tuyos):</strong> Obtienes un <strong>5% de ganancia</strong> sobre la inversión realizada por cada invitado directo.</li>
+                        <li><i class="fas fa-check text-cyan-400 mr-1.5"></i> <strong data-i18n="ref-level-2">Nivel Secundario (Red extendida):</strong> Obtienes un <strong>1.5% adicional</strong> sobre el aporte de los referidos de tu equipo.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- BILLETERA EXCLUSIVA DEL FONDO DE INVERSIÓN (TON / TELEGRAM WALLET) -->
+            <div class="bg-slate-900 p-5 rounded-xl border border-cyan-500/40 mb-8">
+                <div class="flex items-center space-x-2 mb-2">
+                    <i class="fas fa-wallet text-cyan-400"></i>
+                    <span class="text-xs font-bold text-cyan-300 uppercase tracking-wider" data-i18n="fund-wallet-label">Billetera Oficial del Fondo de Inversión (TON / Web3):</span>
+                </div>
+                <div class="flex items-center justify-between bg-slate-950 p-3 rounded-lg border border-slate-800 mb-2">
+                    <code id="fund-wallet-address" class="text-xs text-cyan-300 font-mono truncate mr-2">UQBi...FsI5</code>
+                    <button onclick="copyFundWallet()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-3 py-1.5 rounded text-xs font-bold transition flex items-center space-x-1 flex-shrink-0">
+                        <i class="fas fa-copy"></i>
+                        <span id="copy-fund-btn-text" data-i18n="copy-btn">Copiar</span>
+                    </button>
+                </div>
+                <p class="text-[11px] text-slate-400" data-i18n="fund-wallet-note">
+                    Billetera exclusiva para aportes y gestión del fondo de inversión comunitario (independiente de las donaciones del laboratorio).
+                </p>
+            </div>
+
+            <!-- ARTÍCULO LEGAL / EXENCIÓN DE RESPONSABILIDAD Y FIRMA DE ACUERDO -->
+            <div class="bg-slate-950 p-6 rounded-xl border border-amber-500/40 mb-6">
+                <div class="flex items-center space-x-2 mb-3 text-amber-400">
+                    <i class="fas fa-file-contract text-lg"></i>
+                    <h4 class="font-bold text-sm uppercase tracking-wider" data-i18n="legal-article-title">Artículo Legal: Exención de Responsabilidad y Aceptación de Riesgos</h4>
+                </div>
+                <div class="text-xs text-slate-300 leading-relaxed space-y-3 max-h-48 overflow-y-auto p-3 bg-slate-900/80 rounded-lg border border-slate-800 mb-4">
+                    <p data-i18n="legal-p1">
+                        <strong>Primera:</strong> Toda persona que decida participar, aportar o donar dentro del fondo de inversión comunitario lo hace bajo su absoluta y estricta responsabilidad personal, reconociendo que los mercados financieros, activos digitales y plataformas descentralizadas conllevan riesgos inherentes de pérdida de capital.
+                    </p>
+                    <p data-i18n="legal-p2">
+                        <strong>Segunda:</strong> En caso de ocurrir pérdidas derivadas de caídas del sistema, fallas tecnológicas, ataques informáticos (hacking), vulnerabilidades de terceros, o cualquier otra situación fortuita o fuerza mayor ajena al control directo de la plataforma, <strong>los creadores, fundadores, administradores y trabajadores de Aetheris Labs quedan completamente exentos de cualquier cargo</strong>, demanda, reclamación o responsabilidad legal o civil por la que pudiesen ser juzgados.
+                    </p>
+                    <p data-i18n="legal-p3">
+                        <strong>Tercera:</strong> La exención de responsabilidad descrita prevalecerá siempre y cuando la administración cumpla de buena fe con lo orientado en los estatutos operativos y la transparencia mensual de los fondos.
+                    </p>
+                </div>
+
+                <!-- Casilla de Aceptación y Firma -->
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-3">
+                    <div class="flex items-start space-x-2">
+                        <input type="checkbox" id="legal-agreement-check" class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-cyan-500 focus:ring-cyan-500">
+                        <label for="legal-agreement-check" class="text-xs text-slate-300 cursor-pointer select-none" data-i18n="legal-check-label">
+                            He leído, comprendido y acepto en su totalidad los términos de este artículo legal, asumiendo el riesgo y liberando de toda responsabilidad a los creadores de la página.
+                        </label>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-400 mb-1" data-i18n="legal-name-label">Nombre completo o Alias (Firma digital de conformidad):</label>
+                        <input type="text" id="signer-name" placeholder="Tu nombre o alias..." class="w-full bg-slate-950 border border-slate-800 rounded px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buzón / Casilla de Solicitud de Ingreso -->
+            <div class="bg-slate-950 p-6 rounded-xl border border-cyan-500/30 text-center">
+                <h4 class="font-bold text-slate-100 text-sm mb-2" data-i18n="box-title">📥 Buzón de Solicitud de Ingreso al Fondo</h4>
+                <p class="text-xs text-slate-400 mb-4 max-w-2xl mx-auto" data-i18n="box-desc">
+                    Tras marcar la casilla de aceptación y firmar, comunícate con nuestro equipo para registrar tu participación o notificar tu aporte en USDT (TON).
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="submitFundApplication()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-6 py-2.5 rounded-lg text-xs font-bold transition flex items-center space-x-2 shadow-lg shadow-cyan-500/20">
+                        <i class="fas fa-paper-plane"></i>
+                        <span data-i18n="box-btn-submit">Enviar Solicitud y Notificar por Correo</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -265,89 +374,119 @@
         </div>
     </section>
 
-    <!-- Fondo de Inversión y Referencias / Investment Fund & Referrals -->
-    <section id="fund" class="max-w-6xl mx-auto px-4 py-10">
-        <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-500/30">
-            <div class="flex items-center space-x-3 mb-4">
-                <div class="w-10 h-10 rounded-lg bg-cyan-950 flex items-center justify-center text-cyan-400 text-lg">
-                    <i class="fas fa-users-line"></i>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-100" data-i18n="fund-heading">Investment Fund & Referral Program</h2>
-                    <p class="text-xs text-cyan-400 font-mono" data-i18n="fund-sub">Expanding the ecosystem through collaborative community growth</p>
-                </div>
-            </div>
-
-            <p class="text-slate-300 text-sm mb-6 leading-relaxed" data-i18n="fund-desc">
-                Aetheris Labs structures its financial growth and project expansion through active community participation. Beyond general lab donations, contributors can register within our upcoming investment fund framework. 
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800">
-                    <div class="text-cyan-400 text-lg mb-2"><i class="fas fa-hand-holding-dollar"></i></div>
-                    <h3 class="font-bold text-slate-100 text-sm mb-2" data-i18n="fund-card-1-title">Donations & Fund Enrollment</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed" data-i18n="fund-card-1-desc">
-                        Every participant who makes an initial contribution and registers in the fund opens the door to collaborative growth, directly supporting hardware procurement and market operations.
-                    </p>
-                </div>
-
-                <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800">
-                    <div class="text-cyan-400 text-lg mb-2"><i class="fas fa-percentage"></i></div>
-                    <h3 class="font-bold text-slate-100 text-sm mb-2" data-i18n="fund-card-2-title">5% Referral Reward Structure</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed" data-i18n="fund-card-2-desc">
-                        Participants have the opportunity to bring in new members. For every new person you refer who joins and deposits, you earn a 5% bonus upon withdrawing your earnings after the investment and profit-distribution period. Balances multiply according to new deposits brought in by your referrals.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800 text-xs text-slate-400 text-center">
-                <span data-i18n="fund-footer-note">Contact our official email or check your balance updates by reaching out to our core team directly.</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Apoya el Laboratorio / Support Lab -->
+    <!-- APOYA EL LABORATORIO Y NIVELES DE PATROCINIO -->
     <section id="apoyar" class="max-w-6xl mx-auto px-4 py-10">
-        <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-500/20">
+        <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-500/30">
             <h2 class="text-2xl font-bold mb-3 text-slate-100" data-i18n="support-heading">Support the Lab</h2>
             <p class="text-slate-300 text-sm mb-6 leading-relaxed" data-i18n="support-desc">
-                Contributions go toward equipment, licenses, servers, and hardware components for projects. Investments have reached 1000 USDT and are growing daily as more people connect with our team.
+                Your contribution funds equipment, licenses, and servers, and in exchange you gain access to what we build. It is a voluntary support, not an investment, and does not generate financial returns.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <h3 class="text-lg font-bold text-cyan-400 mb-4" data-i18n="tiers-heading">Sponsorship Tiers</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider block mb-1">Colaborador / Collaborator</span>
+                        <div class="text-xl font-extrabold text-slate-100 mb-3">From 5 USDT</div>
+                        <p class="text-xs text-slate-300 leading-relaxed" data-i18n="tier-1-desc">
+                            Your name or alias on the sponsors wall and access to the monthly newsletter with laboratory progress.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/90 p-5 rounded-xl border border-cyan-500/50 flex flex-col justify-between relative shadow-lg shadow-cyan-500/10">
+                    <div>
+                        <span class="absolute -top-3 right-4 bg-cyan-500 text-slate-950 font-bold text-[10px] px-2 py-0.5 rounded-full uppercase">Popular</span>
+                        <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider block mb-1">Aliado / Ally</span>
+                        <div class="text-xl font-extrabold text-slate-100 mb-3">From 25 USDT</div>
+                        <p class="text-xs text-slate-300 leading-relaxed" data-i18n="tier-2-desc">
+                            Everything above, plus early access to guides, scripts, and tools before public release.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider block mb-1">Socio técnico / Tech Partner</span>
+                        <div class="text-xl font-extrabold text-slate-100 mb-3">From 100 USDT</div>
+                        <p class="text-xs text-slate-300 leading-relaxed" data-i18n="tier-3-desc">
+                            Everything above, plus a 30-minute consultation on cybersecurity, hardware, or market analysis, and your logo or link on the web.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallet & GitHub Sponsors -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-6">
                 <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
                     <span class="text-xs text-slate-400 block mb-1" data-i18n="wallet-label">Wallet Address (USDT, TRC20 network):</span>
                     <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded-lg border border-slate-800 mb-3">
                         <code id="wallet-address" class="text-xs text-cyan-300 font-mono truncate mr-2">TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3</code>
                         <button onclick="copyWallet()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-3 py-1.5 rounded text-xs font-bold transition flex items-center space-x-1 flex-shrink-0">
                             <i class="fas fa-copy"></i>
-                            <span id="copy-btn-text" data-i18n="copy-btn">Copy</span>
+                            <span id="copy-btn-text" data-i18n="copy-btn">Copiar</span>
                         </button>
                     </div>
                     <p class="text-xs text-slate-400 leading-normal">
                         <span data-i18n="wallet-warning">Only USDT on Tron (TRC20). Any other network may result in lost funds.</span> 
-                        <a href="https://tronscan.org/#/address/TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3" target="_blank" class="text-cyan-400 underline hover:text-cyan-300" data-i18n="wallet-verify">Verify transactions on Tronscan</a>.
+                        <a href="https://tronscan.org/#/address/TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3" target="_blank" class="text-cyan-400 underline hover:text-cyan-300" data-i18n="wallet-verify">Verificar transacciones en Tronscan</a>.
                     </p>
                 </div>
 
-                <div class="flex flex-col items-center justify-center p-4 bg-slate-900/60 rounded-xl border border-slate-800">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3" alt="QR USDT TRC20" class="w-36 h-36 rounded-lg shadow-md mb-2 border border-slate-700">
-                    <span class="text-xs text-slate-400 font-mono" data-i18n="qr-text">Scan to contribute USDT (TRC20)</span>
+                <div class="flex flex-col items-center justify-center p-6 bg-slate-900/60 rounded-xl border border-slate-800 text-center">
+                    <i class="fab fa-github text-3xl text-cyan-400 mb-2"></i>
+                    <h4 class="font-bold text-slate-100 text-sm mb-1" data-i18n="github-sponsors-title">GitHub Sponsors</h4>
+                    <p class="text-xs text-slate-400 mb-3" data-i18n="github-sponsors-desc">If you prefer recurring support, use our GitHub Sponsors profile to help maintain open-source code.</p>
+                    <a href="https://github.com/sponsors/aristidesramoscruz" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition flex items-center space-x-2">
+                        <i class="fas fa-heart text-red-400"></i>
+                        <span data-i18n="github-sponsors-btn">Patrocinar en GitHub</span>
+                    </a>
                 </div>
             </div>
 
-            <!-- Aviso Legal / Legal Notice -->
-            <div class="mt-6 bg-slate-900/90 border border-amber-500/30 rounded-lg p-4 text-xs text-slate-400 leading-relaxed">
-                <p class="font-semibold text-amber-400 mb-1 flex items-center space-x-1">
+            <!-- Aviso Legal General -->
+            <div class="bg-slate-950 p-4 rounded-xl border border-amber-500/40 text-xs text-amber-300/90 leading-relaxed">
+                <p class="font-bold mb-1 flex items-center space-x-1">
                     <i class="fas fa-info-circle"></i>
-                    <span data-i18n="legal-title">Legal Notice:</span>
+                    <span data-i18n="legal-title">Aviso legal:</span>
                 </p>
-                <span data-i18n="legal-desc">Contributions are voluntary and do not constitute an investment: they do not grant participation, yield, or financial return. Content regarding stocks, crypto, and funds is informative and educational, not financial advice. Investing in cryptoassets and markets carries a risk of loss.</span>
+                <span data-i18n="legal-desc">Los aportes son voluntarios y no constituyen una inversión con rendimiento garantizado. Invertir en criptoactivos y mercados conlleva un alto riesgo de pérdida.</span>
             </div>
         </div>
     </section>
 
-    <!-- Contacto & Motivación / Contact & Motivation -->
+    <!-- TRANSPARENCIA: INFORME MENSUAL -->
+    <section id="transparency" class="max-w-6xl mx-auto px-4 py-10">
+        <div class="glass-card p-6 md:p-8 rounded-2xl border border-slate-800">
+            <div class="flex items-center space-x-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-cyan-950 flex items-center justify-center text-cyan-400 text-lg">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-100" data-i18n="transparency-heading">Transparency: Monthly Report</h2>
+                    <p class="text-xs text-cyan-400 font-mono" data-i18n="transparency-sub">Public tracking of funds, expenses, and deliverables</p>
+                </div>
+            </div>
+
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed" data-i18n="transparency-desc">
+                Every month we publish how much was received, what it was spent on, and what was built with that money. You can verify income directly on the public wallet address.
+            </p>
+
+            <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800">
+                <div class="flex justify-between items-center border-b border-slate-800 pb-3 mb-3">
+                    <span class="font-bold text-slate-100 text-sm" data-i18n="report-month">Informe Noviembre 2026</span>
+                    <span class="text-xs bg-cyan-950 text-cyan-300 px-2.5 py-1 rounded border border-cyan-800 font-mono">Activo</span>
+                </div>
+                <div class="space-y-2 text-xs text-slate-300">
+                    <div>📊 <strong data-i18n="report-initial">Fondo inicial:</strong> 300 USDT</div>
+                    <div>🛒 <strong data-i18n="report-expenses">Gastos:</strong> En proceso de publicación</div>
+                    <div>🛠️ <strong data-i18n="report-built">Construido:</strong> Fundamentos de la plataforma abierta y módulos de seguridad</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto & Motivación -->
     <section id="contacto" class="max-w-6xl mx-auto px-4 py-10">
         <div class="glass-card p-6 md:p-8 rounded-2xl border border-slate-800">
             <h2 class="text-xl font-bold mb-3 text-cyan-400 flex items-center space-x-2">
@@ -361,14 +500,14 @@
                 <a href="mailto:ristcruz11@gmail.com" class="bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-800 flex items-center space-x-3 transition group">
                     <i class="fas fa-envelope text-2xl text-cyan-400 group-hover:scale-110 transition"></i>
                     <div>
-                        <span class="text-xs text-slate-400 block" data-i18n="contact-email-label">Official Email</span>
+                        <span class="text-xs text-slate-400 block" data-i18n="contact-email-label">Correo electrónico oficial</span>
                         <span class="text-sm font-bold text-slate-100">ristcruz11@gmail.com</span>
                     </div>
                 </a>
                 <a href="https://exito-y-progreso.blogspot.com/?m=1" target="_blank" class="bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-800 flex items-center space-x-3 transition group">
                     <i class="fas fa-book-open text-2xl text-cyan-400 group-hover:scale-110 transition"></i>
                     <div>
-                        <span class="text-xs text-slate-400 block" data-i18n="contact-blog-label">Motivation & Growth Blog</span>
+                        <span class="text-xs text-slate-400 block" data-i18n="contact-blog-label">Blog de motivación y superación</span>
                         <span class="text-sm font-bold text-slate-100">Cero Límites / Éxito y Progreso</span>
                     </div>
                 </a>
@@ -386,7 +525,7 @@
             <div class="bg-slate-900 p-3 border-b border-slate-800 flex justify-between items-center">
                 <div class="flex items-center space-x-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span class="text-xs font-bold text-slate-100" data-i18n="chat-title">Aetheris Assistant Bot</span>
+                    <span class="text-xs font-bold text-slate-100" data-i18n="chat-title">Asistente Virtual Aetheris</span>
                 </div>
                 <button onclick="toggleChat()" class="text-slate-400 hover:text-slate-100 text-xs">
                     <i class="fas fa-times"></i>
@@ -394,11 +533,11 @@
             </div>
             <div id="chat-messages" class="p-3 h-64 overflow-y-auto space-y-3 text-xs flex flex-col">
                 <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800 text-slate-300 max-w-[85%]">
-                    <span data-i18n="bot-welcome">Hello! Welcome to Aetheris Labs. How can I help you today regarding our research, trading signals, or donations?</span>
+                    <span data-i18n="bot-welcome">¡Hola! Bienvenido a Aetheris Labs. Conoce nuestro fondo de inversión y acepta los términos del artículo legal antes de participar.</span>
                 </div>
             </div>
             <div class="p-2.5 bg-slate-900 border-t border-slate-800 flex space-x-2">
-                <input type="text" id="chat-input" placeholder="Type your message..." class="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-500" onkeypress="handleChatKey(event)">
+                <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." class="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-500" onkeypress="handleChatKey(event)">
                 <button onclick="sendUserMessage()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-3 py-2 rounded-lg text-xs font-bold transition">
                     <i class="fas fa-paper-plane"></i>
                 </button>
@@ -414,14 +553,13 @@
                 <a href="mailto:ristcruz11@gmail.com" class="hover:text-cyan-400 transition"><i class="fas fa-envelope"></i> ristcruz11@gmail.com</a>
                 <a href="https://exito-y-progreso.blogspot.com/?m=1" target="_blank" class="hover:text-cyan-400 transition"><i class="fas fa-blog"></i> Blog</a>
             </div>
-            <p data-i18n="footer-text">© 2026 Aetheris Labs. Independent and open project.</p>
+            <p data-i18n="footer-text">© 2026 Aetheris Labs. Proyecto independiente y abierto.</p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Contadores privados
             let views = parseInt(localStorage.getItem('aetheris_views') || 1240);
             views += 1;
             localStorage.setItem('aetheris_views', views);
@@ -433,7 +571,6 @@
             document.getElementById('stat-income').innerText = incomeVal.toLocaleString() + " USDT";
             document.getElementById('stat-posts').innerText = postsVal + " Articles";
 
-            // Contadores públicos con factor 3x en formato reloj digital
             document.getElementById('public-stat-views').innerText = (views * 3).toLocaleString();
             document.getElementById('public-stat-income').innerText = (incomeVal * 3).toLocaleString() + " USDT";
             document.getElementById('public-stat-posts').innerText = (postsVal * 3).toString();
@@ -500,17 +637,13 @@
                 
                 const lowerText = text.toLowerCase();
                 let reply = currentLang === 'en' 
-                    ? "Thanks for reaching out! Check our live charts and trading signals section for market updates, or email us at ristcruz11@gmail.com." 
-                    : "¡Gracias por escribirnos! Revisa nuestros gráficos en vivo y la sección de señales de trading para actualizaciones de mercado, o escríbenos a ristcruz11@gmail.com.";
+                    ? "Thanks for reaching out! Check our investment pool, fixed term options, and legal agreement terms or email us at ristcruz11@gmail.com." 
+                    : "¡Gracias por escribirnos! Revisa nuestro fondo de inversión, los términos del acuerdo legal o escríbenos a ristcruz11@gmail.com.";
 
-                if (lowerText.includes('wallet') || lowerText.includes('usdt') || lowerText.includes('donar') || lowerText.includes('support')) {
+                if (lowerText.includes('wallet') || lowerText.includes('ton') || lowerText.includes('fondo')) {
                     reply = currentLang === 'en' 
-                        ? "Our official USDT (TRC20) wallet is: TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3." 
-                        : "Nuestra wallet oficial en USDT (TRC20) es: TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3.";
-                } else if (lowerText.includes('trading') || lowerText.includes('signal') || lowerText.includes('señal') || lowerText.includes('mercado')) {
-                    reply = currentLang === 'en' 
-                        ? "Our trading signals are purely statistical and educational. Always manage your risk responsibly!" 
-                        : "Nuestras señales de trading son puramente estadísticas y educativas. ¡Gestiona siempre tu riesgo con responsabilidad!";
+                        ? "Our official Investment Pool wallet address (TON) is: UQBi...FsI5" 
+                        : "La dirección oficial de la billetera del Fondo de Inversión (TON) es: UQBi...FsI5";
                 }
 
                 botMsg.innerText = reply;
@@ -519,20 +652,51 @@
             }, 600);
         }
 
+        function copyFundWallet() {
+            const address = "UQBi...FsI5";
+            navigator.clipboard.writeText(address).then(() => {
+                const btnText = document.getElementById('copy-fund-btn-text');
+                btnText.innerText = currentLang === 'en' ? 'Copied!' : '¡Copiado!';
+                setTimeout(() => {
+                    btnText.innerText = currentLang === 'en' ? 'Copy' : 'Copiar';
+                }, 2000);
+            });
+        }
+
+        function submitFundApplication() {
+            const isAgreed = document.getElementById('legal-agreement-check').checked;
+            const signerName = document.getElementById('signer-name').value.trim();
+
+            if (!isAgreed) {
+                alert(currentLang === 'en' ? "You must accept the legal agreement terms before proceeding." : "Debes aceptar los términos del acuerdo legal antes de proceder.");
+                return;
+            }
+
+            if (!signerName) {
+                alert(currentLang === 'en' ? "Please enter your name or alias to sign." : "Por favor, introduce tu nombre o alias para firmar.");
+                return;
+            }
+
+            // Redirige al correo con los datos de conformidad
+            const subject = encodeURIComponent("Solicitud de Ingreso a Fondo de Inversión - Aceptación Legal");
+            const body = encodeURIComponent(`Hola equipo de Aetheris Labs,\n\nHe leído las reglas, acepto el artículo legal de exención de responsabilidad y deseo participar en el fondo de inversión.\n\nNombre / Alias (Firma): ${signerName}\nFecha: 2026-11-06`);
+            window.location.href = `mailto:ristcruz11@gmail.com?subject=${subject}&body=${body}`;
+        }
+
         const translations = {
             en: {
                 "page-title": "Aetheris Labs | Technology, Security & Markets in Open Source",
                 "nav-areas": "Areas",
                 "nav-lab": "Laboratory",
+                "nav-fundbox": "Investment Pool",
                 "nav-markets": "Live Markets",
                 "nav-signals": "Trading Signals",
-                "nav-fund": "Investment Fund",
-                "nav-support": "Support",
-                "nav-contact": "Contact",
+                "nav-support": "Support & Tiers",
+                "nav-transparency": "Transparency",
                 "hero-badge": "Independent Research & Development Hub",
                 "hero-title": "Technology, security, and markets, built in the open.",
                 "hero-desc": "Aetheris Labs is an independent laboratory developing software and hardware, researching cybersecurity and cybernetics, and analyzing crypto, stock markets, and investment funds. All work is publicly documented.",
-                "hero-btn-support": "Support the Lab",
+                "hero-btn-fundbox": "Explore Investment Pool",
                 "hero-btn-signals": "View Trading Signals",
                 "team-role": "Lead Systems Architect & Founder",
                 "team-bio": "Directing open research across hardware, cybersecurity, software systems, and quantitative market strategies.",
@@ -540,6 +704,26 @@
                 "clock-views": "Total Impressions",
                 "clock-income": "Fund Volume Tracked",
                 "clock-posts": "Published Insights",
+                "fundbox-heading": "Investment Pool & Community Mailbox",
+                "fundbox-sub": "Strategic participation, multi-level referrals, and liability waiver agreement",
+                "fundbox-desc": "Our community pool scales the trading and development operations of the lab. By participating, you can structure your capital through flexible contributions and network expansion rewards.",
+                "fundbox-card-1-title": "Fixed-Term Model & Monthly Benefits",
+                "fundbox-card-1-desc": "Deposited principal is held under a 3-month fixed-term commitment to ensure fund stability. However, you earn liquid profits every month based on earned percentages, which you can claim and withdraw monthly.",
+                "fundbox-card-2-title": "Multi-Level Referral Reward Structure",
+                "fundbox-card-2-desc": "We incentivize collaborative ecosystem expansion:",
+                "ref-level-1": "Direct Level (Your invites):",
+                "ref-level-2": "Secondary Level (Extended network):",
+                "fund-wallet-label": "Official Investment Pool Wallet (TON / Web3):",
+                "fund-wallet-note": "Exclusive wallet for contributions and management of the community investment pool (independent of lab donations).",
+                "legal-article-title": "Legal Article: Liability Waiver & Risk Acceptance",
+                "legal-p1": "First: Anyone who decides to participate, contribute, or donate within the community investment fund does so under their absolute personal responsibility, recognizing that financial markets and digital assets carry inherent risks of capital loss.",
+                "legal-p2": "Second: In the event of losses derived from system failures, technical glitches, cyberattacks (hacking), third-party vulnerabilities, or any other fortuitous situation or force majeure beyond the platform's direct control, the creators, founders, administrators, and workers of Aetheris Labs are completely exempt from any charge, lawsuit, or civil or legal liability for which they could be judged.",
+                "legal-p3": "Third: The described liability waiver shall prevail as long as the administration acts in good faith in compliance with operational statutes and monthly fund transparency.",
+                "legal-check-label": "I have read, understood, and fully accept the terms of this legal article, assuming the risk and releasing the creators from all liability.",
+                "legal-name-label": "Full Name or Alias (Digital signature of agreement):",
+                "box-title": "📥 Investment Pool Application Mailbox",
+                "box-desc": "After checking the acceptance box and signing, contact our team to register your participation or notify your pool contribution.",
+                "box-btn-submit": "Send Application & Notify via Email",
                 "markets-heading": "Live Market & Crypto Behavior",
                 "markets-sub": "Real-time cryptocurrency exchange charts and price dynamics.",
                 "signals-heading": "Trading Opportunities & Market News",
@@ -558,39 +742,37 @@
                 "area-5-title": "Crypto & Blockchain", "area-5-desc": "Network analysis, tokens, and on-chain tools.",
                 "area-6-title": "Markets & Investment Funds", "area-6-desc": "Study of markets, ETFs, and funds with quantitative analysis and open data.",
                 "area-7-title": "Trends", "area-7-desc": "Tracking AI, fintech, and emerging technologies shaping the sector.",
-                "fund-heading": "Investment Fund & Referral Program",
-                "fund-sub": "Expanding the ecosystem through collaborative community growth",
-                "fund-desc": "Aetheris Labs structures its financial growth and project expansion through active community participation. Beyond general lab donations, contributors can register within our upcoming investment fund framework.",
-                "fund-card-1-title": "Donations & Fund Enrollment", "fund-card-1-desc": "Every participant who makes an initial contribution and registers in the fund opens the door to collaborative growth.",
-                "fund-card-2-title": "5% Referral Reward Structure", "fund-card-2-desc": "Participants earn a 5% bonus upon withdrawing earnings when their referred users deposit and participate in profit-distribution periods.",
-                "fund-footer-note": "Contact our official email for balance updates.",
-                "lab-heading": "Laboratory Evidence", "lab-sub": "Real equipment, test benches, and hardware.",
-                "lab-1-title": "Test Bench", "lab-1-desc": "Assembly, circuit diagnostics, and prototyping.",
-                "lab-2-title": "Instrumentation", "lab-2-desc": "Measurement and signal analysis on electronics bench.",
-                "lab-3-title": "Nodes & Network Hardware", "lab-3-desc": "Independent equipment and secure communications.",
-                "support-heading": "Support the Lab", "support-desc": "Contributions go toward equipment, licenses, servers, and hardware components.",
-                "wallet-label": "Wallet Address (USDT, TRC20 network):", "copy-btn": "Copy",
-                "wallet-warning": "Only USDT on Tron (TRC20).", "wallet-verify": "Verify transactions on Tronscan",
-                "qr-text": "Scan to contribute USDT (TRC20)",
-                "legal-title": "Legal Notice:", "legal-desc": "Contributions are voluntary and do not constitute an investment with guaranteed returns.",
-                "contact-heading": "Training, Motivation & Contact", "contact-desc": "For training and motivation, write to our Gmail or read our blog:",
+                "support-heading": "Support the Lab",
+                "support-desc": "Your contribution funds equipment, licenses, and servers, and in exchange you gain access to what we build.",
+                "tiers-heading": "Sponsorship Tiers",
+                "tier-1-desc": "Your name or alias on the sponsors wall and access to the monthly newsletter with laboratory progress.",
+                "tier-2-desc": "Everything above, plus early access to guides, scripts, and tools before public release.",
+                "tier-3-desc": "Everything above, plus a 30-minute consultation on cybersecurity, hardware, or market analysis.",
+                "transparency-heading": "Transparency: Monthly Report",
+                "transparency-sub": "Public tracking of funds, expenses, and deliverables",
+                "transparency-desc": "Every month we publish how much was received, what it was spent on, and what was built with that money.",
+                "report-month": "November 2026 Report",
+                "report-initial": "Initial Fund:",
+                "report-expenses": "Expenses:",
+                "report-built": "Built:",
+                "contact-heading": "Training, Motivation & Contact",
                 "contact-email-label": "Official Email", "contact-blog-label": "Motivation & Growth Blog",
                 "footer-text": "© 2026 Aetheris Labs. Independent and open project.",
-                "chat-title": "Aetheris Assistant Bot", "bot-welcome": "Hello! Welcome to Aetheris Labs. Check our live crypto charts and market signals!"
+                "chat-title": "Aetheris Assistant Bot", "bot-welcome": "Hello! Welcome to Aetheris Labs. Check out our investment pool and liability waiver agreement!"
             },
             es: {
                 "page-title": "Aetheris Labs | Tecnología, Seguridad y Mercados en Abierto",
                 "nav-areas": "Áreas",
                 "nav-lab": "Laboratorio",
+                "nav-fundbox": "Fondo de Inversión",
                 "nav-markets": "Mercados en Vivo",
                 "nav-signals": "Señales de Trading",
-                "nav-fund": "Fondo de Inversión",
-                "nav-support": "Apoyar",
-                "nav-contact": "Contacto",
+                "nav-support": "Apoyar y Niveles",
+                "nav-transparency": "Transparencia",
                 "hero-badge": "Investigación y Desarrollo Independiente",
                 "hero-title": "Tecnología, seguridad y mercados, construidos en abierto.",
                 "hero-desc": "Aetheris Labs es un laboratorio independiente que desarrolla software y hardware, investiga ciberseguridad y cibernética, y analiza cripto, bolsa de valores y fondos de inversión. Todo el trabajo se documenta públicamente.",
-                "hero-btn-support": "Apoyar el laboratorio",
+                "hero-btn-fundbox": "Explorar Fondo de Inversión",
                 "hero-btn-signals": "Ver Señales de Trading",
                 "team-role": "Lead Systems Architect & Fundador",
                 "team-bio": "Dirigiendo la investigación abierta en hardware, ciberseguridad, sistemas de software y estrategias cuantitativas de mercado.",
@@ -598,6 +780,26 @@
                 "clock-views": "Impresiones Totales",
                 "clock-income": "Volumen de Fondo Rastreado",
                 "clock-posts": "Insights Publicados",
+                "fundbox-heading": "Fondo de Inversión y Buzón Comunitario",
+                "fundbox-sub": "Participación estratégica, referidos multinivel y acuerdo de exención de responsabilidad",
+                "fundbox-desc": "Nuestro fondo comunitario permite escalar las operaciones de trading y desarrollo del laboratorio. Al participar, puedes estructurar tu capital mediante un modelo de aportes flexibles y recompensas por expansión de red.",
+                "fundbox-card-1-title": "Modelo a Plazo Fijo y Beneficios Mensuales",
+                "fundbox-card-1-desc": "El capital principal ingresado se mantiene bajo un compromiso a plazo fijo de <strong>3 meses</strong> para asegurar la solidez de las operaciones del fondo. Sin embargo, <strong>todos los meses obtienes beneficios líquidos</strong> basados en los porcentajes ganados, los cuales puedes reclamar y retirar mes a mes.",
+                "fundbox-card-2-title": "Estructura de Recompensas por Referidos",
+                "fundbox-card-2-desc": "Incentivamos la expansión colaborativa del fondo:",
+                "ref-level-1": "Nivel Directo (Invitados tuyos):",
+                "ref-level-2": "Nivel Secundario (Red extendida):",
+                "fund-wallet-label": "Billetera Oficial del Fondo de Inversión (TON / Web3):",
+                "fund-wallet-note": "Billetera exclusiva para aportes y gestión del fondo de inversión comunitario (independiente de las donaciones del laboratorio).",
+                "legal-article-title": "Artículo Legal: Exención de Responsabilidad y Aceptación de Riesgos",
+                "legal-p1": "Primera: Toda persona que decida participar, aportar o donar dentro del fondo de inversión comunitario lo hace bajo su absoluta y estricta responsabilidad personal, reconociendo que los mercados financieros, activos digitales y plataformas descentralizadas conllevan riesgos inherentes de pérdida de capital.",
+                "legal-p2": "Segunda: En caso de ocurrir pérdidas derivadas de caídas del sistema, fallas tecnológicas, ataques informáticos (hacking), vulnerabilidades de terceros, o cualquier otra situación fortuita o fuerza mayor ajena al control directo de la plataforma, los creadores, fundadores, administradores y trabajadores de Aetheris Labs quedan completamente exentos de cualquier cargo, demanda, reclamación o responsabilidad legal o civil por la que pudiesen ser juzgados.",
+                "legal-p3": "Tercera: La exención de responsabilidad descrita prevalecerá siempre y cuando la administración cumpla de buena fe con lo orientado en los estatutos operativos y la transparencia mensual de los fondos.",
+                "legal-check-label": "He leído, comprendido y acepto en su totalidad los términos de este artículo legal, asumiendo el riesgo y liberando de toda responsabilidad a los creadores de la página.",
+                "legal-name-label": "Nombre completo o Alias (Firma digital de conformidad):",
+                "box-title": "📥 Buzón de Solicitud de Ingreso al Fondo",
+                "box-desc": "Tras marcar la casilla de aceptación y firmar, comunícate con nuestro equipo para registrar tu participación o notificar tu aporte en USDT (TON).",
+                "box-btn-submit": "Enviar Solicitud y Notificar por Correo",
                 "markets-heading": "Comportamiento del Mercado y Criptomonedas en Vivo",
                 "markets-sub": "Gráficos en tiempo real y dinámica de precios en los principales pares.",
                 "signals-heading": "Oportunidades de Trading y Noticias de Mercado",
@@ -616,25 +818,24 @@
                 "area-5-title": "Cripto y blockchain", "area-5-desc": "Análisis de redes, tokens y herramientas on-chain.",
                 "area-6-title": "Bolsa y fondos de inversión", "area-6-desc": "Estudio de mercados, ETFs y fondos, con análisis cuantitativo y datos abiertos.",
                 "area-7-title": "Tendencias", "area-7-desc": "Seguimiento de IA, fintech y tecnologías emergentes que mueven el sector.",
-                "fund-heading": "Fondo de Inversión y Programa de Referencias",
-                "fund-sub": "Expandiendo el ecosistema mediante el crecimiento colaborativo de la comunidad",
-                "fund-desc": "Aetheris Labs estructura su crecimiento financiero a través de la participación activa de la comunidad. Más allá de las donaciones, los colaboradores pueden inscribirse en nuestro fondo de inversión.",
-                "fund-card-1-title": "Donaciones e Inscripción al Fondo", "fund-card-1-desc": "Cada participante que realiza un aporte inicial abre la puerta al crecimiento colaborativo del laboratorio.",
-                "fund-card-2-title": "Estructura de Recompensa del 5% por Referidos", "fund-card-2-desc": "Obtienes un 5% de ganancia al retirar tus ingresos cuando los usuarios que invites depositen y participen en la distribución de beneficios.",
-                "fund-footer-note": "Escríbenos a nuestro correo oficial para consultar actualizaciones de saldo.",
-                "lab-heading": "Evidencia del laboratorio", "lab-sub": "Equipos, bancos de prueba y hardware reales.",
-                "lab-1-title": "Banco de pruebas", "lab-1-desc": "Ensamblaje, diagnóstico de circuitos y prototipado.",
-                "lab-2-title": "Instrumentación", "lab-2-desc": "Medición y análisis de señales en banco de electrónica.",
-                "lab-3-title": "Nodos y hardware de red", "lab-3-desc": "Equipos independientes y comunicaciones seguras.",
-                "support-heading": "Apoya el laboratorio", "support-desc": "Los aportes se destinan a equipos, licencias y servidores.",
-                "wallet-label": "Dirección de la wallet (USDT, red TRC20):", "copy-btn": "Copiar",
-                "wallet-warning": "Solo USDT en la red Tron (TRC20).", "wallet-verify": "Verifica los movimientos en Tronscan",
-                "qr-text": "Escanear para aportar USDT (TRC20)",
-                "legal-title": "Aviso legal:", "legal-desc": "Los aportes son voluntarios y no constituyen una inversión con rendimiento garantizado.",
-                "contact-heading": "Capacitación, Motivación y Contacto", "contact-desc": "Para capacitación y motivación escríbenos a Gmail o lee nuestro blog:",
+                "support-heading": "Apoya el laboratorio",
+                "support-desc": "Tu aporte financia equipos, licencias y servidores, y a cambio recibes acceso a lo que construimos.",
+                "tiers-heading": "Niveles de patrocinio",
+                "tier-1-desc": "Tu nombre o alias en el muro de patrocinadores y acceso al boletín mensual con avances del laboratorio.",
+                "tier-2-desc": "Todo lo anterior, más acceso anticipado a guías, scripts y herramientas antes de publicarlos.",
+                "tier-3-desc": "Todo lo anterior, más una consulta de 30 minutos sobre ciberseguridad, hardware o análisis de mercados.",
+                "transparency-heading": "Transparencia: informe mensual",
+                "transparency-sub": "Seguimiento público de fondos, gastos y entregables",
+                "transparency-desc": "Cada mes publicamos cuánto se recibió, en qué se gastó y qué se construyó con ese dinero.",
+                "report-month": "Informe Noviembre 2026",
+                "report-initial": "Fondo inicial:",
+                "report-expenses": "Gastos:",
+                "report-built": "Construido:",
+                "contact-heading": "Capacitación, Motivación y Contacto",
                 "contact-email-label": "Correo electrónico oficial", "contact-blog-label": "Blog de motivación y superación",
                 "footer-text": "© 2026 Aetheris Labs. Proyecto independiente y abierto.",
-                "chat-title": "Asistente Virtual Aetheris", "bot-welcome": "¡Hola! Bienvenido a Aetheris Labs. Revisa nuestros gráficos en vivo y las señales de trading."
+                "chat-title": "Asistente Virtual Aetheris",
+                "bot-welcome": "¡Hola! Bienvenido a Aetheris Labs. Revisa el artículo legal y la exención de responsabilidad antes de unirte al fondo."
             }
         };
 
@@ -661,6 +862,36 @@
                     btnText.innerText = currentLang === 'en' ? 'Copy' : 'Copiar';
                 }, 2000);
             });
+        }
+
+        function copyFundWallet() {
+            const address = "UQBi...FsI5";
+            navigator.clipboard.writeText(address).then(() => {
+                const btnText = document.getElementById('copy-fund-btn-text');
+                btnText.innerText = currentLang === 'en' ? 'Copied!' : '¡Copiado!';
+                setTimeout(() => {
+                    btnText.innerText = currentLang === 'en' ? 'Copy' : 'Copiar';
+                }, 2000);
+            });
+        }
+
+        function submitFundApplication() {
+            const isAgreed = document.getElementById('legal-agreement-check').checked;
+            const signerName = document.getElementById('signer-name').value.trim();
+
+            if (!isAgreed) {
+                alert(currentLang === 'en' ? "You must accept the legal agreement terms before proceeding." : "Debes marcar la casilla aceptando el artículo legal antes de proceder.");
+                return;
+            }
+
+            if (!signerName) {
+                alert(currentLang === 'en' ? "Please enter your name or alias to sign." : "Por favor, introduce tu nombre o alias como firma de conformidad.");
+                return;
+            }
+
+            const subject = encodeURIComponent("Solicitud de Ingreso - Fondo de Inversión y Acuerdo Legal Aceptado");
+            const body = encodeURIComponent(`Hola equipo de Aetheris Labs,\n\nHe leído las reglas, acepto el artículo legal de exención de responsabilidad en caso de caídas de sistema o hackeos, y deseo participar en el fondo.\n\nFirma (Nombre / Alias): ${signerName}\nFecha: 2026-11-06`);
+            window.location.href = `mailto:ristcruz11@gmail.com?subject=${subject}&body=${body}`;
         }
     </script>
 </body>
