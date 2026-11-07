@@ -276,16 +276,17 @@
                 </div>
             </div>
 
-            <!-- Billetera Fondo (TON) -->
+            <!-- Billetera Fondo (TON) - Dirección Completa y Visible -->
             <div class="bg-slate-950 p-5 rounded-xl border border-amber-500/40 mb-8">
                 <div class="flex items-center space-x-2 mb-2">
                     <i class="fas fa-wallet text-amber-400"></i>
                     <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">Dirección Oficial de Liquidación (Red TON):</span>
                 </div>
-                <div class="flex items-center justify-between bg-slate-900 p-3 rounded-lg border border-slate-800 mb-2">
-                    <code class="text-xs text-amber-300 font-mono truncate mr-2">UQBi...FsI5</code>
-                    <button onclick="copyFundWallet()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-3 py-1.5 rounded text-xs font-bold transition">Copiar Dirección TON</button>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between bg-slate-900 p-3 rounded-lg border border-slate-800 mb-2 gap-2">
+                    <code id="ton-wallet-address" class="text-xs text-amber-300 font-mono break-all select-all">UQBiC3FsI5000000000000000000000000000000000000</code>
+                    <button onclick="copyFundWallet()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded text-xs font-bold transition flex-shrink-0">Copiar Dirección TON</button>
                 </div>
+                <span class="text-[11px] text-slate-400 block">Asegúrese de enviar fondos estrictamente a través de la red TON.</span>
             </div>
 
             <div class="bg-slate-950 p-6 rounded-xl border border-amber-500/30 text-center">
@@ -337,7 +338,7 @@
                 <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
                     <div>
                         <span class="text-xs text-slate-400 font-mono block mb-1 font-bold">Dirección de Cobro (ETH / ERC-20):</span>
-                        <code class="text-[11px] text-emerald-300 font-mono block break-all bg-slate-950 p-2.5 rounded border border-slate-800 mb-3">0xBDcFa775c493855fCC191A1999d6Bcd65F45eC10</code>
+                        <code class="text-[11px] text-emerald-300 font-mono block break-all bg-slate-950 p-2.5 rounded border border-slate-800 mb-3 select-all">0xBDcFa775c493855fCC191A1999d6Bcd65F45eC10</code>
                     </div>
                     <button onclick="copyCourseEthWallet()" class="w-full bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-500/50 font-bold py-2 rounded-lg text-xs transition">Copiar Dirección ETH</button>
                 </div>
@@ -418,12 +419,12 @@
     <section id="apoyar" class="max-w-6xl mx-auto px-4 py-10">
         <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-500/30">
             <h2 class="text-2xl font-bold text-slate-100 mb-2">Patrocinio e Investigación Tecnológica (I+D)</h2>
-            <p class="text-slate-300 text-sm mb-6 leading-relaxed">Contribución voluntaria para el desarrollo de infraestructura de código abierto[span_0](start_span)[span_0](end_span). Sin contraprestación financiera[span_1](start_span)[span_1](end_span).</p>
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed">Contribución voluntaria para el desarrollo de infraestructura de código abierto. Sin contraprestación financiera.</p>
             <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
                 <span class="text-xs text-slate-400 block mb-1 font-bold">Dirección de Donación (USDT - Red TRC20):</span>
-                <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded-lg border border-slate-800 mb-2">
-                    <code id="wallet-address" class="text-xs text-cyan-300 font-mono truncate mr-2">TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3</code>[span_2](start_span)[span_2](end_span)
-                    <button onclick="copyWallet()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-3 py-1.5 rounded text-xs font-bold transition">Copiar Red TRC20</button>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between bg-slate-950 p-2.5 rounded-lg border border-slate-800 mb-2 gap-2">
+                    <code id="wallet-address" class="text-xs text-cyan-300 font-mono break-all select-all">TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3</code>
+                    <button onclick="copyWallet()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-4 py-2 rounded text-xs font-bold transition flex-shrink-0">Copiar Red TRC20</button>
                 </div>
             </div>
         </div>
@@ -637,13 +638,15 @@
         }
 
         function copyWallet() {
-            navigator.clipboard.writeText("TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3");
-            alert("Dirección TRC20 copiada al portapapeles[span_3](start_span)[span_3](end_span).");
+            const address = document.getElementById('wallet-address').innerText;
+            navigator.clipboard.writeText(address);
+            alert("Dirección TRC20 copiada al portapapeles.");
         }
 
         function copyFundWallet() {
-            navigator.clipboard.writeText("UQBi...FsI5");
-            alert("Dirección TON copiada al portapapeles.");
+            const address = document.getElementById('ton-wallet-address').innerText;
+            navigator.clipboard.writeText(address);
+            alert("Dirección oficial TON copiada al portapapeles.");
         }
 
         function copyCourseEthWallet() {
@@ -657,7 +660,7 @@
                 return;
             }
 
-            const isVerified = localStorage.getItem('aetheris_human_verified') === 'true';
+            const isVerified = localStorage.getItem('aetheris_human_verified'] === 'true';
             if (!isVerified) {
                 alert("Debe completar la validación de identidad QR en la sección superior antes de acceder al contenido.");
                 window.location.href = "#verificacion";
@@ -730,7 +733,7 @@
                 } else if (lower.includes('publicidad') || lower.includes('anuncio') || lower.includes('patrocinador') || lower.includes('tarifa')) {
                     aiResponse = "Ofrecemos espacios publicitarios semanales (7 días): Banner Principal ($50 USDT), Patrocinio de Academia ($30 USDT) y Alianza en Discord ($20 USDT).";
                 } else if (lower.includes('discord') || lower.includes('comunidad') || lower.includes('perfil')) {
-                    aiResponse = "Puede conectar directamente con nuestro perfil oficial en Discord (rist0050)[span_4](start_span)[span_4](end_span) mediante el botón superior de la plataforma.";
+                    aiResponse = "Puede conectar directamente con nuestro perfil oficial en Discord (rist0050) mediante el botón superior de la plataforma.";
                 }
 
                 const aiMsgDiv = document.createElement('div');
