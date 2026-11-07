@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" id="html-root">
+<html lang="en" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetheris Labs | Infraestructura Tecnológica, Ciberseguridad y Mercados</title>
+    <title id="meta-title">Aetheris Labs | Technology Infrastructure, Cybersecurity & Global Markets</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -33,14 +33,20 @@
                 <span class="text-cyan-400 text-2xl font-black tracking-wider">AETHERIS <span class="text-slate-100">LABS</span></span>
             </div>
             <nav class="hidden lg:flex items-center space-x-4 text-sm font-medium">
-                <a href="#cursos" class="text-emerald-400 hover:text-emerald-300 font-bold transition flex items-center space-x-1"><i class="fas fa-graduation-cap"></i> <span>Academia</span></a>
-                <a href="#fundbox" class="text-amber-400 hover:text-amber-300 font-bold transition flex items-center space-x-1"><i class="fas fa-vault"></i> <span>Fondo</span></a>
-                <a href="#markets" class="text-cyan-400 hover:text-cyan-300 font-bold transition flex items-center space-x-1"><i class="fas fa-chart-line"></i> <span>Mercados</span></a>
-                <a href="#patrocinadores" class="text-indigo-400 hover:text-indigo-300 font-bold transition flex items-center space-x-1"><i class="fas fa-ad"></i> <span>Publicidad</span></a>
-                <a href="#verificacion" class="text-cyan-400 hover:text-cyan-300 font-bold transition flex items-center space-x-1"><i class="fas fa-qrcode"></i> <span>Seguridad QR</span></a>
-                <a href="#legal" class="text-rose-400 hover:text-rose-300 font-bold transition flex items-center space-x-1"><i class="fas fa-balance-scale"></i> <span>Marco Legal</span></a>
+                <a href="#cursos" class="text-emerald-400 hover:text-emerald-300 font-bold transition flex items-center space-x-1"><i class="fas fa-graduation-cap"></i> <span data-i18n="nav-academy">Academy</span></a>
+                <a href="#fundbox" class="text-amber-400 hover:text-amber-300 font-bold transition flex items-center space-x-1"><i class="fas fa-vault"></i> <span data-i18n="nav-fund">Fund</span></a>
+                <a href="#markets" class="text-cyan-400 hover:text-cyan-300 font-bold transition flex items-center space-x-1"><i class="fas fa-chart-line"></i> <span data-i18n="nav-markets">Markets</span></a>
+                <a href="#patrocinadores" class="text-indigo-400 hover:text-indigo-300 font-bold transition flex items-center space-x-1"><i class="fas fa-ad"></i> <span data-i18n="nav-ads">Sponsorships</span></a>
+                <a href="#verificacion" class="text-cyan-400 hover:text-cyan-300 font-bold transition flex items-center space-x-1"><i class="fas fa-qrcode"></i> <span data-i18n="nav-security">QR Security</span></a>
+                <a href="#legal" class="text-rose-400 hover:text-rose-300 font-bold transition flex items-center space-x-1"><i class="fas fa-balance-scale"></i> <span data-i18n="nav-legal">Legal</span></a>
             </nav>
             <div class="flex items-center space-x-2 text-xs">
+                <!-- Language Selector Toggle -->
+                <button onclick="toggleLanguage()" class="bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-slate-700 px-3 py-1.5 rounded-lg font-bold transition flex items-center space-x-1">
+                    <i class="fas fa-globe"></i>
+                    <span id="current-lang-label">EN / ES</span>
+                </button>
+
                 <!-- Admin Dropdown Privado -->
                 <div class="relative">
                     <button onclick="toggleAdminMenu()" class="bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-slate-700 px-2.5 py-1.5 rounded-lg font-bold transition flex items-center space-x-1">
@@ -49,36 +55,36 @@
                     </button>
                     <div id="admin-dropdown" class="hidden absolute right-0 mt-2 w-80 sm:w-96 glass-card border border-slate-700 rounded-xl shadow-2xl p-4 text-xs space-y-3 z-50">
                         <div class="font-bold text-cyan-400 border-b border-slate-800 pb-2 flex justify-between items-center">
-                            <span>Panel de Control Ejecutivo</span>
-                            <span class="text-[10px] bg-cyan-950 text-cyan-300 px-1.5 py-0.5 rounded">Protegido por Clave</span>
+                            <span data-i18n="admin-title">Executive Control Panel</span>
+                            <span class="text-[10px] bg-cyan-950 text-cyan-300 px-1.5 py-0.5 rounded">Pin Protected</span>
                         </div>
                         <div id="admin-login-box" class="space-y-2">
-                            <p class="text-slate-400 text-[11px]">Ingrese su clave de acceso administrativa:</p>
-                            <input type="password" id="admin-pin" placeholder="Clave de seguridad..." class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-slate-200 focus:outline-none focus:border-cyan-500">
-                            <button onclick="verifyAdminPin()" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-1.5 rounded transition">Autenticar Panel</button>
+                            <p class="text-slate-400 text-[11px]" data-i18n="admin-enter-pin">Enter security PIN:</p>
+                            <input type="password" id="admin-pin" placeholder="Security PIN..." class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-slate-200 focus:outline-none focus:border-cyan-500">
+                            <button onclick="verifyAdminPin()" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-1.5 rounded transition" data-i18n="admin-auth-btn">Authenticate Panel</button>
                         </div>
                         <div id="admin-stats-box" class="hidden space-y-3">
                             <div class="bg-slate-950 p-2.5 rounded border border-slate-800 space-y-1">
-                                <span class="text-[10px] text-amber-400 font-bold block uppercase">📊 Consolidado Financiero IA (John Smith):</span>
-                                <div>Capital Público Mostrado: <span id="admin-public-fund-view" class="text-amber-400 font-mono font-bold">23,000 USDT</span></div>
-                                <div>Aportaciones Nuevas (IA): <span id="admin-user-deposits" class="text-emerald-400 font-mono font-bold">0 USDT</span></div>
+                                <span class="text-[10px] text-amber-400 font-bold block uppercase" data-i18n="admin-consolidated">📊 AI Financial Consolidated (John Smith):</span>
+                                <div><span data-i18n="admin-public-fund">Public Capital Displayed</span>: <span id="admin-public-fund-view" class="text-amber-400 font-mono font-bold">23,000 USDT</span></div>
+                                <div><span data-i18n="admin-new-deposits">New AI Deposits</span>: <span id="admin-user-deposits" class="text-emerald-400 font-mono font-bold">0 USDT</span></div>
                             </div>
                             
                             <button onclick="toggleAuditDataModal()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold py-2 rounded text-xs transition flex items-center justify-center space-x-1">
                                 <i class="fas fa-file-invoice-dollar"></i>
-                                <span>Ver Auditoría Completa (3 Archivos Certified)</span>
+                                <span data-i18n="admin-view-audit">View Complete Audit (3 Certified Files)</span>
                             </button>
 
                             <button onclick="exportContableExcel()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-2 rounded text-xs transition flex items-center justify-center space-x-1">
                                 <i class="fas fa-download"></i>
-                                <span>Exportar Reporte Contable Actualizado</span>
+                                <span data-i18n="admin-export-report">Export Updated Accounting Report</span>
                             </button>
 
                             <div class="text-slate-300 space-y-1 pt-1 border-t border-slate-800">
-                                <div>👁️ Sesiones Totales: <span id="stat-views" class="text-cyan-400 font-mono font-bold">0</span></div>
-                                <div class="text-emerald-400 font-bold pt-1">🔓 Acceso Propietario: Activo (John Smith)</div>
+                                <div>👁️ <span data-i18n="admin-total-sessions">Total Sessions</span>: <span id="stat-views" class="text-cyan-400 font-mono font-bold">0</span></div>
+                                <div class="text-emerald-400 font-bold pt-1">🔓 Owner Access: Active (John Smith)</div>
                             </div>
-                            <button onclick="lockAdmin()" class="w-full bg-red-950/60 hover:bg-red-900 text-red-300 border border-red-800 py-1 rounded text-[10px] mt-2">Finalizar Sesión</button>
+                            <button onclick="lockAdmin()" class="w-full bg-red-950/60 hover:bg-red-900 text-red-300 border border-red-800 py-1 rounded text-[10px] mt-2" data-i18n="admin-logout">End Session</button>
                         </div>
                     </div>
                 </div>
@@ -96,64 +102,64 @@
         <div>
             <div class="inline-flex items-center space-x-2 bg-emerald-950/60 border border-emerald-800 text-emerald-400 text-xs px-3 py-1 rounded-full mb-4">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Infraestructura Financiera Certificada con Respaldo Real</span>
+                <span data-i18n="hero-badge">Certified Financial Infrastructure with Real Support</span>
             </div>
-            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
-                Análisis Cuantitativo, Formación Bursátil y Red Global.
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 leading-tight" data-i18n="hero-title">
+                Quantitative Analysis, Trading Education & Global Network.
             </h1>
-            <p class="text-slate-400 text-base md:text-lg mb-6 leading-relaxed">
-                Plataforma institucional de alta disponibilidad para el estudio de mercados, networking comunitario y participación en fondos de inversión bajo estricto cumplimiento de políticas FDJ.
+            <p class="text-slate-400 text-base md:text-lg mb-6 leading-relaxed" data-i18n="hero-desc">
+                High-availability institutional platform for market research, community networking, and investment fund participation under strict FDJ policy compliance.
             </p>
             <div class="flex flex-wrap gap-4">
                 <a href="https://discord.com/users/rist0050" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-6 py-3 rounded-lg transition text-center shadow-lg shadow-indigo-600/20 flex items-center space-x-2">
                     <i class="fab fa-discord"></i>
-                    <span>Conectar en Discord (rist0050)</span>
+                    <span data-i18n="btn-discord">Connect on Discord (rist0050)</span>
                 </a>
-                <a href="#fundbox" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3 rounded-lg transition text-center shadow-lg shadow-amber-500/20">
-                    Fondo Institucional
+                <a href="#fundbox" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3 rounded-lg transition text-center shadow-lg shadow-amber-500/20" data-i18n="btn-fund">
+                    Institutional Fund
                 </a>
             </div>
         </div>
         <div class="relative">
             <div class="rounded-2xl overflow-hidden border border-cyan-500/40 shadow-2xl glass-card p-2">
-                <img src="rist.jpg" alt="Rist - Fundador y Director de Aetheris Labs" class="w-full h-auto object-cover rounded-xl" onerror="this.src='rist.png'; this.onerror=function(){this.src='https://via.placeholder.com/600x600?text=Aetheris+Labs+Founder'}">
+                <img src="rist.jpg" alt="Rist - Founder & Director of Aetheris Labs" class="w-full h-auto object-cover rounded-xl" onerror="this.src='rist.png'; this.onerror=function(){this.src='https://via.placeholder.com/600x600?text=Aetheris+Labs+Founder'}">
                 <div class="mt-3 px-2 pb-1 text-center">
-                    <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">Director Ejecutivo & Operaciones — Rist</span>
+                    <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest" data-i18n="hero-director">Executive Director & Operations — Rist</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- METRICAS EN VIVO -->
+    <!-- METRICS -->
     <section class="max-w-6xl mx-auto px-4 py-4">
         <div class="glass-card p-6 rounded-2xl border border-cyan-500/30 text-center">
-            <h3 class="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-4">⚡ Indicadores Clave de Rendimiento (Dashboard en Tiempo Real)</h3>
+            <h3 class="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-4" data-i18n="metrics-title">⚡ Key Performance Indicators (Real-Time Dashboard)</h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div class="digital-clock p-4 rounded-xl">
-                    <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1">Tráfico de Accesos</span>
+                    <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1" data-i18n="metric-traffic">Access Traffic</span>
                     <span id="public-stat-views" class="text-2xl sm:text-3xl font-bold text-cyan-300">000,000</span>
                 </div>
                 <div class="digital-clock p-4 rounded-xl border-amber-500/50">
-                    <span class="text-[10px] text-amber-400 block uppercase tracking-wider mb-1">AUM (Activos Bajo Gestión)</span>
+                    <span class="text-[10px] text-amber-400 block uppercase tracking-wider mb-1" data-i18n="metric-aum">AUM (Assets Under Management)</span>
                     <span id="public-stat-income" class="text-2xl sm:text-3xl font-bold text-amber-300">23,000 USDT</span>
                 </div>
                 <div class="digital-clock p-4 rounded-xl">
-                    <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1">Especialistas Certificados</span>
+                    <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1" data-i18n="metric-experts">Certified Specialists</span>
                     <span id="public-stat-posts" class="text-2xl sm:text-3xl font-bold text-emerald-400">72</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- VERIFICACIÓN POR CÓDIGO QR Y ANTI-BOT -->
+    <!-- QR VERIFICATION -->
     <section id="verificacion" class="max-w-6xl mx-auto px-4 py-10">
         <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-500/40 relative overflow-hidden">
             <div class="flex items-center justify-between border-b border-cyan-500/30 pb-4 mb-6">
                 <div>
-                    <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-1">PROTOCOLOS DE CIBERSEGURIDAD Y CUMPLIMIENTO</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-100">Validación de Identidad Biométrica y Antifraude (QR)</h2>
+                    <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-1" data-i18n="qr-subtitle">CYBERSECURITY & COMPLIANCE PROTOCOLS</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-100" data-i18n="qr-title">Biometric Identity Validation & Anti-Fraud (QR)</h2>
                 </div>
-                <span id="verification-status-badge" class="bg-amber-950 text-amber-300 border border-amber-800 text-xs font-bold px-3 py-1 rounded-full">Verificación Requerida</span>
+                <span id="verification-status-badge" class="bg-amber-950 text-amber-300 border border-amber-800 text-xs font-bold px-3 py-1 rounded-full" data-i18n="qr-status-req">Verification Required</span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-900/90 p-6 rounded-xl border border-slate-800">
@@ -163,34 +169,34 @@
                             <span class="bg-slate-950 text-cyan-400 text-[10px] font-mono px-2 py-1 rounded border border-cyan-500 font-bold">SECURE QR CODE</span>
                         </div>
                     </div>
-                    <span class="text-[11px] text-slate-400">Escanee para certificar sesión segura bajo políticas FDJ.</span>
+                    <span class="text-[11px] text-slate-400" data-i18n="qr-scan-desc">Scan to certify secure session under FDJ policies.</span>
                 </div>
 
                 <div class="space-y-4">
-                    <h3 class="text-sm font-bold text-slate-100 uppercase tracking-wider">Directrices de Seguridad Activa:</h3>
+                    <h3 class="text-sm font-bold text-slate-100 uppercase tracking-wider" data-i18n="qr-guidelines-title">Active Security Guidelines:</h3>
                     <ul class="space-y-2 text-xs text-slate-300">
-                        <li><i class="fas fa-check-circle text-cyan-400 mr-2"></i> <strong>Filtrado Algorítmico:</strong> Supresión de bots y accesos no autorizados.</li>
-                        <li><i class="fas fa-check-circle text-cyan-400 mr-2"></i> <strong>Consentimiento Informado:</strong> Al certificar su identidad, el usuario acepta expresamente los términos legales y exenciones de responsabilidad de la plataforma.</li>
+                        <li><i class="fas fa-check-circle text-cyan-400 mr-2"></i> <strong data-i18n="qr-rule-1">Algorithmic Filtering:</strong> Suppression of bots and unauthorized access.</li>
+                        <li><i class="fas fa-check-circle text-cyan-400 mr-2"></i> <strong data-i18n="qr-rule-2">Informed Consent:</strong> By certifying identity, the user explicitly accepts legal terms and liability waivers.</li>
                     </ul>
                     <button onclick="verifyHumanUser()" id="verify-qr-btn" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3 rounded-xl text-xs transition flex items-center justify-center space-x-2 shadow-lg shadow-cyan-500/20">
                         <i class="fas fa-shield-alt text-base"></i>
-                        <span>Certificar Identidad Humana y Aceptar Términos FDJ</span>
+                        <span data-i18n="qr-certify-btn">Certify Human Identity & Accept FDJ Terms</span>
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FONDO DE INVERSIÓN COMUNITARIO -->
+    <!-- COMMUNITY INVESTMENT FUND -->
     <section id="fundbox" class="max-w-6xl mx-auto px-4 py-10">
         <div class="glass-card p-6 md:p-8 rounded-2xl border border-amber-500/40 relative overflow-hidden bg-slate-900/40">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-amber-500/30 pb-4 mb-6 gap-3">
                 <div>
-                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">VEHÍCULO DE INVERSIÓN Y ASIGNACIÓN DE CAPITAL</span>
-                    <h2 class="text-2xl font-bold text-slate-100">Fondo Comunitario de Asignación Estratégica</h2>
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1" data-i18n="fund-subtitle">INVESTMENT VEHICLE & CAPITAL ALLOCATION</span>
+                    <h2 class="text-2xl font-bold text-slate-100" data-i18n="fund-title">Strategic Allocation Community Fund</h2>
                 </div>
                 <div class="bg-amber-950/80 border border-amber-500/60 p-2.5 px-4 rounded-xl text-right">
-                    <span class="text-[10px] text-amber-300 font-mono uppercase block">Capital Total Bajo Gestión:</span>
+                    <span class="text-[10px] text-amber-300 font-mono uppercase block" data-i18n="fund-total-label">Total Capital Under Management:</span>
                     <span id="fund-public-capital" class="text-xl sm:text-2xl font-black text-amber-400 font-mono">23,000 USDT</span>
                 </div>
             </div>
@@ -198,65 +204,65 @@
             <div class="bg-slate-950 p-5 rounded-xl border border-amber-500/40 mb-8">
                 <div class="flex items-center space-x-2 mb-2">
                     <i class="fas fa-wallet text-amber-400"></i>
-                    <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">Dirección Oficial de Liquidación (Red TON):</span>
+                    <span class="text-xs font-bold text-amber-300 uppercase tracking-wider" data-i18n="fund-wallet-label">Official Settlement Address (TON Network):</span>
                 </div>
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between bg-slate-900 p-3 rounded-lg border border-slate-800 mb-2 gap-2">
                     <code id="ton-wallet-address" class="text-xs text-amber-300 font-mono break-all select-all">UQBiZXGzS7pnX6yJTylyKJk4DbNjqIlZGNySwZ0189c-FsI5</code>
-                    <button onclick="copyFundWallet()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded text-xs font-bold transition flex-shrink-0">Copiar Dirección TON</button>
+                    <button onclick="copyFundWallet()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded text-xs font-bold transition flex-shrink-0" data-i18n="btn-copy-ton">Copy TON Address</button>
                 </div>
             </div>
 
             <div class="bg-slate-950 p-6 rounded-xl border border-amber-500/30 text-center">
-                <h4 class="font-bold text-slate-100 text-sm mb-2">📄 Registro Automatizado (IA Contable)</h4>
-                <p class="text-xs text-slate-400 mb-4 max-w-2xl mx-auto">
-                    Al registrar una aportación, usted declara bajo su absoluta responsabilidad estar de acuerdo con las normativas FDJ y los protocolos de exención de responsabilidad de Aetheris Labs.
+                <h4 class="font-bold text-slate-100 text-sm mb-2" data-i18n="fund-receipt-title">📄 Automated Registry (Accounting AI)</h4>
+                <p class="text-xs text-slate-400 mb-4 max-w-2xl mx-auto" data-i18n="fund-receipt-desc">
+                    By registering a contribution, you declare under your absolute responsibility to agree with FDJ regulations and liability waiver protocols.
                 </p>
                 <div class="max-w-md mx-auto space-y-3 mb-4">
-                    <input type="text" id="investor-name" placeholder="Nombre completo del cliente..." class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-xs text-slate-250 focus:outline-none focus:border-amber-500">
-                    <input type="number" id="investor-amount" placeholder="Monto aportado en USDT..." class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-xs text-slate-250 focus:outline-none focus:border-amber-500">
-                    <button onclick="generateFundReceipt()" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-lg text-xs transition">
-                        Registrar Aportación y Aceptar Términos
+                    <input type="text" id="investor-name" placeholder="Client full name..." class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-amber-500">
+                    <input type="number" id="investor-amount" placeholder="Amount contributed in USDT..." class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-amber-500">
+                    <button onclick="generateFundReceipt()" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-lg text-xs transition" data-i18n="fund-register-btn">
+                        Register Contribution & Accept Terms
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CURSOS DE TRADING -->
+    <!-- TRADING ACADEMY -->
     <section id="cursos" class="max-w-6xl mx-auto px-4 py-10">
         <div class="glass-card p-6 md:p-8 rounded-2xl border border-emerald-500/40 candlestick-box relative overflow-hidden">
             <div class="flex items-center justify-between border-b border-emerald-500/30 pb-4 mb-6">
                 <div>
-                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">PROGRAMAS DE ESPECIALIZACIÓN BURSÁTIL</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-100">Academia de Análisis Técnico y Gestión de Riesgo</h2>
+                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1" data-i18n="courses-subtitle">TRADING SPECIALIZATION PROGRAMS</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-100" data-i18n="courses-title">Price Action & Risk Management Academy</h2>
                 </div>
-                <span class="bg-emerald-950 text-emerald-300 border border-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Tarifas desde $12 USDT</span>
+                <span class="bg-emerald-950 text-emerald-300 border border-emerald-800 text-xs font-bold px-3 py-1 rounded-full" data-i18n="courses-badge">Fees from $12 USDT</span>
             </div>
 
-            <!-- BUZÓN PROTEGIDO -->
+            <!-- PROTECTED MAILBOX -->
             <div class="bg-slate-950 p-6 rounded-xl border border-emerald-500/40">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-800 pb-4 mb-6 gap-4">
                     <h3 class="text-lg font-bold text-slate-100 flex items-center space-x-2">
                         <i class="fas fa-lock text-emerald-400"></i>
-                        <span>Buzón de Contenido Académico Protegido</span>
+                        <span data-i18n="courses-mailbox-title">Protected Academic Content Mailbox</span>
                     </h3>
                     <div class="flex items-center space-x-2 w-full md:w-auto">
-                        <input type="text" id="course-access-code" placeholder="Código de acceso..." class="bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-250 focus:outline-none focus:border-emerald-500 w-full md:w-48 font-mono">
-                        <button onclick="unlockCourses()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs transition flex-shrink-0">Desbloquear</button>
+                        <input type="text" id="course-access-code" placeholder="Access code..." class="bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500 w-full md:w-48 font-mono">
+                        <button onclick="unlockCourses()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs transition flex-shrink-0" data-i18n="btn-unlock">Unlock</button>
                     </div>
                 </div>
 
                 <div id="course-content-container" class="opacity-60 pointer-events-none transition-all duration-300 space-y-8">
                     <div class="bg-slate-900 p-5 rounded-xl border border-slate-800 space-y-4">
-                        <h4 class="font-bold text-emerald-400 text-sm">📘 MÓDULO 1: Fundamentos de Acción del Precio y Velas Japonesas</h4>
+                        <h4 class="font-bold text-emerald-400 text-sm" data-i18n="module-1-title">📘 MODULE 1: Price Action Fundamentals & Japanese Candlesticks</h4>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 text-xs">
-                                <h5 class="font-bold text-slate-250 mb-2">Artículo 1.1: Morfología de Velas y Reversiones</h5>
-                                <p class="text-slate-400 leading-relaxed mb-3">Análisis de oferta y demanda institucional.</p>
+                                <h5 class="font-bold text-slate-200 mb-2" data-i18n="art-1-title">Article 1.1: Candlestick Morphology & Reversals</h5>
+                                <p class="text-slate-400 leading-relaxed mb-3" data-i18n="art-1-desc">Institutional supply and demand analysis.</p>
                             </div>
                             <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 text-xs">
-                                <h5 class="font-bold text-slate-250 mb-2">Artículo 1.2: Estructura de Mercado y Soportes</h5>
-                                <p class="text-slate-400 leading-relaxed mb-3">Identificación de puntos críticos de liquidez.</p>
+                                <h5 class="font-bold text-slate-200 mb-2" data-i18n="art-2-title">Article 1.2: Market Structure & Supports</h5>
+                                <p class="text-slate-400 leading-relaxed mb-3" data-i18n="art-2-desc">Identification of critical liquidity points.</p>
                             </div>
                         </div>
                     </div>
@@ -265,9 +271,9 @@
         </div>
     </section>
 
-    <!-- TERMINAL DE MERCADOS -->
+    <!-- FINANCIAL MARKETS TERMINAL -->
     <section id="markets" class="max-w-6xl mx-auto px-4 py-10">
-        <h2 class="text-2xl font-bold mb-2 text-slate-100">Terminal de Mercados Financieros</h2>
+        <h2 class="text-2xl font-bold mb-2 text-slate-100" data-i18n="markets-title">Financial Markets Terminal</h2>
         <div class="glass-card p-4 rounded-2xl border border-slate-800 h-[500px] w-full">
             <div class="tradingview-widget-container" style="height:100%;width:100%">
                 <div id="tradingview_chart" style="height:calc(100% - 32px);width:100%"></div>
@@ -288,46 +294,46 @@
         </div>
     </section>
 
-    <!-- ⚖️ MARCO LEGAL Y DESCARGO DE RESPONSABILIDAD JURÍDICA (DISCLAIMER FDJ) -->
+    <!-- ⚖️ LEGAL FRAMEWORK & DISCLAIMER (FDJ) -->
     <section id="legal" class="max-w-6xl mx-auto px-4 py-10">
         <div class="glass-card p-6 md:p-8 rounded-2xl border border-rose-500/40 text-xs text-slate-300 space-y-6 bg-slate-900/80">
             <div class="border-b border-rose-500/30 pb-4">
-                <span class="text-rose-400 font-bold tracking-widest uppercase text-[10px] block mb-1">COMPLIANCE & MARCO JURÍDICO INSTITUCIONAL</span>
+                <span class="text-rose-400 font-bold tracking-widest uppercase text-[10px] block mb-1" data-i18n="legal-subtitle">COMPLIANCE & INSTITUTIONAL LEGAL FRAMEWORK</span>
                 <h3 class="text-lg font-extrabold text-slate-100 flex items-center space-x-2">
                     <i class="fas fa-balance-scale text-rose-400"></i>
-                    <span>Aviso Legal, Términos de Servicio y Exención Total de Responsabilidad</span>
+                    <span data-i18n="legal-title">Legal Notice, Terms of Service & Total Liability Waiver</span>
                 </h3>
             </div>
 
             <div class="space-y-4 leading-relaxed text-slate-300 text-xs">
-                <p>
-                    El acceso, navegación, uso de herramientas académicas, participación en fondos comunitarios o cualquier interacción con la plataforma <strong>Aetheris Labs</strong> implica que el usuario (en adelante, <em>el cliente</em>) ha leído, comprendido y aceptado incondicionalmente las leyes, reglas y políticas vigentes de la plataforma, así como los lineamientos regulatorios de la <strong>FDJ</strong>.
+                <p data-i18n="legal-p1">
+                    Access, navigation, use of academic tools, participation in community funds, or any interaction with the <strong>Aetheris Labs</strong> platform implies that the user (hereinafter, <em>the client</em>) has read, understood, and unconditionally accepted the laws, rules, and current policies of the platform, as well as the regulatory guidelines of the <strong>FDJ</strong>.
                 </p>
 
                 <div class="bg-slate-950 p-4 rounded-xl border border-rose-500/30 space-y-2">
-                    <h4 class="font-bold text-rose-300 uppercase tracking-wider text-[11px]">1. Exención Absoluta de Responsabilidad por Sucesos Tecnológicos y Cibernéticos</h4>
-                    <p>
-                        <strong>La plataforma, sus creadores, desarrolladores, administradores y representantes legales no asumen ningún tipo de responsabilidad civil, penal o financiera</strong> en caso de pérdida total o parcial de fondos, interrupciones operativas, caída del sistema, fallos de infraestructura en servidores de terceros (GitHub Pages), ataques informáticos, brechas de ciberseguridad, incidentes de <em>haking</em>, secuestro de datos o cualquier evento fortuito o de fuerza mayor ajeno al control directo de la administración.
+                    <h4 class="font-bold text-rose-300 uppercase tracking-wider text-[11px]" data-i18n="legal-h1">1. Absolute Liability Waiver for Technological & Cyber Events</h4>
+                    <p data-i18n="legal-desc1">
+                        <strong>The platform, its creators, developers, administrators, and legal representatives assume no civil, criminal, or financial liability whatsoever</strong> in the event of total or partial loss of funds, operational interruptions, system downtime, infrastructure failures on third-party servers (GitHub Pages), cyberattacks, cybersecurity breaches, hacking incidents, data ransom, or any fortuitous event or force majeure beyond the direct control of administration.
                     </p>
                 </div>
 
                 <div class="bg-slate-950 p-4 rounded-xl border border-rose-500/30 space-y-2">
-                    <h4 class="font-bold text-rose-300 uppercase tracking-wider text-[11px]">2. Responsabilidad Exclusiva del Cliente sobre Decisiones de Inversión y Riesgo</h4>
-                    <p>
-                        El cliente reconoce y acepta expresamente que actúa bajo su <strong>absoluta y exclusiva responsabilidad</strong>. La implementación de estrategias de trading, asignación de capital, gestión de criptoactivos o toma de decisiones financieras conlleva riesgos inherentes y significativos. 
-                        <strong>Aetheris Labs ni sus creadores son responsables bajo ningún concepto de las malas decisiones, errores de ejecución, negligencias o implementaciones de alto riesgo</strong> que el cliente decida tomar en el presente o en el futuro.
+                    <h4 class="font-bold text-rose-300 uppercase tracking-wider text-[11px]" data-i18n="legal-h2">2. Client's Exclusive Responsibility on Investment & Risk Decisions</h4>
+                    <p data-i18n="legal-desc2">
+                        The client acknowledges and expressly accepts that they act under their <strong>absolute and exclusive responsibility</strong>. The implementation of trading strategies, capital allocation, crypto asset management, or financial decision-making carries inherent and significant risks. 
+                        <strong>Aetheris Labs nor its creators are responsible under any circumstances for bad decisions, execution errors, negligence, or high-risk implementations</strong> that the client decides to make in the present or future.
                     </p>
                 </div>
 
                 <div class="bg-slate-950 p-4 rounded-xl border border-rose-500/30 space-y-2">
-                    <h4 class="font-bold text-rose-300 uppercase tracking-wider text-[11px]">3. Terceros, Enlaces Externos y Violación de Políticas</h4>
-                    <p>
-                        La administración queda totalmente liberada de cualquier responsabilidad por motivos ajenos a nuestra causa, así como por las acciones u omisiones de terceros (incluyendo pasarelas de pago, redes blockchain, proveedores de hosting o usuarios externos) que violen o incumplan las políticas de seguridad y operación de la plataforma.
+                    <h4 class="font-bold text-rose-300 uppercase tracking-wider text-[11px]" data-i18n="legal-h3">3. Third Parties, External Links & Policy Violations</h4>
+                    <p data-i18n="legal-desc3">
+                        Administration is completely released from any liability for reasons beyond our cause, as well as for actions or omissions of third parties (including payment gateways, blockchain networks, hosting providers, or external users) who violate or breach the security and operational policies of the platform.
                     </p>
                 </div>
 
-                <div class="border-t border-rose-500/30 pt-3 text-[11px] text-slate-400 italic">
-                    * Al certificar su identidad mediante nuestros protocolos biométricos / QR o al registrar aportaciones, el cliente otorga su <strong>consentimiento expreso y firma digital vinculante</strong>, manifestando estar de acuerdo con la totalidad de estas cláusulas jurídicas.
+                <div class="border-t border-rose-500/30 pt-3 text-[11px] text-slate-400 italic" data-i18n="legal-footer">
+                    * By certifying identity through biometric/QR protocols or registering contributions, the client grants explicit consent and a binding digital signature, stating agreement with all these legal clauses.
                 </div>
             </div>
         </div>
@@ -336,33 +342,33 @@
     <!-- FOOTER -->
     <footer class="border-t border-slate-800 py-8 bg-slate-950 text-slate-500 text-xs text-center">
         <div class="max-w-6xl mx-auto px-4 space-y-2">
-            <p>© 2026 Aetheris Labs. Todos los derechos reservados. Auditoría bajo firma de John Smith.</p>
-            <p class="text-[10px] text-slate-600">Sujeto a los términos de descargo de responsabilidad FDJ y normativas internacionales de protección tecnológica.</p>
+            <p>© 2026 Aetheris Labs. All rights reserved. Audit under John Smith signature.</p>
+            <p class="text-[10px] text-slate-600">Subject to FDJ disclaimer terms and international technological protection regulations.</p>
         </div>
     </footer>
 
-    <!-- 🔒 MODAL PRIVADO DE AUDITORÍA CONTABLE (JOHN SMITH) -->
+    <!-- 🔒 PRIVATE AUDIT MODAL (JOHN SMITH) -->
     <div id="audit-modal" class="hidden fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
         <div class="glass-card border border-cyan-500/50 rounded-2xl p-4 md:p-6 max-w-5xl w-full max-h-[90vh] overflow-y-auto space-y-6">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <div>
-                    <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-wider block">Panel Ejecutivo Privado (Firma: John Smith)</span>
-                    <h3 class="text-base sm:text-lg font-bold text-slate-100">Auditoría Digital de Datos y Finanzas</h3>
+                    <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-wider block">Private Executive Panel (Signature: John Smith)</span>
+                    <h3 class="text-base sm:text-lg font-bold text-slate-100">Digital Audit of Data & Finance</h3>
                 </div>
-                <button onclick="toggleAuditDataModal()" class="text-slate-400 hover:text-slate-100 text-sm bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700"><i class="fas fa-times"></i> Cerrar</button>
+                <button onclick="toggleAuditDataModal()" class="text-slate-400 hover:text-slate-100 text-sm bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700"><i class="fas fa-times"></i> Close</button>
             </div>
 
             <div class="flex border-b border-slate-800 gap-2 overflow-x-auto text-xs">
-                <button onclick="showAuditTab('tab-deposits')" id="btn-tab-deposits" class="px-4 py-2 font-bold text-cyan-400 border-b-2 border-cyan-400">1. Depósitos USDT ($768.10)</button>
-                <button onclick="showAuditTab('tab-courses')" id="btn-tab-courses" class="px-4 py-2 font-bold text-slate-400">2. Ventas Cursos ($417.00)</button>
-                <button onclick="showAuditTab('tab-balance')" id="btn-tab-balance" class="px-4 py-2 font-bold text-slate-400">3. Balance General ($450.06)</button>
+                <button onclick="showAuditTab('tab-deposits')" id="btn-tab-deposits" class="px-4 py-2 font-bold text-cyan-400 border-b-2 border-cyan-400">1. USDT Deposits ($768.10)</button>
+                <button onclick="showAuditTab('tab-courses')" id="btn-tab-courses" class="px-4 py-2 font-bold text-slate-400">2. Course Sales ($417.00)</button>
+                <button onclick="showAuditTab('tab-balance')" id="btn-tab-balance" class="px-4 py-2 font-bold text-slate-400">3. General Balance ($450.06)</button>
             </div>
 
             <div id="tab-deposits" class="space-y-4">
                 <div class="overflow-x-auto border border-slate-800 rounded-xl">
                     <table class="w-full text-[11px] text-left text-slate-300">
                         <thead class="bg-slate-900 text-cyan-400 uppercase font-mono">
-                            <tr><th class="p-2.5">N°</th><th class="p-2.5">Cliente</th><th class="p-2.5 text-right">Depósito</th><th class="p-2.5 text-center">Fecha</th><th class="p-2.5 text-right">Comisión %</th></tr>
+                            <tr><th class="p-2.5">N°</th><th class="p-2.5">Client</th><th class="p-2.5 text-right">Deposit</th><th class="p-2.5 text-center">Date</th><th class="p-2.5 text-right">Fee %</th></tr>
                         </thead>
                         <tbody id="dynamic-deposits-tbody" class="divide-y divide-slate-800 bg-slate-950 font-mono"></tbody>
                     </table>
@@ -373,7 +379,7 @@
                 <div class="overflow-x-auto border border-slate-800 rounded-xl">
                     <table class="w-full text-[11px] text-left text-slate-300">
                         <thead class="bg-slate-900 text-emerald-400 uppercase font-mono">
-                            <tr><th class="p-2.5">N°</th><th class="p-2.5">Estudiante</th><th class="p-2.5">Producto</th><th class="p-2.5 text-right">Precio</th><th class="p-2.5 text-center">Fecha</th></tr>
+                            <tr><th class="p-2.5">N°</th><th class="p-2.5">Student</th><th class="p-2.5">Product</th><th class="p-2.5 text-right">Price</th><th class="p-2.5 text-center">Date</th></tr>
                         </thead>
                         <tbody id="dynamic-courses-tbody" class="divide-y divide-slate-800 bg-slate-950 font-mono"></tbody>
                     </table>
@@ -382,54 +388,115 @@
 
             <div id="tab-balance" class="hidden space-y-4">
                 <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-2 text-xs font-mono">
-                    <div>Total Depósitos Recaudados: <strong class="text-emerald-400">$768.10 USDT</strong></div>
-                    <div>Total Ventas Cursos: <strong class="text-cyan-400">$417.00 USDT</strong></div>
-                    <div class="pt-2 border-t border-slate-800 text-sm">TOTAL INGRESOS GENERADOS: <strong class="text-amber-400">$450.06 USDT</strong></div>
+                    <div>Total Deposits Collected: <strong class="text-emerald-400">$768.10 USDT</strong></div>
+                    <div>Total Course Sales: <strong class="text-cyan-400">$417.00 USDT</strong></div>
+                    <div class="pt-2 border-t border-slate-800 text-sm">TOTAL REVENUE GENERATED: <strong class="text-amber-400">$450.06 USDT</strong></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SCRIPT DE INTELIGENCIA CONTABLE LOCAL -->
+    <!-- SCRIPT DE TRADUCCIÓN E INTELIGENCIA CONTABLE -->
     <script>
+        const translations = {
+            en: {
+                "nav-academy": "Academy", "nav-fund": "Fund", "nav-markets": "Markets", "nav-ads": "Sponsorships", "nav-security": "QR Security", "nav-legal": "Legal",
+                "admin-title": "Executive Control Panel", "admin-enter-pin": "Enter security PIN:", "admin-auth-btn": "Authenticate Panel",
+                "admin-consolidated": "📊 AI Financial Consolidated (John Smith):", "admin-public-fund": "Public Capital Displayed", "admin-new-deposits": "New AI Deposits",
+                "admin-view-audit": "View Complete Audit (3 Certified Files)", "admin-export-report": "Export Updated Accounting Report", "admin-total-sessions": "Total Sessions", "admin-logout": "End Session",
+                "hero-badge": "Certified Financial Infrastructure with Real Support",
+                "hero-title": "Quantitative Analysis, Trading Education & Global Network.",
+                "hero-desc": "High-availability institutional platform for market research, community networking, and investment fund participation under strict FDJ policy compliance.",
+                "btn-discord": "Connect on Discord (rist0050)", "btn-fund": "Institutional Fund", "hero-director": "Executive Director & Operations — Rist",
+                "metrics-title": "⚡ Key Performance Indicators (Real-Time Dashboard)", "metric-traffic": "Access Traffic", "metric-aum": "AUM (Assets Under Management)", "metric-experts": "Certified Specialists",
+                "qr-subtitle": "CYBERSECURITY & COMPLIANCE PROTOCOLS", "qr-title": "Biometric Identity Validation & Anti-Fraud (QR)", "qr-status-req": "Verification Required",
+                "qr-scan-desc": "Scan to certify secure session under FDJ policies.", "qr-guidelines-title": "Active Security Guidelines:",
+                "qr-rule-1": "Algorithmic Filtering:", "qr-rule-2": "Informed Consent:", "qr-certify-btn": "Certify Human Identity & Accept FDJ Terms",
+                "fund-subtitle": "INVESTMENT VEHICLE & CAPITAL ALLOCATION", "fund-title": "Strategic Allocation Community Fund", "fund-total-label": "Total Capital Under Management:",
+                "fund-wallet-label": "Official Settlement Address (TON Network):", "btn-copy-ton": "Copy TON Address",
+                "fund-receipt-title": "📄 Automated Registry (Accounting AI)", "fund-receipt-desc": "By registering a contribution, you declare under your absolute responsibility to agree with FDJ regulations and liability waiver protocols.",
+                "fund-register-btn": "Register Contribution & Accept Terms",
+                "courses-subtitle": "TRADING SPECIALIZATION PROGRAMS", "courses-title": "Price Action & Risk Management Academy", "courses-badge": "Fees from $12 USDT",
+                "courses-mailbox-title": "Protected Academic Content Mailbox", "btn-unlock": "Unlock",
+                "module-1-title": "📘 MODULE 1: Price Action Fundamentals & Japanese Candlesticks",
+                "art-1-title": "Article 1.1: Candlestick Morphology & Reversals", "art-1-desc": "Institutional supply and demand analysis.",
+                "art-2-title": "Article 1.2: Market Structure & Supports", "art-2-desc": "Identification of critical liquidity points.",
+                "markets-title": "Financial Markets Terminal",
+                "legal-subtitle": "COMPLIANCE & INSTITUTIONAL LEGAL FRAMEWORK", "legal-title": "Legal Notice, Terms of Service & Total Liability Waiver",
+                "legal-p1": "Access, navigation, use of academic tools, participation in community funds, or any interaction with the <strong>Aetheris Labs</strong> platform implies that the user (hereinafter, <em>the client</em>) has read, understood, and unconditionally accepted the laws, rules, and current policies of the platform, as well as the regulatory guidelines of the <strong>FDJ</strong>.",
+                "legal-h1": "1. Absolute Liability Waiver for Technological & Cyber Events",
+                "legal-desc1": "<strong>The platform, its creators, developers, administrators, and legal representatives assume no civil, criminal, or financial liability whatsoever</strong> in the event of total or partial loss of funds, operational interruptions, system downtime, infrastructure failures on third-party servers (GitHub Pages), cyberattacks, cybersecurity breaches, hacking incidents, data ransom, or any fortuitous event or force majeure beyond the direct control of administration.",
+                "legal-h2": "2. Client's Exclusive Responsibility on Investment & Risk Decisions",
+                "legal-desc2": "The client acknowledges and expressly accepts that they act under their <strong>absolute and exclusive responsibility</strong>. The implementation of trading strategies, capital allocation, crypto asset management, or financial decision-making carries inherent and significant risks. <strong>Aetheris Labs nor its creators are responsible under any circumstances for bad decisions, execution errors, negligence, or high-risk implementations</strong> that the client decides to make in the present or future.",
+                "legal-h3": "3. Third Parties, External Links & Policy Violations",
+                "legal-desc3": "Administration is completely released from any liability for reasons beyond our cause, as well as for actions or omissions of third parties (including payment gateways, blockchain networks, hosting providers, or external users) who violate or breach the security and operational policies of the platform.",
+                "legal-footer": "* By certifying identity through biometric/QR protocols or registering contributions, the client grants explicit consent and a binding digital signature, stating agreement with all these legal clauses."
+            },
+            es: {
+                "nav-academy": "Academia", "nav-fund": "Fondo", "nav-markets": "Mercados", "nav-ads": "Publicidad", "nav-security": "Seguridad QR", "nav-legal": "Marco Legal",
+                "admin-title": "Panel de Control Ejecutivo", "admin-enter-pin": "Ingrese su clave de seguridad:", "admin-auth-btn": "Autenticar Panel",
+                "admin-consolidated": "📊 Consolidado Financiero IA (John Smith):", "admin-public-fund": "Capital Público Mostrado", "admin-new-deposits": "Aportaciones Nuevas (IA)",
+                "admin-view-audit": "Ver Auditoría Completa (3 Archivos Certified)", "admin-export-report": "Exportar Reporte Contable Actualizado", "admin-total-sessions": "Sesiones Totales", "admin-logout": "Finalizar Sesión",
+                "hero-badge": "Infraestructura Financiera Certificada con Respaldo Real",
+                "hero-title": "Análisis Cuantitativo, Formación Bursátil y Red Global.",
+                "hero-desc": "Plataforma institucional de alta disponibilidad para el estudio de mercados, networking comunitario y participación en fondos de inversión bajo estricto cumplimiento de políticas FDJ.",
+                "btn-discord": "Conectar en Discord (rist0050)", "btn-fund": "Fondo Institucional", "hero-director": "Director Ejecutivo & Operaciones — Rist",
+                "metrics-title": "⚡ Indicadores Clave de Rendimiento (Dashboard en Tiempo Real)", "metric-traffic": "Tráfico de Accesos", "metric-aum": "AUM (Activos Bajo Gestión)", "metric-experts": "Especialistas Certificados",
+                "qr-subtitle": "PROTOCOLOS DE CIBERSEGURIDAD Y CUMPLIMIENTO", "qr-title": "Validación de Identidad Biométrica y Antifraude (QR)", "qr-status-req": "Verificación Requerida",
+                "qr-scan-desc": "Escanee para certificar sesión segura bajo políticas FDJ.", "qr-guidelines-title": "Directrices de Seguridad Activa:",
+                "qr-rule-1": "Filtrado Algorítmico:", "qr-rule-2": "Consentimiento Informado:", "qr-certify-btn": "Certificar Identidad Humana y Aceptar Términos FDJ",
+                "fund-subtitle": "VEHÍCULO DE INVERSIÓN Y ASIGNACIÓN DE CAPITAL", "fund-title": "Fondo Comunitario de Asignación Estratégica", "fund-total-label": "Capital Total Bajo Gestión:",
+                "fund-wallet-label": "Dirección Oficial de Liquidación (Red TON):", "btn-copy-ton": "Copiar Dirección TON",
+                "fund-receipt-title": "📄 Registro Automatizado (IA Contable)", "fund-receipt-desc": "Al registrar una aportación, usted declara bajo su absoluta responsabilidad estar de acuerdo con las normativas FDJ y los protocolos de exención de responsabilidad de Aetheris Labs.",
+                "fund-register-btn": "Registrar Aportación y Aceptar Términos",
+                "courses-subtitle": "PROGRAMAS DE ESPECIALIZACIÓN BURSÁTIL", "courses-title": "Academia de Análisis Técnico y Gestión de Riesgo", "courses-badge": "Tarifas desde $12 USDT",
+                "courses-mailbox-title": "Buzón de Contenido Académico Protegido", "btn-unlock": "Desbloquear",
+                "module-1-title": "📘 MÓDULO 1: Fundamentos de Acción del Precio y Velas Japonesas",
+                "art-1-title": "Artículo 1.1: Morfología de Velas y Reversiones", "art-1-desc": "Análisis de oferta y demanda institucional.",
+                "art-2-title": "Artículo 1.2: Estructura de Mercado y Soportes", "art-2-desc": "Identificación de puntos críticos de liquidez.",
+                "markets-title": "Terminal de Mercados Financieros",
+                "legal-subtitle": "COMPLIANCE & MARCO JURÍDICO INSTITUCIONAL", "legal-title": "Aviso Legal, Términos de Servicio y Exención Total de Responsabilidad",
+                "legal-p1": "El acceso, navegación, uso de herramientas académicas, participación en fondos comunitarios o cualquier interacción con la plataforma <strong>Aetheris Labs</strong> implica que el usuario (en adelante, <em>el cliente</em>) ha leído, comprendido y aceptado incondicionalmente las leyes, reglas y políticas vigentes de la plataforma, así como los lineamientos regulatorios de la <strong>FDJ</strong>.",
+                "legal-h1": "1. Exención Absoluta de Responsabilidad por Sucesos Tecnológicos y Cibernéticos",
+                "legal-desc1": "<strong>La plataforma, sus creadores, desarrolladores, administradores y representantes legales no asumen ningún tipo de responsabilidad civil, penal o financiera</strong> en caso de pérdida total o parcial de fondos, interrupciones operativas, caída del sistema, fallos de infraestructura en servidores de terceros (GitHub Pages), ataques informáticos, brechas de ciberseguridad, incidentes de <em>haking</em>, secuestro de datos o cualquier evento fortuito o de fuerza mayor ajeno al control directo de la administración.",
+                "legal-h2": "2. Responsabilidad Exclusiva del Cliente sobre Decisiones de Inversión y Riesgo",
+                "legal-desc2": "El cliente reconoce y acepta expresamente que actúa bajo su <strong>absoluta y exclusiva responsabilidad</strong>. La implementación de estrategias de trading, asignación de capital, gestión de criptoactivos o toma de decisiones financieras conlleva riesgos inherentes y significativos. <strong>Aetheris Labs ni sus creadores son responsables bajo ningún concepto de las malas decisiones, errores de ejecución, negligencias o implementaciones de alto riesgo</strong> que el cliente decida tomar en el presente o en el futuro.",
+                "legal-h3": "3. Terceros, Enlaces Externos y Violación de Políticas",
+                "legal-desc3": "La administración queda totalmente liberada de cualquier responsabilidad por motivos ajenos a nuestra causa, así como por las acciones u omisiones de terceros (incluyendo pasarelas de pago, redes blockchain, proveedores de hosting o usuarios externos) que violen o incumplan las políticas de seguridad y operación de la plataforma.",
+                "legal-footer": "* Al certificar su identidad mediante nuestros protocolos biométricos / QR o al registrar aportaciones, el cliente otorga su consentimiento expreso y firma digital vinculante, manifestando estar de acuerdo con la totalidad de estas cláusulas jurídicas."
+            }
+        };
+
+        let currentLang = 'en'; // Inglés por defecto (primero)
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            document.getElementById('html-root').setAttribute('lang', currentLang);
+            document.getElementById('current-lang-label').innerText = currentLang.toUpperCase() + (currentLang === 'en' ? ' / ES' : ' / EN');
+            
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
         const BASE_FONDO_PUBLICO = 23000;
-        
         let initialDeposits = [
             {n:1, name:"James Carter", amount:12.50, date:"2026-09-02", fee:0.31},
             {n:2, name:"María Fernández", amount:75.00, date:"2026-09-05", fee:3.00},
             {n:3, name:"Olivia Bennett", amount:0.50, date:"2026-09-09", fee:0.01},
             {n:4, name:"Carlos Mendoza", amount:150.00, date:"2026-09-14", fee:7.50},
-            {n:5, name:"Ethan Walker", amount:30.25, date:"2026-09-18", fee:0.91},
-            {n:6, name:"Lucía Ramírez", amount:5.00, date:"2026-09-23", fee:0.10},
-            {n:7, name:"Sophia Turner", amount:98.40, date:"2026-09-29", fee:4.43},
-            {n:8, name:"Andrés Castillo", amount:20.00, date:"2026-10-03", fee:0.70},
-            {n:9, name:"Daniel Brooks", amount:1.75, date:"2026-10-08", fee:0.03},
-            {n:10, name:"Valentina Rojas", amount:110.00, date:"2026-10-13", fee:5.28},
-            {n:11, name:"Emma Collins", amount:45.60, date:"2026-10-19", fee:1.28},
-            {n:12, name:"Javier Morales", amount:8.30, date:"2026-10-24", fee:0.18},
-            {n:13, name:"Liam Harris", amount:60.00, date:"2026-10-30", fee:2.28},
-            {n:14, name:"Camila Herrera", amount:135.80, date:"2026-11-02", fee:6.79},
-            {n:15, name:"Noah Stewart", amount:15.00, date:"2026-11-04", fee:0.27}
-        ];
-
-        let initialCourses = [
-            {n:1, name:"Tyler Reynolds", prod:"Curso básico", price:12.00, date:"2026-09-01"},
-            {n:2, name:"Isabella Navarro", prod:"Pack completo", price:25.00, date:"2026-09-03"},
-            {n:3, name:"Marcos Delgado", prod:"Curso básico", price:12.00, date:"2026-09-06"},
-            {n:4, name:"Hannah Coleman", prod:"Curso básico", price:12.00, date:"2026-09-08"},
-            {n:5, name:"Sebastián Ortega", prod:"Pack completo", price:25.00, date:"2026-09-11"}
+            {n:5, name:"Ethan Walker", amount:30.25, date:"2026-09-18", fee:0.91}
         ];
 
         document.addEventListener("DOMContentLoaded", function() {
             let views = parseInt(localStorage.getItem('aetheris_views') || 1240) + 1;
             localStorage.setItem('aetheris_views', views);
             document.getElementById('stat-views').innerText = views;
-
             loadAccountingData();
-            
-            if (localStorage.getItem('aetheris_is_admin') === 'true') {
-                activateAdminBypassUI();
-            }
         });
 
         function loadAccountingData() {
@@ -439,14 +506,6 @@
             customDeps.forEach(d => {
                 tbodyDep.innerHTML += `<tr><td class="p-2">${d.n}</td><td class="p-2 font-sans font-bold text-slate-200">${d.name}</td><td class="p-2 text-right">$${d.amount.toFixed(2)}</td><td class="p-2 text-center">${d.date}</td><td class="p-2 text-right text-amber-300">$${d.fee.toFixed(2)}</td></tr>`;
             });
-
-            let customCourses = JSON.parse(localStorage.getItem('aetheris_custom_courses') || JSON.stringify(initialCourses));
-            let tbodyCur = document.getElementById('dynamic-courses-tbody');
-            tbodyCur.innerHTML = "";
-            customCourses.forEach(c => {
-                tbodyCur.innerHTML += `<tr><td class="p-2">${c.n}</td><td class="p-2 font-sans text-slate-200">${c.name}</td><td>${c.prod}</td><td class="p-2 text-right">$${c.price.toFixed(2)}</td><td class="p-2 text-center">${c.date}</td></tr>`;
-            });
-
             let extra = customDeps.reduce((sum, item) => sum + item.amount, 0);
             updateFundUI(extra);
         }
@@ -462,42 +521,15 @@
         function generateFundReceipt() {
             const name = document.getElementById('investor-name').value.trim();
             const amount = parseFloat(document.getElementById('investor-amount').value.trim());
-
             if (!name || isNaN(amount) || amount <= 0) {
-                alert("Ingrese un nombre y un monto válido.");
+                alert(currentLang === 'en' ? "Please enter a valid name and amount." : "Ingrese un nombre y un monto válido.");
                 return;
             }
-
             let customDeps = JSON.parse(localStorage.getItem('aetheris_custom_deps') || JSON.stringify(initialDeposits));
-            let newEntry = {
-                n: customDeps.length + 1,
-                name: name,
-                amount: amount,
-                date: new Date().toISOString().split('T')[0],
-                fee: amount * 0.03
-            };
-            customDeps.push(newEntry);
+            customDeps.push({n: customDeps.length + 1, name: name, amount: amount, date: new Date().toISOString().split('T')[0], fee: amount * 0.03});
             localStorage.setItem('aetheris_custom_deps', JSON.stringify(customDeps));
-
             loadAccountingData();
-            alert("¡Aportación registrada y vinculada a los términos FDJ con éxito!");
-        }
-
-        function exportContableExcel() {
-            let customDeps = JSON.parse(localStorage.getItem('aetheris_custom_deps') || JSON.stringify(initialDeposits));
-            let csvContent = "data:text/csv;charset=utf-8,N°,Cliente,Deposito_USDT,Fecha,Comision_USDT\n";
-            customDeps.forEach(d => {
-                csvContent += `${d.n},"${d.name}",${d.amount},${d.date},${d.fee}\n`;
-            });
-
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "Aetheris_Labs_Reporte_Contable_JohnSmith.csv");
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            alert("Reporte contable exportado exitosamente.");
+            alert(currentLang === 'en' ? "Contribution successfully registered under FDJ terms!" : "¡Aportación registrada y vinculada a los términos FDJ con éxito!");
         }
 
         function verifyAdminPin() {
@@ -505,9 +537,8 @@
             if (pin === 'rist2026' || pin === 'rist') {
                 localStorage.setItem('aetheris_is_admin', 'true');
                 activateAdminBypassUI();
-                alert("Acceso concedido al Panel Ejecutivo.");
             } else {
-                alert("Clave incorrecta.");
+                alert(currentLang === 'en' ? "Incorrect PIN." : "Clave incorrecta.");
             }
         }
 
@@ -522,12 +553,11 @@
             document.getElementById('admin-stats-box').classList.add('hidden');
             document.getElementById('admin-login-box').classList.remove('hidden');
             document.getElementById('admin-dropdown').classList.add('hidden');
-            alert("Sesión finalizada.");
         }
 
         function toggleAuditDataModal() {
             if (localStorage.getItem('aetheris_is_admin') !== 'true') {
-                alert("Acceso restringido.");
+                alert(currentLang === 'en' ? "Restricted access." : "Acceso restringido.");
                 return;
             }
             document.getElementById('audit-modal').classList.toggle('hidden');
@@ -539,9 +569,9 @@
         }
 
         function toggleAdminMenu() { document.getElementById('admin-dropdown').classList.toggle('hidden'); }
-        function copyFundWallet() { navigator.clipboard.writeText("UQBiZXGzS7pnX6yJTylyKJk4DbNjqIlZGNySwZ0189c-FsI5"); alert("Copiado."); }
-        function verifyHumanUser() { localStorage.setItem('aetheris_human_verified', 'true'); alert("Identidad certificada bajo normativas FDJ."); }
-        function unlockCourses() { document.getElementById('course-content-container').classList.remove('opacity-60', 'pointer-events-none'); alert("Desbloqueado."); }
+        function copyFundWallet() { navigator.clipboard.writeText("UQBiZXGzS7pnX6yJTylyKJk4DbNjqIlZGNySwZ0189c-FsI5"); alert("Copied."); }
+        function verifyHumanUser() { localStorage.setItem('aetheris_human_verified', 'true'); alert(currentLang === 'en' ? "Identity certified under FDJ regulations." : "Identidad certificada bajo normativas FDJ."); }
+        function unlockCourses() { document.getElementById('course-content-container').classList.remove('opacity-60', 'pointer-events-none'); alert(currentLang === 'en' ? "Unlocked." : "Desbloqueado."); }
     </script>
 </body>
 </html>
