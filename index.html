@@ -41,13 +41,13 @@
                 <a href="#legal" class="text-rose-400 hover:text-rose-300 font-bold transition flex items-center space-x-1"><i class="fas fa-balance-scale"></i> <span data-i18n="nav-legal">Legal</span></a>
             </nav>
             <div class="flex items-center space-x-2 text-xs">
-                <!-- Language Selector Toggle -->
+                <!-- Selector de Idioma -->
                 <button onclick="toggleLanguage()" class="bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-slate-700 px-3 py-1.5 rounded-lg font-bold transition flex items-center space-x-1">
                     <i class="fas fa-globe"></i>
                     <span id="current-lang-label">EN / ES</span>
                 </button>
 
-                <!-- Admin Dropdown Privado -->
+                <!-- Panel Admin Privado -->
                 <div class="relative">
                     <button onclick="toggleAdminMenu()" class="bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-slate-700 px-2.5 py-1.5 rounded-lg font-bold transition flex items-center space-x-1">
                         <i class="fas fa-user-lock"></i>
@@ -66,7 +66,7 @@
                         <div id="admin-stats-box" class="hidden space-y-3">
                             <div class="bg-slate-950 p-2.5 rounded border border-slate-800 space-y-1">
                                 <span class="text-[10px] text-amber-400 font-bold block uppercase" data-i18n="admin-consolidated">📊 AI Financial Consolidated (John Smith):</span>
-                                <div><span data-i18n="admin-public-fund">Public Capital Displayed</span>: <span id="admin-public-fund-view" class="text-amber-400 font-mono font-bold">23,000 USDT</span></div>
+                                <div><span data-i18n="admin-public-fund">Public Capital Displayed</span>: <span id="admin-public-fund-view" class="text-amber-400 font-mono font-bold">10,000 USDT</span></div>
                                 <div><span data-i18n="admin-new-deposits">New AI Deposits</span>: <span id="admin-user-deposits" class="text-emerald-400 font-mono font-bold">0 USDT</span></div>
                             </div>
                             
@@ -140,8 +140,8 @@
                     <span id="public-stat-views" class="text-2xl sm:text-3xl font-bold text-cyan-300">000,000</span>
                 </div>
                 <div class="digital-clock p-4 rounded-xl border-amber-500/50">
-                    <span class="text-[10px] text-amber-400 block uppercase tracking-wider mb-1" data-i18n="metric-aum">AUM (Assets Under Management)</span>
-                    <span id="public-stat-income" class="text-2xl sm:text-3xl font-bold text-amber-300">23,000 USDT</span>
+                    <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1" data-i18n="metric-aum">AUM (Assets Under Management)</span>
+                    <span id="public-stat-income" class="text-2xl sm:text-3xl font-bold text-amber-300">10,000 USDT</span>
                 </div>
                 <div class="digital-clock p-4 rounded-xl">
                     <span class="text-[10px] text-slate-400 block uppercase tracking-wider mb-1" data-i18n="metric-experts">Certified Specialists</span>
@@ -192,23 +192,47 @@
         <div class="glass-card p-6 md:p-8 rounded-2xl border border-amber-500/40 relative overflow-hidden bg-slate-900/40">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-amber-500/30 pb-4 mb-6 gap-3">
                 <div>
-                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1" data-i18n="fund-subtitle">INVESTMENT VEHICLE & CAPITAL ALLOCATION</span>
-                    <h2 class="text-2xl font-bold text-slate-100" data-i18n="fund-title">Strategic Allocation Community Fund</h2>
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1" data-i18n="fund-subtitle">INVESTMENT VEHICLE & REFERRAL STRUCTURE</span>
+                    <h2 class="text-2xl font-bold text-slate-100" data-i18n="fund-title">Strategic Allocation Community Fund (10,000 USDT Base)</h2>
                 </div>
                 <div class="bg-amber-950/80 border border-amber-500/60 p-2.5 px-4 rounded-xl text-right">
                     <span class="text-[10px] text-amber-300 font-mono uppercase block" data-i18n="fund-total-label">Total Capital Under Management:</span>
-                    <span id="fund-public-capital" class="text-xl sm:text-2xl font-black text-amber-400 font-mono">23,000 USDT</span>
+                    <span id="fund-public-capital" class="text-xl sm:text-2xl font-black text-amber-400 font-mono">10,000 USDT</span>
+                </div>
+            </div>
+
+            <!-- EXPLICACIÓN DEL FONDO (PLAZO FIJO Y REFERIDOS) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-xs text-slate-300">
+                <div class="bg-slate-950 p-5 rounded-xl border border-amber-500/30 space-y-2">
+                    <h3 class="font-bold text-amber-300 text-sm flex items-center space-x-2">
+                        <i class="fas fa-lock"></i>
+                        <span data-i18n="fund-plan-title">Fixed Term & Benefit Withdrawal (3 Months)</span>
+                    </h3>
+                    <p class="leading-relaxed text-slate-400" data-i18n="fund-plan-desc">
+                        The deposited principal capital is locked under a fixed 3-month term scheme to ensure operational stability. However, generated benefits can be claimed monthly.
+                    </p>
+                </div>
+
+                <div class="bg-slate-950 p-5 rounded-xl border border-amber-500/30 space-y-2">
+                    <h3 class="font-bold text-amber-300 text-sm flex items-center space-x-2">
+                        <i class="fas fa-network-wired"></i>
+                        <span data-i18n="fund-ref-title">Multi-Tier Referral Structure (Level 1 & 2)</span>
+                    </h3>
+                    <p class="leading-relaxed text-slate-400" data-i18n="fund-ref-desc">
+                        • <strong>Level 1 (Directs):</strong> Earn a <strong>5%</strong> direct yield on the investment of each person you personally invite (from 1 USDT up).<br>
+                        • <strong>Level 2 (Indirects):</strong> Earn an additional <strong>1.5%</strong> on investments from your direct invitees' referrals.
+                    </p>
                 </div>
             </div>
 
             <div class="bg-slate-950 p-5 rounded-xl border border-amber-500/40 mb-8">
                 <div class="flex items-center space-x-2 mb-2">
                     <i class="fas fa-wallet text-amber-400"></i>
-                    <span class="text-xs font-bold text-amber-300 uppercase tracking-wider" data-i18n="fund-wallet-label">Official Settlement Address (TON Network):</span>
+                    <span class="text-xs font-bold text-amber-300 uppercase tracking-wider" data-i18n="fund-wallet-label">Official Settlement Address (TRC20 / USDT):</span>
                 </div>
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between bg-slate-900 p-3 rounded-lg border border-slate-800 mb-2 gap-2">
-                    <code id="ton-wallet-address" class="text-xs text-amber-300 font-mono break-all select-all">UQBiZXGzS7pnX6yJTylyKJk4DbNjqIlZGNySwZ0189c-FsI5</code>
-                    <button onclick="copyFundWallet()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded text-xs font-bold transition flex-shrink-0" data-i18n="btn-copy-ton">Copy TON Address</button>
+                    <code id="ton-wallet-address" class="text-xs text-amber-300 font-mono break-all select-all">TAQ5Gnezeftivkok2mrLGWMbvhgJNaRN8f</code>
+                    <button onclick="copyFundWallet()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded text-xs font-bold transition flex-shrink-0" data-i18n="btn-copy-ton">Copy Address</button>
                 </div>
             </div>
 
@@ -412,8 +436,12 @@
                 "qr-subtitle": "CYBERSECURITY & COMPLIANCE PROTOCOLS", "qr-title": "Biometric Identity Validation & Anti-Fraud (QR)", "qr-status-req": "Verification Required",
                 "qr-scan-desc": "Scan to certify secure session under FDJ policies.", "qr-guidelines-title": "Active Security Guidelines:",
                 "qr-rule-1": "Algorithmic Filtering:", "qr-rule-2": "Informed Consent:", "qr-certify-btn": "Certify Human Identity & Accept FDJ Terms",
-                "fund-subtitle": "INVESTMENT VEHICLE & CAPITAL ALLOCATION", "fund-title": "Strategic Allocation Community Fund", "fund-total-label": "Total Capital Under Management:",
-                "fund-wallet-label": "Official Settlement Address (TON Network):", "btn-copy-ton": "Copy TON Address",
+                "fund-subtitle": "INVESTMENT VEHICLE & REFERRAL STRUCTURE", "fund-title": "Strategic Allocation Community Fund (10,000 USDT Base)", "fund-total-label": "Total Capital Under Management:",
+                "fund-plan-title": "Fixed Term & Benefit Withdrawal (3 Months)",
+                "fund-plan-desc": "The deposited principal capital is locked under a fixed 3-month term scheme to ensure operational stability. However, generated benefits can be claimed monthly.",
+                "fund-ref-title": "Multi-Tier Referral Structure (Level 1 & 2)",
+                "fund-ref-desc": "• Level 1 (Directs): Earn a 5% direct yield on the investment of each person you personally invite (from 1 USDT up).<br>• Level 2 (Indirects): Earn an additional 1.5% on investments from your direct invitees' referrals.",
+                "fund-wallet-label": "Official Settlement Address (TRC20 / USDT):", "btn-copy-ton": "Copy Address",
                 "fund-receipt-title": "📄 Automated Registry (Accounting AI)", "fund-receipt-desc": "By registering a contribution, you declare under your absolute responsibility to agree with FDJ regulations and liability waiver protocols.",
                 "fund-register-btn": "Register Contribution & Accept Terms",
                 "courses-subtitle": "TRADING SPECIALIZATION PROGRAMS", "courses-title": "Price Action & Risk Management Academy", "courses-badge": "Fees from $12 USDT",
@@ -445,8 +473,12 @@
                 "qr-subtitle": "PROTOCOLOS DE CIBERSEGURIDAD Y CUMPLIMIENTO", "qr-title": "Validación de Identidad Biométrica y Antifraude (QR)", "qr-status-req": "Verificación Requerida",
                 "qr-scan-desc": "Escanee para certificar sesión segura bajo políticas FDJ.", "qr-guidelines-title": "Directrices de Seguridad Activa:",
                 "qr-rule-1": "Filtrado Algorítmico:", "qr-rule-2": "Consentimiento Informado:", "qr-certify-btn": "Certificar Identidad Humana y Aceptar Términos FDJ",
-                "fund-subtitle": "VEHÍCULO DE INVERSIÓN Y ASIGNACIÓN DE CAPITAL", "fund-title": "Fondo Comunitario de Asignación Estratégica", "fund-total-label": "Capital Total Bajo Gestión:",
-                "fund-wallet-label": "Dirección Oficial de Liquidación (Red TON):", "btn-copy-ton": "Copiar Dirección TON",
+                "fund-subtitle": "VEHÍCULO DE INVERSIÓN Y ESTRUCTURA DE REFERIDOS", "fund-title": "Fondo Comunitario de Asignación Estratégica (Base 10,000 USDT)", "fund-total-label": "Capital Total Bajo Gestión:",
+                "fund-plan-title": "Plazo Fijo y Retiro de Beneficios (3 Meses)",
+                "fund-plan-desc": "El capital principal depositado se mantiene bajo un esquema de plazo fijo de <strong>3 meses</strong> para garantizar la estabilidad del fondo. No obstante, los beneficios mensuales generados por los porcentajes obtenidos pueden reclamarse mes a mes.",
+                "fund-ref-title": "Estructura de Referidos Multitanda (Nivel 1 y 2)",
+                "fund-ref-desc": "• Nivel 1 (Directos): Gana un <strong>5%</strong> de rendimiento directo sobre la inversión de cada persona que invites (desde 1 USDT).<br>• Nivel 2 (Indirectos): Gana un <strong>1.5%</strong> adicional sobre las inversiones de la red que inviten tus invitados directos.",
+                "fund-wallet-label": "Dirección Oficial de Liquidación (TRC20 / USDT):", "btn-copy-ton": "Copiar Dirección",
                 "fund-receipt-title": "📄 Registro Automatizado (IA Contable)", "fund-receipt-desc": "Al registrar una aportación, usted declara bajo su absoluta responsabilidad estar de acuerdo con las normativas FDJ y los protocolos de exención de responsabilidad de Aetheris Labs.",
                 "fund-register-btn": "Registrar Aportación y Aceptar Términos",
                 "courses-subtitle": "PROGRAMAS DE ESPECIALIZACIÓN BURSÁTIL", "courses-title": "Academia de Análisis Técnico y Gestión de Riesgo", "courses-badge": "Tarifas desde $12 USDT",
@@ -467,7 +499,7 @@
             }
         };
 
-        let currentLang = 'en'; // Inglés por defecto (primero)
+        let currentLang = 'en'; // Inglés por defecto
 
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'es' : 'en';
@@ -483,7 +515,7 @@
             });
         }
 
-        const BASE_FONDO_PUBLICO = 23000;
+        const BASE_FONDO_PUBLICO = 10000;
         let initialDeposits = [
             {n:1, name:"James Carter", amount:12.50, date:"2026-09-02", fee:0.31},
             {n:2, name:"María Fernández", amount:75.00, date:"2026-09-05", fee:3.00},
@@ -569,7 +601,7 @@
         }
 
         function toggleAdminMenu() { document.getElementById('admin-dropdown').classList.toggle('hidden'); }
-        function copyFundWallet() { navigator.clipboard.writeText("UQBiZXGzS7pnX6yJTylyKJk4DbNjqIlZGNySwZ0189c-FsI5"); alert("Copied."); }
+        function copyFundWallet() { navigator.clipboard.writeText("TAQ5Gnezeftivkok2mrLGWMbvhgJNaRN8f"); alert(currentLang === 'en' ? "Address copied." : "Dirección copiada."); }
         function verifyHumanUser() { localStorage.setItem('aetheris_human_verified', 'true'); alert(currentLang === 'en' ? "Identity certified under FDJ regulations." : "Identidad certificada bajo normativas FDJ."); }
         function unlockCourses() { document.getElementById('course-content-container').classList.remove('opacity-60', 'pointer-events-none'); alert(currentLang === 'en' ? "Unlocked." : "Desbloqueado."); }
     </script>
