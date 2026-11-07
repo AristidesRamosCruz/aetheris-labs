@@ -105,7 +105,7 @@
             </div>
         </div>
         <div class="relative">
-            <!-- Imagen apuntando exactamente a "rist.jpg" o "rist.png" -->
+            <!-- Imagen real de perfil "rist" -->
             <div class="rounded-2xl overflow-hidden border border-cyan-500/40 shadow-2xl glass-card p-2">
                 <img src="rist.jpg" alt="Rist - Fundador y Director de Aetheris Labs" class="w-full h-auto object-cover rounded-xl" onerror="this.src='rist.png'; this.onerror=function(){this.src='https://via.placeholder.com/600x600?text=Aetheris+Labs+Founder'}">
                 <div class="mt-3 px-2 pb-1 text-center">
@@ -418,13 +418,54 @@
     <section id="apoyar" class="max-w-6xl mx-auto px-4 py-10">
         <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-500/30">
             <h2 class="text-2xl font-bold text-slate-100 mb-2">Patrocinio e Investigación Tecnológica (I+D)</h2>
-            <p class="text-slate-300 text-sm mb-6 leading-relaxed">Contribución voluntaria para el desarrollo de infraestructura de código abierto. Sin contraprestación financiera.</p>
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed">Contribución voluntaria para el desarrollo de infraestructura de código abierto[span_0](start_span)[span_0](end_span). Sin contraprestación financiera[span_1](start_span)[span_1](end_span).</p>
             <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
                 <span class="text-xs text-slate-400 block mb-1 font-bold">Dirección de Donación (USDT - Red TRC20):</span>
                 <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded-lg border border-slate-800 mb-2">
-                    <code id="wallet-address" class="text-xs text-cyan-300 font-mono truncate mr-2">TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3</code>
+                    <code id="wallet-address" class="text-xs text-cyan-300 font-mono truncate mr-2">TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3</code>[span_2](start_span)[span_2](end_span)
                     <button onclick="copyWallet()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-3 py-1.5 rounded text-xs font-bold transition">Copiar Red TRC20</button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AVISO LEGAL Y TÉRMINOS Y CONDICIONES (DISCLAIMER) -->
+    <section id="legal" class="max-w-6xl mx-auto px-4 py-8">
+        <div class="glass-card p-6 md:p-8 rounded-2xl border border-slate-800 text-xs text-slate-400 space-y-4 bg-slate-900/60">
+            <h3 class="font-bold text-slate-200 uppercase tracking-widest text-sm border-b border-slate-800 pb-2">
+                ⚖️ Aviso Legal, Términos de Servicio y Descargo de Responsabilidad Financiera
+            </h3>
+            
+            <p class="leading-relaxed">
+                Al acceder, navegar, utilizar los servicios académicos, participar en el vehículo de asignación de capital o interactuar con la plataforma <strong>Aetheris Labs</strong>, el usuario reconoce expresamente haber leído, comprendido y aceptado en su totalidad los siguientes términos y condiciones de uso y exención de responsabilidad.
+            </p>
+
+            <div class="space-y-2">
+                <h4 class="font-bold text-slate-300">1. Exención de Responsabilidad por Pérdidas Financieras y Tecnológicas</h4>
+                <p class="leading-relaxed">
+                    Aetheris Labs es una infraestructura de análisis cuantitativo y formación educativa. Los fondos aportados al vehículo comunitario están sujetos a la volatilidad inherente de los mercados financieros y de criptoactivos. 
+                    <strong>La administración declina toda responsabilidad legal y financiera por pérdida total o parcial de capital</strong> derivada de:
+                </p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Fluctuaciones adversas drásticas o cisnes negros en los mercados globales.</li>
+                    <li>Caídas imprevistas de los sistemas de red, nodos de blockchain o interrupciones del servicio de terceros.</li>
+                    <li>Vulnerabilidades de seguridad, ataques cibernéticos, hackeos externos o fallos en protocolos descentralizados ajenos al control directo de la dirección.</li>
+                    <li>Errores operativos, mal manejo de claves privadas o direcciones de transferencia por parte del usuario o de terceros.</li>
+                </ul>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="font-bold text-slate-300">2. Naturaleza de los Fondos y Participación</h4>
+                <p class="leading-relaxed">
+                    Las aportaciones realizadas al fondo comunitario tienen un carácter de participación en estrategias algorítmicas de riesgo. <strong>No constituyen depósitos bancarios asegurados</strong> ni inversiones garantizadas por ninguna entidad gubernamental o marco regulatorio tradicional. El rendimiento pasado no garantiza resultados futuros.
+                </p>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="font-bold text-slate-300">3. Aceptación del Usuario</h4>
+                <p class="leading-relaxed">
+                    El uso continuado de la web, la adquisición de credenciales académicas o el registro de comprobantes de aportación implican que el usuario asume la responsabilidad absoluta sobre sus decisiones financieras, liberando a los desarrolladores, directores y fundadores de Aetheris Labs de cualquier reclamación legal o indemnización por daños y perjuicios.
+                </p>
             </div>
         </div>
     </section>
@@ -597,7 +638,7 @@
 
         function copyWallet() {
             navigator.clipboard.writeText("TVAS4UkAGaUx6UuaFxq2DAvkDskJiHevn3");
-            alert("Dirección TRC20 copiada al portapapeles.");
+            alert("Dirección TRC20 copiada al portapapeles[span_3](start_span)[span_3](end_span).");
         }
 
         function copyFundWallet() {
@@ -689,7 +730,7 @@
                 } else if (lower.includes('publicidad') || lower.includes('anuncio') || lower.includes('patrocinador') || lower.includes('tarifa')) {
                     aiResponse = "Ofrecemos espacios publicitarios semanales (7 días): Banner Principal ($50 USDT), Patrocinio de Academia ($30 USDT) y Alianza en Discord ($20 USDT).";
                 } else if (lower.includes('discord') || lower.includes('comunidad') || lower.includes('perfil')) {
-                    aiResponse = "Puede conectar directamente con nuestro perfil oficial en Discord (rist0050) mediante el botón superior de la plataforma.";
+                    aiResponse = "Puede conectar directamente con nuestro perfil oficial en Discord (rist0050)[span_4](start_span)[span_4](end_span) mediante el botón superior de la plataforma.";
                 }
 
                 const aiMsgDiv = document.createElement('div');
