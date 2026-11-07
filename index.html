@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="page-title">Aetheris Labs | Infraestructura Tecnológica y Mercados Globales</title>
+    <title>Aetheris Labs | Infraestructura Tecnológica y Mercados Globales</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -276,14 +276,14 @@
                 </div>
             </div>
 
-            <!-- Billetera Fondo (TON) - Dirección Completa y Visible -->
+            <!-- Billetera Fondo (TON) - Dirección Real y Completa -->
             <div class="bg-slate-950 p-5 rounded-xl border border-amber-500/40 mb-8">
                 <div class="flex items-center space-x-2 mb-2">
                     <i class="fas fa-wallet text-amber-400"></i>
                     <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">Dirección Oficial de Liquidación (Red TON):</span>
                 </div>
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between bg-slate-900 p-3 rounded-lg border border-slate-800 mb-2 gap-2">
-                    <code id="ton-wallet-address" class="text-xs text-amber-300 font-mono break-all select-all">UQBiC3FsI5000000000000000000000000000000000000</code>
+                    <code id="ton-wallet-address" class="text-xs text-amber-300 font-mono break-all select-all">UQBiZXGzS7pnX6yJTylyKJk4DbNjqIlZGNySwZ0189c-FsI5</code>
                     <button onclick="copyFundWallet()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded text-xs font-bold transition flex-shrink-0">Copiar Dirección TON</button>
                 </div>
                 <span class="text-[11px] text-slate-400 block">Asegúrese de enviar fondos estrictamente a través de la red TON.</span>
@@ -660,7 +660,7 @@
                 return;
             }
 
-            const isVerified = localStorage.getItem('aetheris_human_verified'] === 'true';
+            const isVerified = localStorage.getItem('aetheris_human_verified') === 'true';
             if (!isVerified) {
                 alert("Debe completar la validación de identidad QR en la sección superior antes de acceder al contenido.");
                 window.location.href = "#verificacion";
